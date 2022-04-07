@@ -1,0 +1,27 @@
+version: "3"
+services:
+  cdmgames:
+    container_name: cdmgames
+    restart: always
+    build: ./docker/php
+    volumes:
+      - ./xhprof:/php/xhprof/data
+      - ./:/var/www/html/cdmgames
+    environment:
+      - VIRTUAL_HOST=cdmgames.local
+      - VIRTUAL_PROTO=fastcgi
+      - VIRTUAL_PORT=9000
+      - VIRTUAL_ROOT=/var/www/html/cdmgames/public
+    working_dir: /var/www/html/cdmgames
+    ports:
+      - "3020:3000"
+      - "3021:3001"
+    extra_hosts:
+      - "cdmgames.local:172.17.0.1"
+    networks:
+      - devserver_default
+volumes:
+  nginx:
+networks:
+  devserver_default:
+    external: true
