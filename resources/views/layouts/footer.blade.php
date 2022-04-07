@@ -17,7 +17,7 @@
     </div>
     <div class="widget-area z-index-common">
         <div class="parallax" data-bg-class="bg-title"
-             data-parallax-image="{{ asset('storage/assets/img/bg/footer-bg-1-11.jpg') }}"></div>
+             data-parallax-image="{{ asset('assets/img/bg/footer-bg-1-11.jpg') }}"></div>
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-md-3 col-xl-auto">
@@ -129,23 +129,23 @@
     All Js File
 ============================== -->
 <!-- Jquery -->
-<script src="{{ asset('storage/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
 <!-- Slick Slider -->
-<script src="{{ asset('storage/assets/js/slick.min.js') }}"></script>
+<script src="{{ asset('assets/js/slick.min.js') }}"></script>
 <!-- Bootstrap -->
-<script src="{{ asset('storage/assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <!-- Smooth Scroll -->
-<script src="{{ asset('storage/assets/js/SmoothScroll.min.js') }}"></script>
+<script src="{{ asset('assets/js/SmoothScroll.min.js') }}"></script>
 <!-- Parallax -->
-<script src="{{ asset('storage/assets/js/universal-parallax.min.js') }}"></script>
+<script src="{{ asset('assets/js/universal-parallax.min.js') }}"></script>
 <!-- Magnific Popup -->
-<script src="{{ asset('storage/assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
 <!-- Isotope Filter -->
-<script src="{{ asset('storage/assets/js/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('storage/assets/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
 <!-- Custom Carousel -->
-<script src="{{ asset('storage/assets/js/vscustom-carousel.min.js') }}"></script>
+<script src="{{ asset('assets/js/vscustom-carousel.min.js') }}"></script>
 <!-- Form Js -->
-<script src="{{ asset('storage/assets/js/ajax-mail.js') }}"></script>
+<script src="{{ asset('assets/js/ajax-mail.js') }}"></script>
 <!-- Main Js File -->
-<script src="{{ asset('storage/assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>

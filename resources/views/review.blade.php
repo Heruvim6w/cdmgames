@@ -31,7 +31,7 @@
                     <div class="team-card">
                         <div class="team-card_shape"></div>
                         <div class="team-card_logo">
-                            <img class="avatar" src="{{ $review->vk_user_avatar ?? asset('storage/assets/img/logo.png') }}" alt="User avatar">
+                            <img class="avatar" src="{{ $review->vk_user_avatar ?? asset('assets/img/logo.png') }}" alt="User avatar">
                         </div>
                         <div class="team-card_content">
                             <span class="team-card_label">{{ $review->vk_user_name }}</span>

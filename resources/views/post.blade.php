@@ -19,7 +19,7 @@
                     <div class="team-card">
                         <div class="team-card_shape"></div>
                         <div class="team-card_logo">
-                            <img src="{{ $post->image ?? asset('storage/assets/img/logo.png') }}" alt="Post image">
+                            <img src="{{ $post->image ?? asset('assets/img/logo.png') }}" alt="Post image">
                         </div>
                         <div class="team-card_content">
                             <span class="team-card_label">CDMgames</span>

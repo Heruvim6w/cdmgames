@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-xl-11 mb-30 mb-lg-5">
                         <div class="player-img">
-                            <img src="{{ asset('storage/assets/img/about/cdmdoto.jpg') }}" alt="CDMgames" class="w-100">
+                            <img src="{{ asset('assets/img/about/cdmdoto.jpg') }}" alt="CDMgames" class="w-100">
                         </div>
                     </div>
                 </div>

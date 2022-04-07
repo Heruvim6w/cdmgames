@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CDMgames - это команда профессионалов мирового уровня</title>
+    <title>CDMgamesjhbjhbhjb - это команда профессионалов мирового уровня</title>
     <meta name="author" content="Angfuzsoft">
     <meta name="description" content="CDMgames - это команда профессионалов мирового уровня">
     <meta name="keywords" content="CDMgames - это команда профессионалов мирового уровня"/>
@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('storage/assets/img/favicons/apple-icon-57x57.png') }}">
-    <link rel="manifest" href="{{ asset('storage/assets/img/favicons/manifest.json') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
+    <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('storage/assets/img/favicons/ms-icon-144x144.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('ssets/img/favicons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -34,15 +34,15 @@
 	    All CSS File
 	============================== -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
     <!-- Fontawesome Icon -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/fontawesome.min.css') }}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/magnific-popup.min.css') }}">
     <!-- Slick Slider -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
 
 </head>
 
@@ -115,7 +115,7 @@ Breadcumb
 ============================== -->
 <div class="breadcumb-wrapper " data-overlay="title" data-opacity="5">
     <div class="parallax" data-bg-class="bg-title"
-         data-parallax-image="{{ asset('storage/assets/img/breadcumb/hero-5-1.jpg') }}"></div>
+         data-parallax-image="{{ asset('assets/img/breadcumb/hero-5-1.jpg') }}"></div>
     <div class="container z-index-common" style="z-index: 6;">
         <div class="breadcumb-content text-center">
             <div class="breadcumb-menu-wrap">

@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('storage/assets/img/favicons/apple-icon-57x57.png') }}">
-    <link rel="manifest" href="{{ asset('storage/assets/favicons/manifest.json') }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
+    <link rel="manifest" href="{{ asset('assets/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('storage/assets/img/favicons/ms-icon-144x144.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -32,15 +32,15 @@
 	    All CSS File
 	============================== -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!-- Fontawesome Icon -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <!-- Slick Slider -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
 </head>
 
@@ -93,7 +93,7 @@
     <div class="vs-carousel" id="heroSlide1" data-slide-show="1" data-md-slide-show="1" data-fade="true">
         <div class="slider">
             <div class="hero-clip-slider hero_wide" data-overlay="title" data-opacity="5">
-                <div class="hero-clip-img hero_wide_img" data-bg-src="{{ asset('storage/assets/img/breadcumb/hero-5-1.jpg') }}"></div>
+                <div class="hero-clip-img hero_wide_img" data-bg-src="{{ asset('assets/img/breadcumb/hero-5-1.jpg') }}"></div>
                 <div class="hero-clip-shape bg-theme2"></div>
                 <div class="container" style="z-index: 6;">
                     <div class="row">
@@ -113,7 +113,7 @@
 Features Area
 ==============================-->
 <section class="vs-features-wrap space-top space-extra-bottom">
-    <div class="parallax " data-bg-class="bg-dark" data-parallax-image="{{ asset('storage/assets/img/shape/features-shape.png') }}"></div>
+    <div class="parallax " data-bg-class="bg-dark" data-parallax-image="{{ asset('assets/img/shape/features-shape.png') }}"></div>
     <div class="container">
         <div class="title-area text-center text-xl-start">
             <span class="sub-title">#Добро пожаловать к лучшим</span>
@@ -126,20 +126,10 @@ Features Area
             </div>
         </div>
         <div class="row justify-content-lg-around justify-content-xl-between gy-3 text-center text-xl-start">
-{{--            <div class="col-sm-6 col-xl-3 col-xxl-auto">--}}
-{{--                <div class="features-box mb-25">--}}
-{{--                    <div class="features-box_icon">--}}
-{{--                        <img src="{{ asset('storage/assets/img/icon/features-icon-1-1.png') }}" alt="Features Icon">--}}
-{{--                    </div>--}}
-{{--                    <span class="features-box_label text-theme2">Over watch</span>--}}
-{{--                    <h3 class="features-box_title text-white">Live Streaming</h3>--}}
-{{--                    <p class="features-box_text text-light-white">Praesent a ornare metus. Etiam luctus arcu a neque venenatis, quis hendrerit mi maximus. </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <div class="col-sm-6 col-xl-3 col-xxl-auto">
                 <div class="features-box mb-25">
                     <div class="features-box_icon">
-                        <img src="{{ asset('storage/assets/img/icon/features-icon-1-2.png') }}" alt="Features Icon">
+                        <img src="{{ asset('assets/img/icon/features-icon-1-2.png') }}" alt="Features Icon">
                     </div>
                     <span class="features-box_label text-theme2">Количество</span>
                     <h3 class="features-box_title text-white">Много игр</h3>
@@ -149,7 +139,7 @@ Features Area
             <div class="col-sm-6 col-xl-3 col-xxl-auto">
                 <div class="features-box mb-25">
                     <div class="features-box_icon">
-                        <img src="{{ asset('storage/assets/img/icon/features-icon-1-3.png') }}" alt="Features Icon">
+                        <img src="{{ asset('assets/img/icon/features-icon-1-3.png') }}" alt="Features Icon">
                     </div>
                     <span class="features-box_label text-theme2">Качество</span>
                     <h3 class="features-box_title text-white">Команда профессионлов</h3>
@@ -159,7 +149,7 @@ Features Area
             <div class="col-sm-6 col-xl-3 col-xxl-auto">
                 <div class="features-box mb-25">
                     <div class="features-box_icon">
-                        <img src="{{ asset('storage/assets/img/icon/features-icon-1-4.png') }}" alt="Features Icon">
+                        <img src="{{ asset('assets/img/icon/features-icon-1-4.png') }}" alt="Features Icon">
                     </div>
                     <span class="features-box_label text-theme2">Гарантии</span>
                     <h3 class="features-box_title text-white">Гарантия качества</h3>

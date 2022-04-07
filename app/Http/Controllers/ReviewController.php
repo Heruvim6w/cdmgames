@@ -21,7 +21,7 @@ class ReviewController extends Controller
     public function getReviews()
     {
         $this->getVkReviews();
-        $reviews = Review::all();
+        $reviews = Review::orderBy('comment_date', 'desc')->get();
 
         return view('review', ['reviews' => $reviews]);
     }
@@ -35,7 +35,7 @@ class ReviewController extends Controller
         foreach ($parsing->response->items as $item) {
             $profile = json_decode($this->searchProfiles($parsing->response->profiles, $item->from_id));
 
-            $review = Review::find($item->id);
+            $review = Review::where('comment_id', $item->id)->first();
 
             if (!$review && $profile !== null) {
                 $review = new Review();
