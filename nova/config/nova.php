@@ -32,7 +32,7 @@ return [
     |
     */
 
-    'domain' => env('NOVA_DOMAIN_NAME', null),
+    'domain' => env('NOVA_DOMAIN_NAME', 'cdmgames.com'),
 
     /*
     |--------------------------------------------------------------------------

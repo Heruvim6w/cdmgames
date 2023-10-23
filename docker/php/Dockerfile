@@ -12,7 +12,8 @@ RUN apk add --no-cache \
     libxml2-dev \
     icu \
     icu-dev \
-    mysql-client
+    mysql-client \
+    && docker-php-ext-install zip
 
 RUN apk add libpng-dev
 

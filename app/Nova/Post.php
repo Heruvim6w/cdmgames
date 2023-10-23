@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use GeneaLabs\NovaFileUploadField\FileUpload;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
@@ -33,6 +34,7 @@ class Post extends Resource
     public static $search = [
         'id',
         'title',
+        'slug',
     ];
 
     /**
@@ -46,7 +48,19 @@ class Post extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Title')->sortable(),
-            CKEditor::make('Description'),
+            Text::make('Slug')->sortable(),
+            CKEditor::make('Description')
+                ->options(config('novaToolbar.toolbar'))
+                ->hideFromIndex(),
+            FileUpload::make("Image")
+                ->thumbnail(function ($image) {
+                    return $image
+                        ? asset('storage/'.$image)
+                        : '';
+                })
+                ->prunable(),
+            Text::make('Seo description', 'seo_description')->hideFromIndex(),
+            Text::make('Seo keywords','seo_keywords')->hideFromIndex(),
             Boolean::make('Is published', 'is_active')
         ];
     }

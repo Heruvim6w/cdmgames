@@ -1,6 +1,6 @@
 <div class="form-group notif notif-color">
     <p class="notif__group">
-        <img src="{{ asset('assets/img/vk2.png') }}" style="" class="notif__img" width="50 px;" alt="vk">
+        <img src="{{ asset('assets/img/vk2.png') }}" style="" class="notif__img" width="40" height="40" alt="vk">
         <span style="margin-left: .5em" class="d-none d-md-inline-block">Беседа CDM VK</span>
     </p>
     <p class="mx-2">

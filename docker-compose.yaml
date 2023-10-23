@@ -14,8 +14,8 @@ services:
       - VIRTUAL_ROOT=/var/www/html/cdmgames/public
     working_dir: /var/www/html/cdmgames
     ports:
-      - "3020:3000"
-      - "3021:3001"
+      - "3030:3029"
+      - "3031:3032"
     extra_hosts:
       - "cdmgames.local:172.17.0.1"
     networks:

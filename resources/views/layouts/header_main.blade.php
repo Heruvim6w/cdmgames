@@ -1,23 +1,29 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="ru">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CDMgames - это команда профессионалов мирового уровня</title>
-    <meta name="author" content="Angfuzsoft">
-    <meta name="description" content="CDMgames - это команда профессионалов мирового уровня">
-    <meta name="keywords" content="CDMgames - это команда профессионалов мирового уровня" />
-    <meta name="robots" content="NOINDEX,NOFOLLOW">
+    <meta name="yandex-verification" content="c3b91072b1365ccc" />
+    <title>Продать аккаунт - Скупщик аккаунтов | cdmgames.com</title>
+    <meta name="author" content="Mr_Imagined">
+    <meta name="description" content="{{ $seo_description ??  'CDMgames - это команда профессионалов мирового уровня'}}">
+    <meta name="keywords" content="{{ $seo_keywords ??  'CDMgames,аккаунт,продажа аккаунтов,игры,dota,dota2,Apex Legends,wow,world of warcraft,lol,league of legends,Hearthstone,Brawl Stars'}}"/>
+    <meta name="robots" content="INDEX,FOLLOW">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/img/favicons/apple-icon-57x57.png') }}">
-    <link rel="manifest" href="{{ asset('assets/favicons/manifest.json') }}">
+    <link rel="icon" sizes="57x57" href="{{ asset('assets/img/favicons/favicon.ico') }}">
+    <meta property="og:title" content="{{ $title ?? 'cdmgames.com' }}">
+    <meta property="og:description" content="{{ $seo_description ??  'CDMgames - это команда профессионалов мирового уровня'}}">
+    <meta property="og:image" content="{{ asset('assets/img/logo.webp') }}">
+    <meta property="og:url" content="{{ Request::url() }}">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/ms-icon-144x144.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/img/favicons/favicon.ico') }}">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -25,29 +31,50 @@
 	============================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap">
+    </noscript>
 
     <!--==============================
 	    All CSS File
 	============================== -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" async>
     <!-- Fontawesome Icon -->
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}" async>
     <!-- Magnific Popup -->
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <!-- Slick Slider -->
     <link rel="stylesheet" href="{{ asset('assets/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(93243874, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/93243874" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
 </head>
 
 <body>
 
-
-@include('layouts.preloader')
 @include('layouts.mobile_menu')
 <!--==============================
     Header Area
@@ -71,7 +98,7 @@
                             <div class="header-button ">
                                 <ul>
                                     <li>
-                                        <a href="mailto:support@cdmdoto.com" class="header-number"><i class="fal fa-at"></i>support@cdmdoto.com</a>
+                                        <a href="mailto:support@cdmgames.com" class="header-number"><i class="fal fa-at"></i>support@cdmgames.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -93,67 +120,17 @@
     <div class="vs-carousel" id="heroSlide1" data-slide-show="1" data-md-slide-show="1" data-fade="true">
         <div class="slider">
             <div class="hero-clip-slider hero_wide" data-overlay="title" data-opacity="5">
-                <div class="hero-clip-img hero_wide_img" data-bg-src="{{ asset('assets/img/breadcumb/hero-5-1.jpg') }}"></div>
+                <div class="hero-clip-img hero_wide_img" data-bg-src="{{ asset('assets/img/breadcumb/test-1.webp') }}"></div>
                 <div class="hero-clip-shape bg-theme2"></div>
                 <div class="container" style="z-index: 6;">
                     <div class="row">
                         <div class="col-sm-8 col-xxl-6 offset-xl-1">
                             <div class="hero-clip-content">
-                                <h1 class="hero-clip-title" data-ani="slideindown" data-ani-delay="0.2s">Welcome to <span class="text-theme2">CDM</span> gaming zone</h1>
-                                <a href="{{ route('about') }}" class="vs-btn" data-ani="slideinup" data-ani-delay="0.2s">Read More<i class="fal fa-long-arrow-right"></i></a>
+                                <h1 class="hero-clip-title">Welcome to <span class="text-theme2">CDMGAMES</span> zone</h1>
+                                <a href="{{ route('about') }}" class="vs-btn">О нас<i class="fal fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--==============================
-Features Area
-==============================-->
-<section class="vs-features-wrap space-top space-extra-bottom">
-    <div class="parallax " data-bg-class="bg-dark" data-parallax-image="{{ asset('assets/img/shape/features-shape.png') }}"></div>
-    <div class="container">
-        <div class="title-area text-center text-xl-start">
-            <span class="sub-title">#Добро пожаловать к лучшим</span>
-            <h2 class="sec-title text-white">Мы знаем своё дело</h2>
-            <h2 class="sec-title-style2">CDMgames!</h2>
-            <div class="sec-shape">
-                <div class="sec-shape_bar"></div>
-                <div class="sec-shape_bar"></div>
-                <div class="sec-shape_bar"></div>
-            </div>
-        </div>
-        <div class="row justify-content-lg-around justify-content-xl-between gy-3 text-center text-xl-start">
-            <div class="col-sm-6 col-xl-3 col-xxl-auto">
-                <div class="features-box mb-25">
-                    <div class="features-box_icon">
-                        <img src="{{ asset('assets/img/icon/features-icon-1-2.png') }}" alt="Features Icon">
-                    </div>
-                    <span class="features-box_label text-theme2">Количество</span>
-                    <h3 class="features-box_title text-white">Много игр</h3>
-                    <p class="features-box_text text-light-white">Список игр постоянно пополняется</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 col-xxl-auto">
-                <div class="features-box mb-25">
-                    <div class="features-box_icon">
-                        <img src="{{ asset('assets/img/icon/features-icon-1-3.png') }}" alt="Features Icon">
-                    </div>
-                    <span class="features-box_label text-theme2">Качество</span>
-                    <h3 class="features-box_title text-white">Команда профессионлов</h3>
-                    <p class="features-box_text text-light-white">В нашей команде только проеренные и опытные геймеры</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3 col-xxl-auto">
-                <div class="features-box mb-25">
-                    <div class="features-box_icon">
-                        <img src="{{ asset('assets/img/icon/features-icon-1-4.png') }}" alt="Features Icon">
-                    </div>
-                    <span class="features-box_label text-theme2">Гарантии</span>
-                    <h3 class="features-box_title text-white">Гарантия качества</h3>
-                    <p class="features-box_text text-light-white">Мы отвечаем за свою работу</p>
                 </div>
             </div>
         </div>

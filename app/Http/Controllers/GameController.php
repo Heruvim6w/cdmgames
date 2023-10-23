@@ -2,85 +2,72 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\Game;
+use App\Models\GamesSellTable;
+use App\Models\PageStaticContent;
+use App\Models\Review;
+use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
+use function React\Promise\all;
 
 class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        $games = Game::all();
-        return view('index', ['games' => $games]);
-    }
+        Cache::remember('index_blade', 240, function () {
+            $reviews = Review::query()->count() + 1898;
+            $allBalance = User::query()->sum('balance');
+            $accounts = Account::query()->count();
+            $games = Game::all();
+            $buyInfo = PageStaticContent::query()->where('title', 'home_buy_info')->first();
+            return [
+                'reviews' => $reviews,
+                'allBalance' => $allBalance,
+                'accounts' => $accounts,
+                'games' => $games,
+                'buyInfo' => $buyInfo,
+            ];
+        });
+        $indexBladeData = Cache::get('index_blade');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('index', [
+            'games' => $indexBladeData['games'],
+            'buyInfo' => $indexBladeData['buyInfo'],
+            'reviews' => $indexBladeData['reviews'],
+            'allBalance' => $indexBladeData['allBalance'],
+            'accounts' => $indexBladeData['accounts']
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
+     * @param Game $game
+     * @return Application|Factory|View
      */
-    public function show(Game $game)
+    public function show(Game $game): Application|Factory|View
     {
         return view('game', ['game' => $game]);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function edit(Game $game)
+    public function getSellDotaTable(): Application|Factory|View
     {
-        //
-    }
+        $data = GamesSellTable::query()->where('game_id', 1)->first();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Game $game)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Game  $game
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Game $game)
-    {
-        //
+        return view('sell_dota', compact('data'));
     }
 }

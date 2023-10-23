@@ -1,2 +1,37 @@
-User-agent: *
-Disallow:
+User-agent: Yandex
+Allow: /assets/img/favicons/favicon.ico
+
+User-agent: Yandex
+Disallow: /vendor
+
+User-agent: Yandex
+Disallow: /nova
+
+User-agent: Yandex
+Disallow: /fonts
+
+User-agent: Yandex
+Disallow: /assets
+
+User-agent: Yandex
+Disallow: /resources
+
+User-agent: Yandex
+Disallow: /docker
+
+User-agent: Yandex
+Disallow: /bootstrap
+
+User-agent: Yandex
+Disallow: /архив
+
+User-agent: Yandex
+Disallow: /app
+
+User-agent: Yandex
+Disallow: /database
+
+User-agent: Yandex
+Clean-param: C
+Clean-param: etext
+Clean-param: page
