@@ -8,9 +8,9 @@
     }
 </style>
 
-@if(session('success'))
-    <div class="alert alert-success m-auto">
-        <span style="font-size: 2em">{{ session('success') }}</span>
+@if(session('success') || session('confirm_errors'))
+<div class="alert {{ session('confirm_errors') ? 'alert-danger' : 'alert-success'}} m-auto">
+        <span style="font-size: 2em">{{ session('success') ?? session('confirm_errors') }}</span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -94,12 +94,6 @@
                     @csrf
 
                     <div class="container">
-{{--                        <label for="current_password" class="col-12 col-sm-4">Текущий пароль:</label>--}}
-{{--                        <input type="password" id="current_password" name="current_password" class="col-12 col-sm-4" required autofocus>--}}
-{{--                        @error('current_password')--}}
-{{--                        <span>{{ $message }}</span>--}}
-{{--                        @enderror--}}
-
                         <label for="new_password" class="col-12 col-sm-4">Новый пароль:</label>
                         <input type="password" id="new_password" name="new_password" class="col-12 col-sm-4" required>
                         @error('new_password')

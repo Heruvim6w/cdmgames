@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Log;
 
 class RequisiteController extends Controller
@@ -19,14 +20,18 @@ class RequisiteController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return Application|Factory|View|RedirectResponse
      */
-    public function index()
+    public function index(): Application|Factory|View|RedirectResponse
     {
         /**
          * @var User $user
          */
         $user = auth()->user();
+
+        if (Str::afterLast($user->email, '@') === 'example.com') {
+            return redirect()->route('profile.update', $user)->with('confirm_errors', config('notify.confirm.error'));
+        }
 
         /** @var WithdrawalMethod $withdrawalMethods */
         $withdrawalMethods = WithdrawalMethod::all();
@@ -38,9 +43,9 @@ class RequisiteController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return RedirectResponse
+     * @return Application|Factory|View|RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): Application|Factory|View|RedirectResponse
     {
         /**
          * @var User $user

@@ -8,7 +8,31 @@
     }
 </style>
 
-@if($message)
+@php
+    if (!isset($user)) {
+        $user = Auth::user();
+    }
+
+    if (!isset($profileVkInfo)) {
+        $profileVkInfo = '<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Для получения уведомлений (о новых сообщения от администрации, зачислении денежных средств на баланс сайта, получении выплат и т.д.) от нашего бота привяжите свой ВК к профилю.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">ID ВКонтакте &mdash; это идентификатор пользователя или сообщества. Адрес профиля пользователя имеет вид https://vk.com/idXXXXXX, либо найти ID своей страницы вы можете во ВКонтакте в разделе Настройки &rarr; Адрес страницы.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Далее зайдите на страницу бота &ndash; <a href="https://vk.com/cdmgames_bot">ссылка</a>, и напишите ему любое сообщение.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Работоспособность бота необходимо проверить через кнопку &laquo;Тест бота&raquo;. Вы должны получить сообщение от него во Вконтакте &laquo;Спасибо за подписку на бота! Напишите -&gt; Начать, чтобы вызвать меню!&raquo; - бот работает.</span></span></p>';
+    }
+
+    if (!isset($profileMoneyInfo)) {
+        $profileMoneyInfo = '<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">После получения оплаты за аккаунт на баланс сайта привяжите метод вывода средств и получите деньги на Вашу карту Сбербанка, Тинькофф, СБП или Qiwi.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Игрокам, проживающим не в РФ, оплачиваем через сервисы FunPay/g2g, Binance.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Вывод средств осуществляется в течении суток с момента подачи заявки.</span></span></p>';
+    }
+@endphp
+
+@if(isset($message))
     <div class="alert alert-success m-auto">
         <span style="font-size: 2em">{{ $message }}</span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -118,7 +142,7 @@
                         <div class="row">
                             <div class="team-card col-12 col-sm-5">
                                 <div class="team-card_content mx-30 text-start">
-                                    {!! $profileVkInfo->content !!}
+                                    {!! $profileVkInfo->content ?? $profileVkInfo !!}
                                     <div class="row text-center">
                                         <div class="col-md-7 ps-sm-0 mb-3 mb-sm-0">
                                             <span class="look_div">
@@ -152,7 +176,7 @@
                             </div>
                             <div class="team-card col-12 col-sm-5 offset-md-2">
                                 <div class="team-card_content mx-30 text-start">
-                                    {!! $profileMoneyInfo->content !!}
+                                    {!! $profileMoneyInfo->content ?? $profileMoneyInfo !!}
                                     <div class="row text-center">
                                         @if($user->balance > 0)
                                             <div class="col-md-7 ps-sm-0 mb-3 mb-sm-0">
