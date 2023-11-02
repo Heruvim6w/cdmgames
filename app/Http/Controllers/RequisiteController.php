@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Requisite;
 use App\Models\User;
 use App\Models\WithdrawalMethod;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Log;
 
 class RequisiteController extends Controller
 {
@@ -51,16 +53,23 @@ class RequisiteController extends Controller
 
         $url = route('requisite_confirm', $hash);
 
-        $requisite = new Requisite([
-            'withdrawal_method_id' => $request->get('withdrawal_method'),
-            'user_id' => $user->id,
-            'value' => $value,
-            'hash' => $hash,
-        ]);
-        $requisite->save();
+        try {
+            $requisite = new Requisite([
+                'withdrawal_method_id' => $request->get('withdrawal_method'),
+                'user_id' => $user->id,
+                'value' => $value,
+                'hash' => $hash,
+            ]);
+            $requisite->save();
 
-        $this->sendConfirm($user, $url);
-        return redirect()->back();
+            $this->sendConfirm($user, $url);
+
+            return redirect()->back();
+        } catch (Exception $e) {
+            Log::error('Ошибка добавления реквизитов у пользователя с ID ' . $user->id . ': ' . $e->getMessage());
+
+            return redirect()->back();
+        }
     }
 
     public function sendConfirm(User $user, string $url): void
@@ -71,12 +80,13 @@ class RequisiteController extends Controller
         });
     }
 
-    public function confirm($hash): void
+    public function confirm($hash): Application|View|Factory
     {
         $requisite = Requisite::query()->where('hash', $hash)->first();
         $requisite->update([
             'confirm' => 1
         ]);
-        //ToDo Вернуть вьюху, что всё ок
+
+        return view('profile', ['message' => config('notify.confirm.withdrawal')]);
     }
 }

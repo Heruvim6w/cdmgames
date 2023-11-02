@@ -8,6 +8,24 @@
     }
 </style>
 
+@if($message)
+    <div class="alert alert-success m-auto">
+        <span style="font-size: 2em">{{ $message }}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <script>
+        $('.alert .close').on('click', function(){
+            $(this).closest('.alert').fadeOut('slow');
+        });
+
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+@endif
+
 <section class="vs-team-wrapper bg-title space-top space-extra-bottom">
     <div class="container">
         <div class="title-area">
