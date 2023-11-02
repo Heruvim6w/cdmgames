@@ -27,6 +27,9 @@ class VkBotController extends Controller
         $this->notifyVkLink = config('vk.notifyVkLink');
     }
 
+    /**
+     * @throws JsonException
+     */
     public function ClassVkBot(): RedirectResponse
     {
         /**
