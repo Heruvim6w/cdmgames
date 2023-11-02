@@ -4,15 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\PageStaticContent;
 use App\Models\User;
+use App\Services\UserChangePasswordService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+    private UserChangePasswordService $userChangePasswordService;
+
+    public function __construct(UserChangePasswordService $userChangePasswordService)
+    {
+        $this->userChangePasswordService = $userChangePasswordService;
+    }
     /**
      * @return Application|Factory|View
      */
@@ -28,6 +36,7 @@ class ProfileController extends Controller
 
     /**
      * @param Request $request
+     * @return string
      */
     public function updatePass(Request $request)
     {
@@ -50,5 +59,12 @@ class ProfileController extends Controller
             }
         }
         return collect(['errors'=>['password'=>['Старый пароль не подходит']]])->toJson();
+    }
+
+    public function updateTempPassword(Request $request): RedirectResponse
+    {
+        $this->userChangePasswordService->update($request);
+
+        return redirect()->back()->with('success', 'Пароль успешно изменен!');
     }
 }

@@ -1,0 +1,31 @@
+<?php
+return [
+    'fakeNames1' => [
+        'Prunella',
+        'Accipiter',
+        'Pterodactyl',
+        'Tyrannosaurus',
+        'Velociraptor',
+        'Apatosaurus',
+        'Stegosaurus',
+        'Triceratops',
+        'Brachiosaurus',
+        'Pachycephalosaurus',
+        'Allosaurus',
+        'Diplodocus',
+    ],
+    'fakeNames2' => [
+        'Hymalayana',
+        'Indonesian',
+        'Chinese',
+        'Vietnamese',
+        'Arvensis',
+        'Javanese',
+        'Korean',
+        'Japanese',
+        'Mongolian',
+        'Boschas',
+        'Clypeata',
+        'Leucophaea',
+    ],
+];

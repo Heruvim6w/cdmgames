@@ -17,6 +17,15 @@ const app = createApp({
     }
 });
 
+//отключает Vue warn в консоли
+app.config.warnHandler = (msg, instance, trace) =>
+  ![
+    'built-in or reserved HTML elements as component id: component',
+    '"class" is a reserved attribute and cannot be used as component prop',
+    'Cannot find element: #__nuxt'
+  ].some((warning) => msg.includes(warning)) &&
+  console.warn('[Vue warn]: '.concat(msg).concat(trace))
+
 app.use(VueEasyLightbox, DiscordPicker);
 // mount the app to the DOM
 app.mount('#app');

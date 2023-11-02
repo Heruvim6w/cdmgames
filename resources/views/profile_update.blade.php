@@ -8,6 +8,24 @@
     }
 </style>
 
+@if(session('success'))
+    <div class="alert alert-success m-auto">
+        <span style="font-size: 2em">{{ session('success') }}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <script>
+        $('.alert .close').on('click', function(){
+            $(this).closest('.alert').fadeOut('slow');
+        });
+
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+@endif
+
 <section class="vs-team-wrapper bg-title space-top space-extra-bottom">
     <div class="container">
         <div class="title-area">
@@ -20,7 +38,7 @@
             </div>
         </div>
         <section class="vs-team-wrapper bg-title space">
-            <div class="container">
+            <div class="d-inline-block col-md-6">
                 <form
                     action="{{ route('profile.update.data', $user, []) }}"
                     id="profile_update"
@@ -30,7 +48,7 @@
                 >
                     @csrf
                     <div class="container">
-                        E-mail: <br>
+                        <label for="email" class="col-12 col-sm-4">E-mail: </label>
                         <input id="email"
                                    name="email"
                                    minlength="2"
@@ -38,7 +56,7 @@
                                    class="col-12 col-sm-4"
                                    type="email"
                                    placeholder="{{ $user->email }}"><br>
-                        Ссылка в VK: <br>
+                        <label for="vk_link" class="col-12 col-sm-4">Ссылка в VK: </label>
                         <input id="vk_link"
                                name="vk_link"
                                minlength="2"
@@ -65,6 +83,36 @@
                             <li class="list-inline-item m-auto">
                                 <button name="profile_update" type="submit" class="d-md-block look vs-btn">
                                     <span class="m-r-10 d-block">Сохранить</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="d-inline-block col-md-5">
+                <form method="POST" action="{{ route('profile.update.temp_password') }}">
+                    @csrf
+
+                    <div class="container">
+{{--                        <label for="current_password" class="col-12 col-sm-4">Текущий пароль:</label>--}}
+{{--                        <input type="password" id="current_password" name="current_password" class="col-12 col-sm-4" required autofocus>--}}
+{{--                        @error('current_password')--}}
+{{--                        <span>{{ $message }}</span>--}}
+{{--                        @enderror--}}
+
+                        <label for="new_password" class="col-12 col-sm-4">Новый пароль:</label>
+                        <input type="password" id="new_password" name="new_password" class="col-12 col-sm-4" required>
+                        @error('new_password')
+                        <span>{{ $message }}</span>
+                        @enderror
+
+                        <label for="new_password_confirmation" class="col-12 col-sm-4">Подтвердите пароль:</label>
+                        <input type="password" id="new_password_confirmation" name="new_password_confirmation" class="col-12 col-sm-4 mb-1" required>
+
+                        <ul class="list-inline d-flex align-items-center m-b-0 col-12 col-sm-1 col-lg-2 pl-md-4">
+                            <li class="list-inline-item m-auto">
+                                <button name="profile_update" type="submit" class="d-md-block look vs-btn">
+                                    <span class="m-r-10 d-block">Изменить</span>
                                 </button>
                             </li>
                         </ul>

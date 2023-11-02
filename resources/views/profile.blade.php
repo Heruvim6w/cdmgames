@@ -25,13 +25,33 @@
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="palyer-card">
                             <div class="palyer-card_img">
-                                <img src="{{ $user->avatar ? asset('storage/avatars/'.$user->avatar) : asset('assets/img/logo.png') }}"
+                                <img src="{{
+                                    $user->avatar ?
+                                    asset('storage/avatars/'.$user->avatar) :
+                                    asset('assets/img/logo.png')
+                                }}"
                                      alt="{{ $user->name }}" class="w-100">
                                 <div>
                                     <span class="look_div">
-{{--                                        <a href="{{ route('profile.update', $user->id) }}">--}}
-                                            <button class="vs-btn profile_btn" data-bs-toggle="modal" data-bs-target="#avatar_update">Сменить аватар</button>
-{{--                                        </a>--}}
+                                        <button
+                                            class="vs-btn profile_btn"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#avatar_update"
+                                        >
+                                            Сменить аватар
+                                        </button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="look_div">
+                                        <a href="{{ route('profile.update', $user->id) }}">
+                                            <button
+                                                class="vs-btn profile_vk_btn"
+                                                style="width: 100%;  margin-top: 1em;"
+                                            >
+                                                Изменить профиль
+                                            </button>
+                                        </a>
                                     </span>
                                 </div>
                             </div>
@@ -44,7 +64,10 @@
                                     <div class="team-card_label mb-4">Имя: {{ $user->name }}</div>
                                     @if($user->vk_link)
                                         <div class="team-card_links team-card_label mb-4">
-                                            Ссылка на ВК: <a href="https://vk.com/id{{ $user->vk_link }}"><i class="fab fa-vk"></i></a>
+                                            Ссылка на ВК:
+                                            <a href="https://vk.com/id{{ $user->vk_link }}">
+                                                <i class="fab fa-vk"></i>
+                                            </a>
                                         </div>
                                     @endif
                                     <div class="team-card_label mb-4">Почта: {{ $user->email }}</div>
@@ -59,7 +82,10 @@
                                     <div class="team-card_label mb-4">Имя: <br> {{ $user->name }}</div>
                                     @if($user->vk_link)
                                         <div class="team-card_links team-card_label mb-4">
-                                            Ссылка на ВК: <br> <a href="https://vk.com/id{{ $user->vk_link }}"><i class="fab fa-vk"></i></a>
+                                            Ссылка на ВК: <br>
+                                            <a href="https://vk.com/id{{ $user->vk_link }}">
+                                                <i class="fab fa-vk"></i>
+                                            </a>
                                         </div>
                                     @endif
                                     <div class="team-card_label mb-4">Почта: <br> {{ $user->email }}</div>
@@ -78,7 +104,11 @@
                                     <div class="row text-center">
                                         <div class="col-md-7 ps-sm-0 mb-3 mb-sm-0">
                                             <span class="look_div">
-                                                <button class="vs-btn profile_vk_btn" data-bs-toggle="modal" data-bs-target="#user_update">
+                                                <button
+                                                    class="vs-btn profile_vk_btn"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#user_update"
+                                                >
                                                     Привязать ВК
                                                 </button>
                                             </span>
@@ -109,7 +139,12 @@
                                         @if($user->balance > 0)
                                             <div class="col-md-7 ps-sm-0 mb-3 mb-sm-0">
                                                 <span class="look_div">
-                                                    <button type="button" class="btn vs-btn profile_vk_btn" data-bs-toggle="modal" data-bs-target="#withdrawal">
+                                                    <button
+                                                        type="button"
+                                                        class="btn vs-btn profile_vk_btn"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#withdrawal"
+                                                    >
                                                         Вывести
                                                     </button>
                                                 </span>

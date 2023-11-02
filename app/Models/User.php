@@ -39,6 +39,7 @@ class User extends Authenticatable
     public const REGISTERED_AT     = "registered_at";
     public const UPDATED_AT        = "updated_at";
     public const EMAIL_VERIFIED_AT = "email_verified_at";
+    public const ADMIN             = 2;
     /**
      * The attributes that are mass assignable.
      *

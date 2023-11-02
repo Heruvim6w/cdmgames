@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\Dialogs\DialogController;
+use App\Http\Controllers\LinkLayoutController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VkBotController;
 use App\Models\Dialog;
-use App\Models\Game;
 use App\Models\LinkLayout;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,6 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\RequisiteController;
 /*
 |--------------------------------------------------------------------------
@@ -69,19 +69,11 @@ Route::post("profile_update/{user}", [UserController::class, 'update'])
     ->middleware('auth')
     ->name('profile.update.data');
 
-Route::get("chat/{user_id}", function ($user_id){
-    $user = User::query()->findOrFail($user_id);
-    $games = Game::query()->where('name', '!=', 'Dota 2')->get();
-    $dialogId = Dialog::query()
-        ->where('user_id', Auth::user()->id)
-        ->value('id');
+Route::post("profile_update_pass", [ProfileController::class, 'updateTempPassword'])
+    ->middleware('auth')
+    ->name('profile.update.temp_password');
 
-    return view('dialog', compact('user', 'games', 'dialogId'));
-})->middleware("auth")->middleware('verified')->name('profile.chat');
-
-//Route::get("chat/1", function () {
-//    return view('blank');
-//})->name('profile.chat');
+Route::get("chat/{user}", [DialogController::class, 'show'])->name('profile.chat');
 
 Route::get("admin_chat/{user_id}", function ($user_id){
     $user = User::query()->findOrFail($user_id);
@@ -95,17 +87,17 @@ Route::get("admin_chat/{user_id}", function ($user_id){
     ->middleware('verified')
     ->name('admin.chat');
 
-Route::get("layouts", [\App\Http\Controllers\LinkLayoutController::class, 'index'])
+Route::get("layouts", [LinkLayoutController::class, 'index'])
     ->middleware("auth")
     ->middleware('verified')
     ->name('layouts');
 
-Route::post("layouts", [\App\Http\Controllers\LinkLayoutController::class, 'update'])
+Route::post("layouts", [LinkLayoutController::class, 'update'])
     ->middleware("auth")
     ->middleware('verified')
     ->name('update_layout');
 
-Route::post("new_layout", [\App\Http\Controllers\LinkLayoutController::class, 'store'])
+Route::post("new_layout", [LinkLayoutController::class, 'store'])
     ->middleware("auth")
     ->middleware('verified')
     ->name('update_layout');
