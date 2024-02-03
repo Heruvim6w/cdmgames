@@ -7,7 +7,9 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "build-config-edit-tool": "cd nova-components/ConfigEditTool && npm run dev",
+        "build-config-edit-tool-prod": "cd nova-components/ConfigEditTool && npm run prod"
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
