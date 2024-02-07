@@ -63,9 +63,9 @@ class SendEmailNotification implements ShouldQueue
             $vkBot->sendMessageFromBot(config('vk.notifyVkLink'), $messageToNotifyVk);
         }
         $url = env('APP_URL').'/chat/'.$this->fromUser->id;
-        Mail::send('emails.admin_inbox', ['url' => $url], function($message) use ($user){
-            $message->from(config('mail.mailers.smtp.username'), config('app.name'));
-            $message->to($user->email, $user->name)->subject('Новое сообщение на сайте');
-        });
+//        Mail::send('emails.admin_inbox', ['url' => $url], function($message) use ($user){
+//            $message->from(config('mail.mailers.smtp.username'), config('app.name'));
+//            $message->to($user->email, $user->name)->subject('Новое сообщение на сайте');
+//        });
     }
 }

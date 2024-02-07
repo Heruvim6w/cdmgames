@@ -34,9 +34,9 @@ class SendEmailNotification
         }
 
         $url = env('APP_URL').'/chat/'.$event->from->id;
-        Mail::send('emails.admin_inbox', ['url' => $url], function($message) use ($user){
-            $message->from(env('MAIL_USERNAME'), env('APP_NAME'));
-            $message->to($user->email, $user->name)->subject('Новое сообщение на сайте');
-        });
+//        Mail::send('emails.admin_inbox', ['url' => $url], function($message) use ($user){
+//            $message->from(env('MAIL_USERNAME'), env('APP_NAME'));
+//            $message->to($user->email, $user->name)->subject('Новое сообщение на сайте');
+//        });
     }
 }
