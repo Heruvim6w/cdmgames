@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\NewWithdrawals;
+use App\Nova\Metrics\WithdrawalsPerDay;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -61,7 +63,10 @@ class WithdrawalApplication extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            NewWithdrawals::make(),
+            WithdrawalsPerDay::make(),
+        ];
     }
 
     /**
