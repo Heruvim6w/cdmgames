@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('withdrawal_applications', function (Blueprint $table) {
-            $table->timestamp('deleted_at')->nullable();
+        Schema::table('games', function (Blueprint $table) {
+            $table->boolean('is_active')->default(1);
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('withdrawal_applications', function (Blueprint $table) {
-            $table->dropColumn('deleted_at');
+        Schema::table('games', function (Blueprint $table) {
+            $table->dropColumn('is_active');
         });
     }
 };

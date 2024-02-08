@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use GeneaLabs\NovaFileUploadField\FileUpload;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -66,9 +67,11 @@ class Game extends Resource
                         ? asset('storage/'.$image)
                         : '';
                 })
-                ->prunable(),
+                ->prunable()
+                ->hideFromIndex(),
             Text::make('Seo description', 'seo_description')->hideFromIndex(),
             Text::make('Seo keywords','seo_keywords')->hideFromIndex(),
+            Boolean::make('Показать', 'is_active'),
         ];
     }
 

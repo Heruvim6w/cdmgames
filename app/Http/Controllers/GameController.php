@@ -29,24 +29,23 @@ class GameController extends Controller
             $reviews = Review::query()->count() + 1898;
             $allBalance = User::query()->sum('balance');
             $accounts = Account::query()->count();
-            $games = Game::all();
             $buyInfo = PageStaticContent::query()->where('title', 'home_buy_info')->first();
             return [
                 'reviews' => $reviews,
                 'allBalance' => $allBalance,
                 'accounts' => $accounts,
-                'games' => $games,
                 'buyInfo' => $buyInfo,
             ];
         });
         $indexBladeData = Cache::get('index_blade');
+        $games = Game::active()->get();
 
         return view('index', [
-            'games' => $indexBladeData['games'],
-            'buyInfo' => $indexBladeData['buyInfo'],
-            'reviews' => $indexBladeData['reviews'],
+            'games'      => $games,
+            'buyInfo'    => $indexBladeData['buyInfo'],
+            'reviews'    => $indexBladeData['reviews'],
             'allBalance' => $indexBladeData['allBalance'],
-            'accounts' => $indexBladeData['accounts']
+            'accounts'   => $indexBladeData['accounts']
         ]);
     }
 
