@@ -68,7 +68,7 @@ class DialogController extends Controller
             $this->userAutoRegisterService->login();
         }
 
-        $games = Game::query()->where('name', '!=', 'Dota 2')->get();
+        $games = Game::query()->active()->where('name', '!=', 'Dota 2')->get();
         $dialogId = $this->dialogManager->getDialogWithUser(Auth::user(), $user)->id;
 
         return view('dialog', compact('user', 'games', 'dialogId'));
