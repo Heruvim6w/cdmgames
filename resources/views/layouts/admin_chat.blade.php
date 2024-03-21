@@ -48,6 +48,26 @@
             }
         });
     }
+
+    function ban() {
+        let formData = new FormData();
+
+        formData.append('user', {{ $user->id }});
+        formData.append('_token', "{{ csrf_token() }}");
+
+        $.ajax({
+            type: $("#ban").attr('method'),
+            url: "{{ route('admin.ban') }}",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+
+            success: function() {
+                encodeURIComponent($("#ban").val(''));
+            }
+        });
+    }
 </script>
 
 <style>
@@ -135,6 +155,26 @@
                     </li>
                 </ul>
             </form>
+            <form
+                action="javascript:ban()"
+                id="ban"
+                class="form-border"
+                enctype="multipart/form-data"
+                method="post"
+            >
+                @csrf
+
+                <ul class="list-inline d-inline align-items-center m-b-0 col-6 pt-1">
+                    <li class="list-inline-item">
+                        <button name="ban_user"
+                                type="submit"
+                                class="d-inline look vs-btn text-center"
+                                onclick="return confirm('Заблокировать этого пользователя?')">
+                            <span class="m-r-10">Бан</span>
+                        </button>
+                    </li>
+                </ul>
+            </form>
             <h4 class="text-white fw-bold text-center">Баланс: <span id="user_balance_mobile">{{ $user->balance }}</span></h4>
             <div class="test">
                 <a href="{{ route('test_bot') }}">Тест бота</a>
@@ -204,6 +244,26 @@
                             class="d-md-block look vs-btn text-center"
                             onclick="return confirm('Пополнить баланс?')">
                         <span class="m-r-10">Пополнить</span>
+                    </button>
+                </li>
+            </ul>
+        </form>
+        <form
+            action="javascript:ban()"
+            id="ban"
+            class="form-border"
+            enctype="multipart/form-data"
+            method="post"
+        >
+            @csrf
+
+            <ul class="list-inline d-inline align-items-center m-b-0 col-6 pt-1">
+                <li class="list-inline-item">
+                    <button name="ban_user"
+                            type="submit"
+                            class="d-inline look vs-btn text-center"
+                            onclick="return confirm('Заблокировать этого пользователя?')">
+                        <span class="m-r-10">Бан</span>
                     </button>
                 </li>
             </ul>

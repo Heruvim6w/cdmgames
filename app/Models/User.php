@@ -28,6 +28,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property Carbon|null $email_verified_at
  * @property Carbon|null $deleted_at
  * @property int $role
+ * @property bool $is_banned
  * @property-read Collection|Dialog[] $dialogs
  *
  * @mixin \Eloquent

@@ -107,6 +107,16 @@ Route::post("replenishing_balance", [UserController::class, 'replenishingBalance
     ->middleware('verified')
     ->name('admin.replenishing');
 
+Route::post("ban_user", [UserController::class, 'ban'])
+    ->middleware("auth")
+    ->middleware('verified')
+    ->name('admin.ban');
+
+Route::post("unban_user", [UserController::class, 'unban'])
+    ->middleware("auth")
+    ->middleware('verified')
+    ->name('admin.unban');
+
 Route::post("withdrawal_balance", [UserController::class, 'withdrawalBalance'])
     ->middleware("auth")
     ->middleware('verified')

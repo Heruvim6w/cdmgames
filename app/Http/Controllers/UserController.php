@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Users\Ban;
 use App\Http\Requests\Users\Update;
 use App\Http\Resources\Users\ProfileResource;
 use App\Models\Account;
@@ -316,5 +317,23 @@ class UserController extends Controller
             ->get();
 
         return view('applications', compact('replenishedApplications', 'activeApplications'));
+    }
+
+    public function ban(Ban $request)
+    {
+        $user = $request->input('user');
+        $user->is_banned = 1;
+        $user->save();
+
+        return response()->jsonSuccess($user);
+    }
+
+    public function unban(Ban $request)
+    {
+        $user = $request->input('user');
+        $user->is_banned = 0;
+        $user->save();
+
+        return response()->jsonSuccess($user);
     }
 }
