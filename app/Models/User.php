@@ -54,6 +54,7 @@ class User extends Authenticatable
         'vk_link',
         'balance',
         'withdrawal',
+        'is_banned',
     ];
 
     /**

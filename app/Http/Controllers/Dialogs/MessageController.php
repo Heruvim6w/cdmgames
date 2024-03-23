@@ -57,13 +57,13 @@ class MessageController extends Controller
         /** @var User $fromuser */
         $fromUser = auth()->user();
 
-        if ($fromUser->isBanned) {
+        if ($fromUser->is_banned) {
             return response()->jsonFail([
                 "errors" => "Ваш аккаунт заблокирован",
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if ($toUser->isBanned) {
+        if ($toUser->is_banned) {
             return response()->jsonFail([
                 "errors" => "Пользователь заблокирован",
             ], Response::HTTP_FORBIDDEN);
