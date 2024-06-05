@@ -70,6 +70,9 @@ class ReviewController extends Controller
                     $review->vk_user_id = "https://vk.com/id" . $item->from_id;
                     $review->comment_id = $item->id;
                     $review->comment = $item->text;
+                    if (isset($item->attachments) && $item->attachments[0]->type === 'photo') {
+                        $review->attachment = $item->attachments[0]->photo->sizes[2]->url;
+                    }
                     $review->comment_date = Carbon::createFromTimestamp($item->date, 'Europe/Moscow')
                         ->format('Y-m-d h:m:s');
                     $review->vk_user_name = $profile->first_name . " " . $profile->last_name;
@@ -98,6 +101,13 @@ class ReviewController extends Controller
                     JSON_THROW_ON_ERROR
                 );
             }
+        }
+    }
+
+    public function reviewsConfirm(Request $request): string
+    {
+        if ($request) {
+            return 'd1b2936c';
         }
     }
 }

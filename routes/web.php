@@ -167,4 +167,5 @@ Route::post('requisites', [RequisiteController::class, 'store'])
 
 Route::get('confirm/{hash}', [RequisiteController::class, 'confirm'])->name('requisite_confirm');
 Route::post('replenishment_from_bot',[VkBotController::class, 'replenishmentFromBot']);
+Route::post('reviews_confirm',[ReviewController::class, 'reviewsConfirm']);
 Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
