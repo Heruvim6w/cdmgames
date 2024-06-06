@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('game_item_id');
             $table->decimal('price',  unsigned: true);
             $table->integer('status')->default(0);
+            $table->string('error')->nullable();
             $table->timestamps();
         });
     }

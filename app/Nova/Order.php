@@ -2,12 +2,12 @@
 
 namespace App\Nova;
 
-use App\Models\GameItem;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Order extends Resource
@@ -41,20 +41,28 @@ class Order extends Resource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function fields(Request $request)
+    public function fields(Request $request): array
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            BelongsTo::make('Пользователь', 'user_id', User::class),
-            BelongsTo::make('Товар', 'game_item_id', GameItem::class),
+            BelongsTo::make('Пользователь', 'user', User::class)
+                ->searchable()
+                ->required(),
+            BelongsTo::make('Товар', 'gameItem', GameItem::class)
+                ->searchable()
+                ->required(),
             Currency::make('Цена', 'Price')->currency('RUR')->required(),
             Select::make('Статус', 'status')->searchable()->options([
                 \App\Models\Order::NEW => 'Новый',
-                \App\Models\Order::PAID => 'Собран',
+                \App\Models\Order::PAID => 'Оплачен',
                 \App\Models\Order::COMPLETED => 'Завершён',
                 \App\Models\Order::CANCELLED => 'Отменён',
                 \App\Models\Order::ERROR => 'Ошибка',
             ])
+                ->required(),
+            Text::make('Ошибка', 'error')
+                ->hideFromIndex()
+                ->nullable(),
         ];
     }
 

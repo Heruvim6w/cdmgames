@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Order extends Model
 {
+    use HasFactory;
+
     public const NEW = 0;
     public const PAID = 1;
     public const COMPLETED = 2;
