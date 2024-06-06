@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dialogs\DialogController;
+use App\Http\Controllers\GameItemController;
 use App\Http\Controllers\LinkLayoutController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SitemapXmlController;
@@ -164,6 +165,15 @@ Route::post('requisites', [RequisiteController::class, 'store'])
     ->middleware("auth")
     ->middleware('verified')
     ->name('user_requisites');
+
+Route::prefix('store')
+    ->name('store.')
+    ->group(function () {
+        Route::get('/{game_for_item}', [GameItemController::class, 'index'])
+            ->name('index');
+        Route::get('/show/{game_item}', [GameItemController::class, 'show'])
+            ->name('show');
+});
 
 Route::get('confirm/{hash}', [RequisiteController::class, 'confirm'])->name('requisite_confirm');
 Route::post('replenishment_from_bot',[VkBotController::class, 'replenishmentFromBot']);

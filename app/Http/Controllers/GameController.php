@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\Game;
+use App\Models\GameForItem;
 use App\Models\GamesSellTable;
 use App\Models\PageStaticContent;
 use App\Models\Review;
@@ -11,10 +12,7 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
-use function React\Promise\all;
 
 class GameController extends Controller
 {
@@ -39,13 +37,15 @@ class GameController extends Controller
         });
         $indexBladeData = Cache::get('index_blade');
         $games = Game::active()->get();
+        $gameForItems = GameForItem::all();
 
         return view('index', [
             'games'      => $games,
             'buyInfo'    => $indexBladeData['buyInfo'],
             'reviews'    => $indexBladeData['reviews'],
             'allBalance' => $indexBladeData['allBalance'],
-            'accounts'   => $indexBladeData['accounts']
+            'accounts'   => $indexBladeData['accounts'],
+            'gameForItems' => $gameForItems
         ]);
     }
 

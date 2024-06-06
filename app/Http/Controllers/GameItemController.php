@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GameForItem;
 use App\Models\GameItem;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class GameItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param GameForItem $gameForItem
      * @return Application|Factory|View|\Illuminate\View\View
      */
-    public function index(): Application|Factory|View|\Illuminate\View\View
+    public function index(GameForItem $gameForItem): Application|Factory|View|\Illuminate\View\View
     {
-        $gameItems = GameItem::all();
-        return view('gameItems.index', compact('gameItems'));
+        $gameItems = GameItem::query()->where('game_for_item_id', $gameForItem->id)->get();
+        return view('game_item.index', compact('gameItems', 'gameForItem'));
     }
 
     /**
@@ -29,6 +30,6 @@ class GameItemController extends Controller
      */
     public function show(GameItem $gameItem): Application|Factory|View|\Illuminate\View\View
     {
-        return view('gameItems.show', compact('gameItem'));
+        return view('game_item.show', compact('gameItem'));
     }
 }
