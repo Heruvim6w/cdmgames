@@ -30,6 +30,7 @@ class GameItemController extends Controller
      */
     public function show(GameItem $gameItem): Application|Factory|View|\Illuminate\View\View
     {
+        $paymentURL = 'https://unitpay.ru/pay/PUBLIC-KEY?sum&account&desc&signature';
         return view('game_item.show', compact('gameItem'));
     }
 }

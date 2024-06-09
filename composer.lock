@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00c79eefdefc3250a8ec6c06b2cf726a",
+    "content-hash": "50a296bdf296304bcdf9c6acc15b05f3",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -238,6 +238,73 @@
                 "source": "https://github.com/cakephp/chronos"
             },
             "time": "2022-11-08T02:17:04+00:00"
+        },
+        {
+            "name": "daaner/laravel-unitpay",
+            "version": "8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daaner/laravel-unitpay.git",
+                "reference": "b157248f378d454a3913f97efa123b8f5c99cc32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daaner/laravel-unitpay/zipball/b157248f378d454a3913f97efa123b8f5c99cc32",
+                "reference": "b157248f378d454a3913f97efa123b8f5c99cc32",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": ">=6.4",
+                "laravel/framework": ">=5.5",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": ">=3.0",
+                "phpunit/phpunit": ">=8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Daaner\\UnitPay\\UnitPayServiceProvider"
+                    ],
+                    "aliases": {
+                        "UnitPay": "Daaner\\UnitPay\\Facades\\UnitPay"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Daaner\\UnitPay\\": "src",
+                    "Daaner\\UnitPay\\Facades\\": "src/Facades"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "actionm",
+                    "email": "actionmanager@gmail.com"
+                },
+                {
+                    "name": "daan",
+                    "email": "daan@ukr.net"
+                }
+            ],
+            "description": "UnitPay payments for Laravel",
+            "homepage": "https://github.com/daaner/laravel-unitpay",
+            "keywords": [
+                "laravel-unitpay",
+                "payments",
+                "unitpay"
+            ],
+            "support": {
+                "issues": "https://github.com/daaner/laravel-unitpay/issues",
+                "source": "https://github.com/daaner/laravel-unitpay/tree/8.0"
+            },
+            "time": "2021-06-14T13:29:05+00:00"
         },
         {
             "name": "dasprid/enum",

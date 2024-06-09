@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\Dialogs\DialogController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\GameItemController;
 use App\Http\Controllers\LinkLayoutController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequisiteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
@@ -10,14 +15,12 @@ use App\Http\Controllers\VkBotController;
 use App\Models\Dialog;
 use App\Models\LinkLayout;
 use App\Models\User;
+use App\Services\PaymentService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Http\Request;
-use App\Http\Controllers\RequisiteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -179,3 +182,9 @@ Route::get('confirm/{hash}', [RequisiteController::class, 'confirm'])->name('req
 Route::post('replenishment_from_bot',[VkBotController::class, 'replenishmentFromBot']);
 Route::post('reviews_confirm',[ReviewController::class, 'reviewsConfirm']);
 Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
+
+Route::get('/unitpay', [PaymentService::class, 'check']);
+
+Route::resource('orders', OrderController::class)->only([
+    'index', 'store', 'show', 'update'
+]);

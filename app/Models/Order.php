@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $id
  * @property User $user
+ * @property int $user_id
  * @property GameItem $gameItem
+ * @property int $game_item_id
  * @property int $status
  * @property float $price
  */

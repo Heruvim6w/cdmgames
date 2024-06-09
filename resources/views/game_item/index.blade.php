@@ -4,6 +4,16 @@
     'seo_keywords' => $gameForItem->seo_keywords
     ])
 
+<style>
+    .fire {
+        position: absolute;
+        z-index: 1;
+        left: 90%;
+        top: 5%;
+        font-size: 15pt;
+        color: #f50;
+    }
+</style>
 <section class="vs-palyers-wrapper position-relative bg-dark space-top space-extra-bottom pt-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -12,6 +22,11 @@
                     <div class="palyer-card">
                         <a href="{{ route('store.show', [$gameItem->id]) }}">
                             <div class="palyer-card_img">
+                                @if ($gameItem->quantity)
+                                    <span class="fire" title="Ограниченное количество">
+                                        <i class="far fa-duotone fa-fire"></i>
+                                    </span>
+                                @endif
                                 <img src="{{ asset('storage/' . $gameItem->image) }}"
                                      alt="{{ $gameItem->title }}" class="w-100" width="317.5" height="178.6">
                             </div>
