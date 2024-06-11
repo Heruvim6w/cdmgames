@@ -10,7 +10,7 @@ return [
     /*
      * unitpay.ru SECRET KEY for project
      */
-    'UNITPAY_SECRET_KEY' => env('UNITPAY_SECRET_KEY', 'f7aa4c38be9e68649f58d7298fa06baf'),
+    'UNITPAY_SECRET_KEY' => env('UNITPAY_SECRET_KEY', 'DED20672275-E80427D0533-663FA612B7'),
 
     /*
      * locale for payment form
@@ -37,14 +37,14 @@ return [
      *  orderCurrency
      *  orderSum
      */
-    'searchOrderFilter' => \App\Services\PaymentService::searchOrderFilter(), //  'App\Http\Controllers\ExampleController::searchOrderFilter',
+    'searchOrderFilter' => '\App\Services\PaymentService::searchOrderFilter', //  'App\Http\Controllers\ExampleController::searchOrderFilter',
 
     /*
      *  PaidOrderFilter
      *  If current orderStatus from DB != paid then call PaidOrderFilter
      *  update order into DB & other actions
      */
-    'paidOrderFilter' => \App\Services\PaymentService::paidOrderFilter(), //  'App\Http\Controllers\ExampleController::paidOrderFilter',
+    'paidOrderFilter' => '\App\Services\PaymentService::paidOrderFilter', //  'App\Http\Controllers\ExampleController::paidOrderFilter',
 
     'payment_forms' => [
         'cards' => true,

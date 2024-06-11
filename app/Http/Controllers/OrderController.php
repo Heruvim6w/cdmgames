@@ -17,6 +17,19 @@ use Illuminate\View\View;
 
 class OrderController extends Controller
 {
+    public static function saveOrderAsPaid($order): bool
+    {
+        try {
+            $order->status = Order::PAID;
+            $order->save();
+
+            return true;
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+        }
+        return false;
+    }
+
     /**
      * Display a listing of the resource.
      *
