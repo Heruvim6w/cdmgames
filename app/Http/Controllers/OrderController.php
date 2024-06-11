@@ -9,6 +9,7 @@ use App\Services\PaymentService;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -87,5 +88,33 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         //
+    }
+
+    public function cancel(Request $request): JsonResponse
+    {
+        try {
+            $order = Order::query()->findOrFail($request->get('order'));
+
+            $order->status = Order::CANCELLED;
+            $order->save();
+        } catch (Exception $exception) {
+            return response()->jsonFail($exception->getMessage());
+        }
+
+        return response()->jsonSuccess($order);
+    }
+
+    public function deliver(Request $request): JsonResponse
+    {
+        try {
+            $order = Order::query()->findOrFail($request->get('order'));
+
+            $order->status = Order::COMPLETED;
+            $order->save();
+        } catch (Exception $exception) {
+            return response()->jsonFail($exception->getMessage());
+        }
+
+        return response()->jsonSuccess($order);
     }
 }

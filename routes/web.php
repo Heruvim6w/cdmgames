@@ -188,3 +188,13 @@ Route::get('/unitpay', [PaymentService::class, 'check']);
 Route::resource('orders', OrderController::class)->only([
     'index', 'store', 'show', 'update'
 ])->middleware("auth");
+
+Route::post('orders/cancel', [OrderController::class, 'cancel'])
+    ->name('orders.cancel')
+    ->middleware('auth')
+    ->middleware('verified');
+
+Route::post('orders/deliver', [OrderController::class, 'deliver'])
+    ->name('orders.deliver')
+    ->middleware('auth')
+    ->middleware('verified');
