@@ -19,11 +19,20 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return int
+     * @return Application|Factory|\Illuminate\Contracts\View\View|View
      */
-    public function index()
+    public function index(): Application|Factory|\Illuminate\Contracts\View\View|View
     {
-        return 123;
+        $orders = Order::query()->where('user_id', auth()->id())->get();
+        $statuses = [
+            Order::NEW => 'Новый',
+            Order::PAID => 'Оплачен',
+            Order::COMPLETED => 'Завершён',
+            Order::CANCELLED => 'Отменён',
+            Order::ERROR => 'Ошибка',
+        ];
+
+        return view('order.index', compact('orders', 'statuses'));
     }
 
     /**

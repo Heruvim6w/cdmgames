@@ -45,6 +45,11 @@ Mobile Menu
                             {{ Auth::user()->name }}
                         </a>
                     </li>
+                    <li>
+                        <a class="sub_item dropdown-item" href="{{ route('orders.index') }}">
+                            {{ __('Заказы') }}
+                        </a>
+                    </li>
                     @if(Auth::user()->role === 2)
                         <li>
                             <a href="{{ route('dialogs.index') }}">Чаты</a>

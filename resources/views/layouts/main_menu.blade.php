@@ -43,6 +43,11 @@
                             </a>
                         </li>
                         <li>
+                            <a class="sub_item dropdown-item" href="{{ route('orders.index') }}">
+                                {{ __('Заказы') }}
+                            </a>
+                        </li>
+                        <li>
                             <a class="sub_item dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">

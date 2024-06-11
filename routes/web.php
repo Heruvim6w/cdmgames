@@ -187,4 +187,4 @@ Route::get('/unitpay', [PaymentService::class, 'check']);
 
 Route::resource('orders', OrderController::class)->only([
     'index', 'store', 'show', 'update'
-]);
+])->middleware("auth");
