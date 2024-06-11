@@ -22,23 +22,15 @@
                                 }}"
                              alt="{{ $gameItem->title }}" class="w-100">
                         <div>
-                            <form
-                                enctype="multipart/form-data"
-                                name="order_store"
-                                action="{{ route('orders.store') }}"
-                                method="post">
-                                @csrf
-                                <input type="hidden" name="game_item" value="{{ $gameItem->id }}">
-                                <input type="hidden" name="price" value="{{ $gameItem->price }}">
-                                <button
-                                    name="order_store"
-                                    id="order_store"
-                                    type="submit"
-                                    class="btn vs-btn"
-                                    style="width: 100%;">
-                                    Купить {{ $gameItem->title }}
-                                </button>
-                            </form>
+                                <span class="look_div">
+                                    <button
+                                        class="vs-btn profile_btn"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#buy_item"
+                                    >
+                                         Купить {{ $gameItem->title }}
+                                    </button>
+                                </span>
                         </div>
                     </div>
                 </div>
@@ -72,4 +64,5 @@
     </div>
 </section>
 
+@include('layouts.buy_item')
 @include('layouts.footer')

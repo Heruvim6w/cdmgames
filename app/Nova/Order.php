@@ -48,6 +48,9 @@ class Order extends Resource
             BelongsTo::make('Пользователь', 'user', User::class)
                 ->searchable()
                 ->required(),
+            Text::make('Ник в игре', 'user_game_nickname')
+                ->hideFromIndex()
+                ->required(),
             BelongsTo::make('Товар', 'gameItem', GameItem::class)
                 ->searchable()
                 ->required(),

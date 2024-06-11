@@ -35,6 +35,7 @@ class OrderStoreRequest extends FormRequest
                 Rule::exists(GameItem::class, "id"),
             ],
             'price' => 'required|numeric',
+            'user_game_nickname' => 'required|string',
         ];
     }
 }

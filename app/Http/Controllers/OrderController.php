@@ -42,6 +42,7 @@ class OrderController extends Controller
         try {
             $order = new Order();
             $order->user_id = $user->id;
+            $order->user_game_nickname = $data['user_game_nickname'];
             $order->game_item_id = $gameItemId;
             $order->status = 0;
             $order->price = $data['price'];
