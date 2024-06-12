@@ -55,7 +55,7 @@ class GameItem extends Resource
                 ->searchable()
                 ->required(),
             Text::make('Товар', 'title')->sortable()->required(),
-            CKEditor::make('Описание', 'Description')
+            CKEditor::make('Описание', 'description')
                 ->options(config('novaToolbar.toolbar'))
                 ->hideFromIndex()
                 ->nullable(),
@@ -67,7 +67,7 @@ class GameItem extends Resource
                 })
                 ->prunable()
                 ->nullable(),
-            Currency::make('Цена', 'Price')->currency('RUR')->required(),
+            Currency::make('Цена', 'price')->currency('RUB')->required(),
             Number::make('Количество', 'quantity')->nullable(),
         ];
     }

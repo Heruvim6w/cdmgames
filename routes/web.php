@@ -198,3 +198,11 @@ Route::post('orders/deliver', [OrderController::class, 'deliver'])
     ->name('orders.deliver')
     ->middleware('auth')
     ->middleware('verified');
+
+Route::get('agreement', function () {
+    return view('agreement');
+})->name('agreement');
+
+Route::get('refund_politics', function () {
+    return view('refund_politics');
+})->name('refund_politics');
