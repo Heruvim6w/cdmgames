@@ -206,3 +206,7 @@ Route::get('agreement', function () {
 Route::get('refund_politics', function () {
     return view('refund_politics');
 })->name('refund_politics');
+
+Route::get('price_list', function () {
+    return view('price_list');
+})->name('price_list');
