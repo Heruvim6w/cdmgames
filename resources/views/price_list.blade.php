@@ -19,7 +19,8 @@
         color: #fff;
     }
 </style>
-<h1>Товары и цены</h1>
+
+<h1>Стоимость платных услуг</h1>
 
 <section>
     <div class="container price_table">
