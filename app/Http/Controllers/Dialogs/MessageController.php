@@ -8,7 +8,7 @@ use App\Http\Requests\Messages\Store;
 use App\Jobs\SendEmailNotification;
 use App\Models\Message;
 use Carbon\Carbon;
-use Composer\Util\Zip;
+use Zip;
 use Illuminate\Http\Response;
 use App\Managers\MessagesManager;
 use App\Models\User;
