@@ -40,10 +40,12 @@
                     <div class="team-card">
                         <div class="team-card_content ml-30 text-start d-none d-lg-block">
                             <div class="team-card_label mb-4">{{ $gameItem->title }}</div>
-                            <div class="team-card_label mb-4">{{ $gameItem->price }}  &#8381;</div>
+                            <div class="team-card_label mb-4">
+                                Цена: <span class="text-marked">{{ $gameItem->price }}</span>  &#8381;
+                            </div>
                             @if ($gameItem->quantity)
                                 <div class="team-card_label mb-4">
-                                    Осталось: {{ $gameItem->quantity }} шт.
+                                    Осталось: <span class="text-marked">{{ $gameItem->quantity }}</span> шт.
                                 </div>
                             @endif
                             <div class="team-card_label mb-4">{!! $gameItem->description ?? '' !!}</div>
@@ -51,9 +53,12 @@
 
                         <div class="team-card_content text-start d-sm-block d-md-none">
                             <div class="team-card_label mb-4">{{ $gameItem->title }}</div>
-                            <div class="team-card_label mb-4">{{ $gameItem->price }}  &#8381;</div>
+                            <div class="team-card_label mb-4">
+                                Цена: <span class="text-marked">{{ $gameItem->price }}</span>  &#8381;
+                            </div>
                             @if ($gameItem->quantity)
-                                <div class="team-card_label mb-4">Осталось: {{ $gameItem->quantity }} шт.</div>
+                                <div class="team-card_label mb-4">
+                                    Осталось: <span class="text-marked">{{ $gameItem->quantity }}</span> шт.</div>
                             @endif
                             <div class="team-card_label mb-4">{!! $gameItem->description ?? '' !!}</div>
                         </div>

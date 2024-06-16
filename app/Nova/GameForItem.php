@@ -55,6 +55,16 @@ class GameForItem extends Resource
                 })
                 ->prunable()
                 ->nullable(),
+            CKEditor::make('Description')
+                ->options(config('novaToolbar.toolbar'))
+                ->hideFromIndex(),
+            FileUpload::make("Banner", "banner")
+                ->thumbnail(function ($image) {
+                    return $image
+                        ? asset('storage/'.$image)
+                        : '';
+                })
+                ->prunable(),
             Text::make('Seo description', 'seo_description')
                 ->hideFromIndex()
                 ->nullable(),

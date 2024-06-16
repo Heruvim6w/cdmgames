@@ -54,14 +54,15 @@ class Order extends Resource
             BelongsTo::make('Товар', 'gameItem', GameItem::class)
                 ->searchable()
                 ->required(),
-            Currency::make('Цена', 'Price')->currency('RUR')->required(),
+            Currency::make('Цена', 'price')->currency('RUB')->required(),
             Select::make('Статус', 'status')->searchable()->options([
-                \App\Models\Order::NEW => 'Новый',
-                \App\Models\Order::PAID => 'Оплачен',
-                \App\Models\Order::COMPLETED => 'Завершён',
-                \App\Models\Order::CANCELLED => 'Отменён',
-                \App\Models\Order::ERROR => 'Ошибка',
+                self::$model::NEW => 'Новый',
+                self::$model::PAID => 'Оплачен',
+                self::$model::COMPLETED => 'Завершён',
+                self::$model::CANCELLED => 'Отменён',
+                self::$model::ERROR => 'Ошибка',
             ])
+                ->displayUsingLabels()
                 ->required(),
             Text::make('Ошибка', 'error')
                 ->hideFromIndex()

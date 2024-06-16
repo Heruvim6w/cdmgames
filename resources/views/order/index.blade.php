@@ -43,7 +43,15 @@
                                 <td>{{ $order->id }}</td>
                                 <td>{{ $order->gameItem->title }}</td>
                                 <td>{{ $order->price }}</td>
-                                <td>{{ $statuses[$order->status] }}</td>
+                                <td>
+                                    {{ $statuses[$order->status] }}
+                                    @if($order->status === App\Models\Order::NEW || $order->status === App\Models\Order::ERROR)
+                                        <a href="{{ route('orders.pay', [$order->id, auth()->user()->id]) }}"
+                                           onclick="return confirm('Оплатить этот заказ?')">
+                                            <span class="look vs-btn m-r-10">Оплатить</span>
+                                        </a>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

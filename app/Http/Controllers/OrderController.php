@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Order\OrderStoreRequest;
 use App\Models\GameItem;
 use App\Models\Order;
+use App\Models\User;
 use App\Services\PaymentService;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
@@ -71,36 +72,12 @@ class OrderController extends Controller
             $order->price = $data['price'];
             $order->save();
 
-            return PaymentService::buy($order->price, $order->id, $user->email, $order->gameItem->title, $currency);
+            return $this->pay($order, $user, $currency);
         } catch (Exception $e) {
             Log::error($e->getMessage());
         }
 
         return redirect()->back();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param Order $order
-     * @return Application|Factory|View
-     */
-    public function show(Order $order): Application|Factory|View
-    {
-        dd($order);
-        return view('order::show', ['order' => $order]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Order $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
     }
 
     public function cancel(Request $request): JsonResponse
@@ -129,5 +106,14 @@ class OrderController extends Controller
         }
 
         return response()->jsonSuccess($order);
+    }
+
+    public function pay(Order $order, User $user, string $currency = null)
+    {
+        if  ($currency === null) {
+            $currency = config('unitpay.currency', 'RUB');
+        }
+
+        return PaymentService::buy($order->price, $order->id, $user->email, $order->gameItem->title, $currency);
     }
 }

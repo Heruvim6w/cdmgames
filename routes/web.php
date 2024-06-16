@@ -186,7 +186,7 @@ Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
 Route::get('/unitpay', [PaymentService::class, 'check']);
 
 Route::resource('orders', OrderController::class)->only([
-    'index', 'store', 'show', 'update'
+    'index', 'store'
 ])->middleware("auth");
 
 Route::post('orders/cancel', [OrderController::class, 'cancel'])
@@ -196,6 +196,11 @@ Route::post('orders/cancel', [OrderController::class, 'cancel'])
 
 Route::post('orders/deliver', [OrderController::class, 'deliver'])
     ->name('orders.deliver')
+    ->middleware('auth')
+    ->middleware('verified');
+
+Route::get('orders/{order}/pay/{user}', [OrderController::class, 'pay'])
+    ->name('orders.pay')
     ->middleware('auth')
     ->middleware('verified');
 
