@@ -10,7 +10,7 @@ return [
     /*
      * unitpay.ru SECRET KEY for project
      */
-    'UNITPAY_SECRET_KEY' => env('UNITPAY_SECRET_KEY', 'DED20672275-E80427D0533-663FA612B7'),
+    'UNITPAY_SECRET_KEY' => env('UNITPAY_SECRET_KEY', 'A22EB42C282-51AFC068539-E8DB9710D0'),
 
     /*
      * locale for payment form

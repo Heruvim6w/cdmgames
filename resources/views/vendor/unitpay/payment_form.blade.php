@@ -65,66 +65,46 @@
 
 </head>
 <body>
-<style>
-    .well {
-        padding-top: 15em;
-    }
-    /*form {*/
-    /*    width: 50%;*/
-    /*    text-align: center;*/
-    /*}*/
-    form.unitpay-form .btn_order {
-        background-color: #FFF;
-        border: solid #CCC 1px;
-        width: 100%;
-        text-align: center;
-        padding-left: 20px;
-        margin-right: 20px;
-        height: 10rem;
-        font-size: 21pt;
-    }
-    form.unitpay-form .btn_order img {
-        margin-right: 10px;
-    }
-    .form-group {
-        margin-bottom: 3rem;
-    }
-    form.unitpay-form .btn_order:hover {
-        background-color: #F8F8F8;
-    }
-</style>
+    <style>
+        .well {
+            padding-top: 15em;
+        }
 
-<div class="well">
+        form.unitpay-form .btn_order {
+            background-color: #FFF;
+            border: solid #CCC 1px;
+            width: 100%;
+            text-align: center;
+            padding-left: 20px;
+            margin-right: 20px;
+            height: 10rem;
+            font-size: 21pt;
+        }
+        form.unitpay-form .btn_order img {
+            margin-right: 10px;
+        }
+        .form-group {
+            margin-bottom: 3rem;
+        }
+        form.unitpay-form .btn_order:hover {
+            background-color: #F8F8F8;
+        }
+    </style>
+    <div class="well">
+        @if (config('unitpay.payment_forms')['cards'])
+            <div class="form-group ">
+                <form action="https://unitpay.ru/pay/{{ $payment_fields['PUB_KEY'] }}/card" method="POST" class="form unitpay-form">
+                    <input type="hidden" name="account" value="{{ $payment_fields['PAYMENT_NO'] }}">
+                    <input type="hidden" name="currency" value="{{ $payment_fields['CURRENCY'] }}">
+                    <input type="hidden" name="desc" value="{{ $payment_fields['ITEM_NAME'] }}">
+                    <input type="hidden" name="sum" value={{ $payment_fields['PAYMENT_AMOUNT'] }}>
+                    <input type="hidden" name="signature" value="{{ $payment_fields['SIGN'] }}">
+                    <input type="hidden" name="hideOtherMethods" value="{{ config('unitpay.hideOtherMethods','false') }}">
 
-    @if (config('unitpay.payment_forms')['cards'])
-        <div class="form-group ">
-            <form action="https://unitpay.ru/pay/{{ $payment_fields['PUB_KEY'] }}/card" method="POST" class="form unitpay-form">
-                <input type="hidden" name="sum" value="{{ $payment_fields['PAYMENT_AMOUNT'] }}">
-                <input type="hidden" name="account" value="{{ $payment_fields['PAYMENT_NO'] }}">
-                <input type="hidden" name="desc" value="{{ $payment_fields['ITEM_NAME'] }}">
-                <input type="hidden" name="currency" value="{{ $payment_fields['CURRENCY'] }}">
-                <input type="hidden" name="locale" value="{{ $payment_fields['LOCALE'] }}">
-                <input type="hidden" name="signature" value="{{ $payment_fields['SIGN'] }}">
-                <input type="hidden" name="hideOtherMethods" value="{{ config('unitpay.hideOtherMethods','false') }}">
-                <button type="submit" class="btn btn_order look vs-btn sell_btn">Картой российского банка</button>
-            </form>
-        </div>
-    @endif
-
-    @if (config('unitpay.payment_forms')['yandex'])
-        <div class="form-group pull-left">
-            <form action="https://unitpay.ru/pay/{{ $payment_fields['PUB_KEY'] }}/yandex" method="POST" class="form unitpay-form">
-                <input type="hidden" name="sum" value="{{ $payment_fields['PAYMENT_AMOUNT'] }}">
-                <input type="hidden" name="account" value="{{ $payment_fields['PAYMENT_NO'] }}">
-                <input type="hidden" name="desc" value="{{ $payment_fields['ITEM_NAME'] }}">
-                <input type="hidden" name="currency" value="{{ $payment_fields['CURRENCY'] }}">
-                <input type="hidden" name="locale" value="{{ $payment_fields['LOCALE'] }}">
-                <input type="hidden" name="signature" value="{{ $payment_fields['SIGN'] }}">
-                <input type="hidden" name="hideOtherMethods" value="{{ config('unitpay.hideOtherMethods','false') }}">
-                <button type="submit" class="btn btn_order btn_small look vs-btn sell_btn">Yandex</button>
-            </form>
-        </div>
-    @endif
-</div>
+                    <button type="submit" class="btn btn_order look vs-btn sell_btn">Оплатить {{ $payment_fields['PAYMENT_AMOUNT'] }} &#8381;</button>
+                </form>
+            </div>
+        @endif
+    </div>
 </body>
 </html>
