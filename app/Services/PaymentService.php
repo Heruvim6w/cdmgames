@@ -4,8 +4,10 @@ namespace App\Services;
 
 use App\Http\Controllers\OrderController;
 use App\Models\Order;
+use Daaner\UnitPay\Exceptions\InvalidConfiguration;
 use Daaner\UnitPay\UnitPay;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -20,7 +22,12 @@ class PaymentService
                 ]
             ]);
         }
-
+        if ($request->has('method') && $request->get('method') === 'pay') {
+            return $this->payOrderFromGate($request);
+        }
+        if ($request->has('method') && $request->get('method') === 'error') {
+            return $this->markOrderAsError($request);
+        }
         return response()->json([
             'error' => [
                 'message' => 'Описание ошибки'
@@ -89,7 +96,25 @@ class PaymentService
 
     public function payOrderFromGate(Request $request): bool|array
     {
-        $unitPay = new UnitPay();
-        return $unitPay->payOrderFromGate($request);
+        return (new UnitPay())->payOrderFromGate($request);
+    }
+
+    /**
+     */
+    public function markOrderAsError(Request $request): JsonResponse
+    {
+        $order = Order::query()->findOrFail($request->get('params')['account']);
+
+        if ($order) {
+            $order->status = Order::ERROR;
+            $order->error = $request->get('params')['errorMessage'];
+            $order->save();
+        }
+
+        return response()->json([
+            'error' => [
+                'message' => $request->get('params')['errorMessage']
+            ]
+        ]);
     }
 }

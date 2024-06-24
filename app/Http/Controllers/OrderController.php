@@ -116,4 +116,8 @@ class OrderController extends Controller
 
         return PaymentService::buy($order->price, $order->id, $user->email, $order->gameItem->title, $currency);
     }
+
+    public function check(Request $request) {
+        return (new PaymentService())->check($request);
+    }
 }

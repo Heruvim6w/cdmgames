@@ -60,6 +60,7 @@ return [
         '178.132.203.105',
         '52.29.152.23',
         '52.19.56.234',
+        '172.19.0.1',
     ],
 
     /*
@@ -89,7 +90,7 @@ return [
     /*
      * The channels to which the notification will be sent.
      */
-    'channels' => ['mail'],
+    'channels' => [],
 
     'mail' => [
         'to' => 'heruvim.6w@gmail.com',  // your email

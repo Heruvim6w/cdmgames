@@ -15,7 +15,6 @@ use App\Http\Controllers\VkBotController;
 use App\Models\Dialog;
 use App\Models\LinkLayout;
 use App\Models\User;
-use App\Services\PaymentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -183,7 +182,7 @@ Route::post('replenishment_from_bot',[VkBotController::class, 'replenishmentFrom
 Route::post('reviews_confirm',[ReviewController::class, 'reviewsConfirm']);
 Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
 
-Route::get('/unitpay', [PaymentService::class, 'check']);
+Route::get('/unitpay', [OrderController::class, 'check']);
 
 Route::resource('orders', OrderController::class)->only([
     'index', 'store'

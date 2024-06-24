@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $game_item_id
  * @property int $status
  * @property float $price
+ * @property string $error
  */
 class Order extends Model
 {
