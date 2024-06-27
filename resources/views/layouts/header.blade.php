@@ -151,7 +151,12 @@ Breadcumb
     style="background-image: url('{{
         isset($game) && $game->banner ? asset('storage/' . $game->banner) : (
             isset($gameForItem) && $gameForItem->banner ? asset('storage/' . $gameForItem->banner) :
-            asset('assets/img/breadcumb/test-1.webp')
+                (
+                    isset($gameItem) && $gameItem->gameForItem->banner ?
+                        asset('storage/' . $gameItem->gameForItem->banner) :
+                        asset('assets/img/breadcumb/test-1.webp'
+                    )
+                )
             )
         }}');
         background-repeat: no-repeat;
