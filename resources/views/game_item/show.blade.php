@@ -4,6 +4,11 @@
     'seo_keywords' => $gameItem->gameForItem->seo_keywords
     ])
 
+<style>
+    .text-marked {
+        color: #f00;
+    }
+</style>
 <section class="vs-team-wrapper bg-title space">
     <div class="container">
         <div class="row z-index-common">
