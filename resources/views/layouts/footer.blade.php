@@ -6,9 +6,6 @@
     <div class="container z-index-step1">
         <div class="footer-newsletter text-center">
             <div class="row align-items-center d-flex justify-content-center">
-                <div class="col-lg-auto">
-                    <p class="text-white text-uppercase mb-4 mb-lg-0 widget_title_p">Зарабатывайте в любимых играх!</p>
-                </div>
                 <div class="col-md-3 col-xl-12">
                     <span class="look_div">
                         @if((Auth::user()) && (Auth::user()->role === 2))
@@ -17,7 +14,7 @@
                             </a>
                         @else
                             <a href="{{ route('profile.chat', 1) }}" target="blank">
-                                <button class="look vs-btn sell_btn">Продать аккаунт</button>
+                                <button class="look vs-btn sell_btn">Написать в чат</button>
                             </a>
                         @endif
                     </span>
