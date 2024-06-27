@@ -15,6 +15,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class GameForItem extends Model
 {
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
+
     public function gameItems(): HasMany
     {
         return $this->hasMany(GameItem::class);

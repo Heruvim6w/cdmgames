@@ -18,6 +18,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class GameItem extends Model
 {
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
+
     public function gameForItem(): BelongsTo
     {
         return $this->belongsTo(GameForItem::class);

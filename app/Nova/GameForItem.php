@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use GeneaLabs\NovaFileUploadField\FileUpload;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -71,6 +72,7 @@ class GameForItem extends Resource
             Text::make('Seo keywords','seo_keywords')
                 ->hideFromIndex()
                 ->nullable(),
+            Boolean::make('Показать', 'is_active'),
         ];
     }
 

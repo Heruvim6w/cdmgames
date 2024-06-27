@@ -5,6 +5,7 @@ namespace App\Nova;
 use GeneaLabs\NovaFileUploadField\FileUpload;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -69,6 +70,7 @@ class GameItem extends Resource
                 ->nullable(),
             Currency::make('Цена', 'price')->currency('RUB')->required(),
             Number::make('Количество', 'quantity')->nullable(),
+            Boolean::make('Показать', 'is_active'),
         ];
     }
 

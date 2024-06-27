@@ -17,7 +17,7 @@ class GameForItemController extends Controller
      */
     public function index(): Application|Factory|View|\Illuminate\View\View
     {
-        $gameForItems = GameForItem::all();
+        $gameForItems = GameForItem::active()->get();
         return view('game_for_item.index', compact('gameForItems'));
     }
 

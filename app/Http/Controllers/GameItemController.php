@@ -18,7 +18,7 @@ class GameItemController extends Controller
      */
     public function index(GameForItem $gameForItem): Application|Factory|View|\Illuminate\View\View
     {
-        $gameItems = GameItem::query()->where('game_for_item_id', $gameForItem->id)->get();
+        $gameItems = GameItem::query()->where('game_for_item_id', $gameForItem->id)->active()->get();
         return view('game_item.index', compact('gameItems', 'gameForItem'));
     }
 

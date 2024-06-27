@@ -37,7 +37,7 @@ class GameController extends Controller
         });
         $indexBladeData = Cache::get('index_blade');
         $games = Game::active()->get();
-        $gameForItems = GameForItem::all();
+        $gameForItems = GameForItem::active()->get();
 
         return view('index', [
             'games'      => $games,
