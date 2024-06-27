@@ -41,7 +41,7 @@
                         @foreach($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->gameItem->title }}</td>
+                                <td>{{ $order->gameItem->isEmpty() ? "Товар удалён" : $order->gameItem->title }}</td>
                                 <td>{{ $order->price }}</td>
                                 <td>
                                     {{ $statuses[$order->status] }}
