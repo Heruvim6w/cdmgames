@@ -3,13 +3,18 @@
 namespace App\Services;
 
 use App\Http\Controllers\OrderController;
+use App\Jobs\SendEmailNotification;
+use App\Managers\MessagesManager;
 use App\Models\Order;
-use Daaner\UnitPay\Exceptions\InvalidConfiguration;
+use App\Models\User;
 use Daaner\UnitPay\UnitPay;
+use Exception;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Log;
 
 class PaymentService
 {
@@ -66,17 +71,33 @@ class PaymentService
      * !Important: don't forget to set the order status as "paid" in your database.
      *
      * @param Request $request
-     * @param $order
+     * @param Order $order
      * @return bool
      */
-    public static function paidOrderFilter(Request $request, $order): bool
+    public static function paidOrderFilter(Request $request, Order $order): bool
     {
         // Your code should be here:
-        if (OrderController::saveOrderAsPaid($order)) {
+        if (OrderController::saveOrderAsPaid($request, $order)) {
+            try {
+                $toUser = User::query()->findOrFail(1);
+                $fromUser = User::query()->findOrFail($order->user_id);
+                $text = 'Оплачен заказ № ' . $order->id . ' "' . $order->gameItem->title . '". Стоимость: ' . $order->price . 'руб.';
 
-            // Return TRUE if the order is saved as "paid" in the database or FALSE if some error occurs.
-            // If you return FALSE, then you can repeat the failed paid requests on the unitpay website manually.
-            return true;
+                $messagesManager = app()->make(MessagesManager::class);
+                [$dialog, $message] = $messagesManager->sendToUser(
+                    $fromUser,
+                    $toUser,
+                    [
+                        'text' => $text
+                    ]
+                );
+
+                SendEmailNotification::dispatch($toUser, $fromUser, $message);
+            } catch (Exception $exception) {
+                Log::error('Ошибка отправки сообщения: ' . $exception->getMessage());
+            } finally {
+                return true;
+            }
         }
 
         return false;
@@ -108,6 +129,7 @@ class PaymentService
         if ($order) {
             $order->status = Order::ERROR;
             $order->error = $request->get('params')['errorMessage'];
+            $order->external_id = $request->get('params')['unitpayId'];
             $order->save();
         }
 

@@ -4,6 +4,7 @@
 namespace App\Managers;
 
 use App\Models\Dialog;
+use App\Models\Message;
 use App\Models\User;
 use App\Events\Messages\Sent;
 use App\Events\Messages\Received;
@@ -15,12 +16,12 @@ class MessagesManager
     /**
      * @var DialogManager
      */
-    protected $dialogManager;
+    protected DialogManager $dialogManager;
 
     /**
      * @var EventsDispatcher
      */
-    protected $eventsDispatcher;
+    protected EventsDispatcher $eventsDispatcher;
 
     public function __construct(DialogManager $dialogManager, EventsDispatcher $eventsDispatcher)
     {
@@ -61,8 +62,7 @@ class MessagesManager
         User $to,
         array $data = null
     ): array {
-
-        /** @var \App\Models\Message $message */
+        /** @var Message $message */
         $message = $dialog->messages()->create([
             "user_id" => $from->id,
             "text" => $data["text"] ? $this->makeClickable($data["text"]) : '',

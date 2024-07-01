@@ -55,8 +55,11 @@ class Sent implements ShouldBroadcastNow
      */
     public function broadcastOn(): Channel|PrivateChannel|array
     {
-        if ($this->from === auth()->user() || $this->message->to_user === auth()->user()->id) {
+        //ToDo временно убрал проверку, возможно, потребуется вернуть
+//        $toUser = $this->message->to_user ?? $this->message->getAttributes()['to_user'];
+//
+//        if (auth()->check() && ($this->from === auth()->user() || $toUser === auth()->user()->id)) {
             return new PrivateChannel('chat');
-        }
+//        }
     }
 }

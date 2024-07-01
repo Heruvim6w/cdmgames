@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $id
  * @property User $user
  * @property int $user_id
+ * @property int $external_id
  * @property string $user_game_nickname
  * @property GameItem $gameItem
  * @property int $game_item_id

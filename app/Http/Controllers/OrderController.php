@@ -18,9 +18,10 @@ use Illuminate\View\View;
 
 class OrderController extends Controller
 {
-    public static function saveOrderAsPaid($order): bool
+    public static function saveOrderAsPaid(Request $request, Order $order): bool
     {
         try {
+            $order->external_id = $request->get('params')['unitpayId'];
             $order->status = Order::PAID;
             $order->save();
 
