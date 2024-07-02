@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $description
  * @property string $image
  * @property float $price
+ * @property int $discount
+ * @property string $discount_description
+ * @property bool $is_discount
  * @property int $quantity
  * @property GameForItem $gameForItem
  */
@@ -31,5 +34,10 @@ class GameItem extends Model
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function getUndiscountedPrice()
+    {
+        return $this->price * (100 + $this->discount) / 100;
     }
 }
