@@ -84,6 +84,8 @@
                                 <tr>
                                     <th>Номер заказа</th>
                                     <th>Товар</th>
+                                    <th>Игра</th>
+                                    <th>Ник в игре</th>
                                     <th>Цена</th>
                                     <th>Статус заказа</th>
                                 </tr>
@@ -93,6 +95,8 @@
                                     <tr>
                                         <td>{{ $order->id }}</td>
                                         <td>{{ $order->gameItem->title }}</td>
+                                        <td>{{ $order->gameItem->gameForItem->title }}</td>
+                                        <td>{{ $order->user_game_nickname }}</td>
                                         <td>{{ $order->price }}</td>
                                         <td>
                                             {{ $statuses[$order->status] }}
