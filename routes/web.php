@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [GameController::class, 'index']);
+Route::get('/', [GameController::class, 'index'])->name('home');
 
 
 Route::get('about', function () {
@@ -50,8 +50,6 @@ Route::resource('posts', PostController::class)->only([
 ]);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get("/profile", [ProfileController::class, 'show'])
     ->middleware("auth")

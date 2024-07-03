@@ -31,6 +31,11 @@ class GameItem extends Model implements Sortable
         'nova_order_by' => 'ASC',
     ];
 
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where('id',$value)->where('is_active',1)->first() ?? abort(404);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('is_active', 1);
@@ -57,5 +62,4 @@ class GameItem extends Model implements Sortable
     {
         return round($this->price);
     }
-
 }
