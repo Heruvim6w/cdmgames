@@ -25,6 +25,12 @@
             5px 5px 0 #fb0000,
             20px 20px 30px rgba(0, 0, 0, 0.5);
     }
+
+    .discount_description {
+        font-size: 1rem;
+        vertical-align: bottom;
+        box-shadow: 5px 6px 8px 0 #403d3d
+    }
 </style>
 <section class="vs-team-wrapper bg-title space">
     <div class="container">
@@ -39,7 +45,10 @@
                         @endif
                         @if ($gameItem->is_discount && $gameItem->discount)
                             <span class="discount" title="{{$gameItem->discount_description}}">
-                                    -{{$gameItem->discount}}%
+                                -{{$gameItem->discount}}%
+                                <span class="discount_description">
+                                    {{$gameItem->discount_description}}
+                                </span>
                             </span>
                         @endif
                         <img src="{{
@@ -74,7 +83,7 @@
                                             {{ $gameItem->getUndiscountedPrice() }} &#8381;
                                         </span>
                                     @endif
-                                    {{ $gameItem->price }}
+                                    {{ $gameItem->getRoundedPrice() }}
                                 </span>  &#8381;
                             </div>
                             @if ($gameItem->quantity)
@@ -88,7 +97,7 @@
                         <div class="team-card_content text-start d-sm-block d-md-none">
                             <div class="team-card_label mb-4">{{ $gameItem->title }}</div>
                             <div class="team-card_label mb-4">
-                                Цена: <span class="text-marked">{{ $gameItem->price }}</span>  &#8381;
+                                Цена: <span class="text-marked">{{ $gameItem->getRoundedPrice() }}</span>  &#8381;
                             </div>
                             @if ($gameItem->quantity)
                                 <div class="team-card_label mb-4">

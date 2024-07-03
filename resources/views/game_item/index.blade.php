@@ -30,6 +30,12 @@
             5px 5px 0 #fb0000,
             20px 20px 30px rgba(0, 0, 0, 0.5);
     }
+
+    .discount_description {
+        font-size: 1rem;
+        vertical-align: bottom;
+        box-shadow: 5px 6px 8px 0 #403d3d
+    }
 </style>
 <section class="vs-palyers-wrapper position-relative bg-dark space-top space-extra-bottom pt-5">
     <div class="container">
@@ -47,6 +53,9 @@
                                 @if ($gameItem->is_discount && $gameItem->discount)
                                     <span class="discount" title="{{$gameItem->discount_description}}">
                                         -{{$gameItem->discount}}%
+                                        <span class="discount_description">
+                                            {{$gameItem->discount_description}}
+                                        </span>
                                     </span>
                                 @endif
                                 <img src="{{ asset('storage/' . $gameItem->image) }}"
@@ -55,17 +64,15 @@
                             <div class="palyer-card_content">
                                 <span class="palyer-card_degi">Смотреть товар</span>
                                 <h3 class="palyer-card_name text-inherit">{{ $gameItem->title }}</h3>
-                                <h3 class="palyer-card_degi">{{ $gameItem->discount_description ?? '' }}</h3>
                             </div>
                             <div class="text-center">
                                 <span class="palyer-card_degi">{{ $gameItem->title }}</span>
                                 @if ($gameItem->is_discount && $gameItem->discount)
-                                    <h3 class="palyer-card_degi">{{ $gameItem->discount_description ?? '' }}</h3>
                                     <h5 class="palyer-card_name text-muted text-decoration-line-through">
                                         {{ $gameItem->getUndiscountedPrice() }} &#8381;
                                     </h5>
                                 @endif
-                                    <h3 class="palyer-card_name text-inherit">{{ $gameItem->price }} &#8381;</h3>
+                                    <h3 class="palyer-card_name text-inherit">{{ $gameItem->getRoundedPrice() }} &#8381;</h3>
                             </div>
                         </a>
                     </div>
