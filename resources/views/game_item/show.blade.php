@@ -16,7 +16,7 @@
         z-index: 1;
         font-family: var(--title-font);
         font-weight: bolder;
-        font-size: 21pt;
+        font-size: 3rem;
         text-shadow:
             1px 1px 0 #4d1a1a,
             2px 2px 0 #6c2020,
@@ -39,7 +39,7 @@
                         @endif
                         @if ($gameItem->is_discount && $gameItem->discount)
                             <span class="discount" title="{{$gameItem->discount_description}}">
-                                    {{$gameItem->discount}}%
+                                    -{{$gameItem->discount}}%
                             </span>
                         @endif
                         <img src="{{
@@ -77,14 +77,6 @@
                                     {{ $gameItem->price }}
                                 </span>  &#8381;
                             </div>
-                            @if ($gameItem->is_discount && $gameItem->discount)
-                                <div class="team-card_label mb-4">
-                                    Причина скидки:
-                                    <span class="text-marked">
-                                        {{ $gameItem->discount_description }}
-                                    </span>
-                                </div>
-                            @endif
                             @if ($gameItem->quantity)
                                 <div class="team-card_label mb-4">
                                     Осталось: <span class="text-marked">{{ $gameItem->quantity }}</span> шт.

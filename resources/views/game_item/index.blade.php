@@ -21,7 +21,7 @@
         z-index: 1;
         font-family: var(--title-font);
         font-weight: bolder;
-        font-size: 21pt;
+        font-size: 3rem;
         text-shadow:
             1px 1px 0 #4d1a1a,
             2px 2px 0 #6c2020,
@@ -46,7 +46,7 @@
                                 @endif
                                 @if ($gameItem->is_discount && $gameItem->discount)
                                     <span class="discount" title="{{$gameItem->discount_description}}">
-                                        {{$gameItem->discount}}%
+                                        -{{$gameItem->discount}}%
                                     </span>
                                 @endif
                                 <img src="{{ asset('storage/' . $gameItem->image) }}"
@@ -55,10 +55,12 @@
                             <div class="palyer-card_content">
                                 <span class="palyer-card_degi">Смотреть товар</span>
                                 <h3 class="palyer-card_name text-inherit">{{ $gameItem->title }}</h3>
+                                <h3 class="palyer-card_degi">{{ $gameItem->discount_description ?? '' }}</h3>
                             </div>
                             <div class="text-center">
                                 <span class="palyer-card_degi">{{ $gameItem->title }}</span>
                                 @if ($gameItem->is_discount && $gameItem->discount)
+                                    <h3 class="palyer-card_degi">{{ $gameItem->discount_description ?? '' }}</h3>
                                     <h5 class="palyer-card_name text-muted text-decoration-line-through">
                                         {{ $gameItem->getUndiscountedPrice() }} &#8381;
                                     </h5>
