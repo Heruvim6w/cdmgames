@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
 /**
  * @property int $id
@@ -19,8 +21,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $quantity
  * @property GameForItem $gameForItem
  */
-class GameItem extends Model
+class GameItem extends Model implements Sortable
 {
+    use SortableTrait;
+
+    public array $sortable = [
+        'order_column_name' => 'sort_order',
+        'sort_when_creating' => true,
+        'nova_order_by' => 'ASC',
+    ];
+
     public function scopeActive($query)
     {
         return $query->where('is_active', 1);

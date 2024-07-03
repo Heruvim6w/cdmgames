@@ -12,10 +12,18 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\NovaSortable\Traits\HasSortableRows;
 use Waynestate\Nova\CKEditor;
 
 class GameItem extends Resource
 {
+    use HasSortableRows;
+
+    public static function canSort(NovaRequest $request, $resource)
+    {
+        return true;
+    }
+
     /**
      * The model the resource corresponds to.
      *
@@ -74,6 +82,7 @@ class GameItem extends Resource
             Boolean::make('Скидка', 'is_discount'),
             Number::make('Количество', 'quantity')->nullable(),
             Boolean::make('Показать', 'is_active'),
+            Number::make('Порядок', 'sort_order')->sortable(),
         ];
     }
 
