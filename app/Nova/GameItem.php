@@ -77,7 +77,7 @@ class GameItem extends Resource
                 ->prunable()
                 ->nullable(),
             Currency::make('Цена', 'price')->currency('RUB')->required(),
-            Number::make('Скидка', 'discount'),
+            Number::make('Скидка', 'discount')->max(99),
             Text::make('Описание скидки', 'discount_description')->nullable(),
             Boolean::make('Скидка', 'is_discount'),
             Number::make('Количество', 'quantity')->nullable(),
