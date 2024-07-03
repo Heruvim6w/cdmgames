@@ -46,9 +46,16 @@ class GameItem extends Model implements Sortable
         return $this->hasMany(Order::class);
     }
 
-    public function getUndiscountedPrice(): float|int
+    public function getUndiscountedPrice(): int
     {
-        return $this->price / (1 - $this->discount / 100);
+        $undiscountedPrice = $this->price / (1 - $this->discount / 100);
+
+        return round($undiscountedPrice);
+    }
+
+    public function getRoundedPrice(): int
+    {
+        return round($this->price);
     }
 
 }
