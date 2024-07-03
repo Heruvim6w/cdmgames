@@ -65,7 +65,7 @@
             <div class="col-md-9 col-xl-7">
                 <div class="row">
                     <div class="team-card">
-                        <div class="team-card_content ml-30 text-start d-none d-lg-block">
+                        <div class="team-card_content ml-30 mr-30 text-start d-none d-lg-block">
                             <div class="team-card_label mb-4">{{ $gameItem->title }}</div>
                             <div class="team-card_label mb-4">
                                 Цена: <span class="text-marked">
