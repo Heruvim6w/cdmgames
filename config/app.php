@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Daaner\UnitPay\UnitPayServiceProvider::class,
 
         /*
          * Application Service Providers...

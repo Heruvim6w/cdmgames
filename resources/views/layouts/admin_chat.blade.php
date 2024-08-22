@@ -186,6 +186,18 @@
                     Страница VK
                 </a>
             @endif
+            @if($user->orders->isNotEmpty())
+                <div>
+                    <span class="look_div">
+                        <button
+                            class="vs-btn profile_btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#user_orders">
+                            Заказы
+                        </button>
+                    </span>
+                </div>
+            @endif
         </div>
     </div>
 </div>
@@ -279,5 +291,19 @@
                 Страница VK
             </a>
         @endif
+        @if($user->orders->isNotEmpty())
+            <div>
+                <span class="look_div">
+                    <button
+                        class="vs-btn profile_btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#user_orders">
+                        Заказы
+                    </button>
+                </span>
+            </div>
+        @endif
     </div>
 </div>
+
+@include('layouts.user_orders')

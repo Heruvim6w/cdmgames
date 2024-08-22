@@ -4,10 +4,40 @@ Palyer Area
 ============================== -->
 <section class="vs-palyers-wrapper bg-dark position-relative space-top space-extra-bottom">
 {{--    <div class="text-shape-2">CDMgames</div>--}}
+    @if(isset($gameForItems))
+        <div class="container">
+            <div class="title-area text-center text-xl-start">
+                <h2 class="sec-title text-white">Купить игровую валюту и предметы</h2>
+                <div class="sec-shape">
+                    <div class="sec-shape_bar"></div>
+                    <div class="sec-shape_bar"></div>
+                    <div class="sec-shape_bar"></div>
+                </div>
+                <h3>Продажи работают в тестовом режиме.<br>Приносим извинения за временные неудобства</h3>
+            </div>
+            <div class="row justify-content-center">
+                @foreach($gameForItems as $gameForItem)
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="palyer-card">
+                            <a href="{{ route('store.index', [$gameForItem->id]) }}">
+                                <div class="palyer-card_img">
+                                    <img src="{{ asset('storage/' . $gameForItem->image) }}"
+                                         alt="{{ $gameForItem->title }}" class="w-100" width="317.5" height="178.6">
+                                </div>
+                                <div class="palyer-card_content">
+                                    <span class="palyer-card_degi">Смотреть товары:</span>
+                                    <h3 class="palyer-card_name text-inherit">{{ $gameForItem->title }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
     <div class="container">
         <div class="title-area text-center text-xl-start">
-            <span class="sub-title">#Все текущие игры</span>
-            <h2 class="sec-title text-white">Выбор за тобой</h2>
+            <h2 class="sec-title text-white">Продать свой аккаунт</h2>
             <div class="sec-shape">
                 <div class="sec-shape_bar"></div>
                 <div class="sec-shape_bar"></div>

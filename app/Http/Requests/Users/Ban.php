@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Requests\JsonRequest;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 
@@ -29,10 +28,12 @@ class Ban extends FormRequest
      */
     public function rules()
     {
-        $user = $this->user();
-
         return [
-            "user" => $user,
+            "user" => [
+                "required",
+                "integer",
+                Rule::exists(User::class, "id"),
+            ]
         ];
     }
 }

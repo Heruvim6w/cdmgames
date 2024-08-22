@@ -148,7 +148,17 @@ Breadcumb
     class="breadcumb-wrapper header-breadcrumb"
     data-overlay="title"
     data-opacity="5"
-    style="background-image: url('{{ isset($game) && $game->banner ? asset('storage/' . $game->banner) : asset('assets/img/breadcumb/test-1.webp') }}');
+    style="background-image: url('{{
+        isset($game) && $game->banner ? asset('storage/' . $game->banner) : (
+            isset($gameForItem) && $gameForItem->banner ? asset('storage/' . $gameForItem->banner) :
+                (
+                    isset($gameItem) && $gameItem->gameForItem->banner ?
+                        asset('storage/' . $gameItem->gameForItem->banner) :
+                        asset('assets/img/breadcumb/test-1.webp'
+                    )
+                )
+            )
+        }}');
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -190,9 +200,15 @@ Breadcumb
                 @case('profile')
                     <h1 class="breadcumb-title">{{ auth()->user()->name }}</h1>
                 @break
+                @case('store.index')
+                    <h1 class="breadcumb-title">{{ $gameForItem->title }}</h1>
+                @break
+                @case('store.show')
+                    <h1 class="breadcumb-title">{{ $gameItem->gameForItem->title }}</h1>
+                @break
                 @default
                     <h1 class="breadcumb-title">Игры</h1>
             @endswitch
-        </div>
+</div>
     </div>
 </div>

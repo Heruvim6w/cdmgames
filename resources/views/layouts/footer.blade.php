@@ -6,9 +6,6 @@
     <div class="container z-index-step1">
         <div class="footer-newsletter text-center">
             <div class="row align-items-center d-flex justify-content-center">
-                <div class="col-lg-auto">
-                    <p class="text-white text-uppercase mb-4 mb-lg-0 widget_title_p">Зарабатывайте в любимых играх!</p>
-                </div>
                 <div class="col-md-3 col-xl-12">
                     <span class="look_div">
                         @if((Auth::user()) && (Auth::user()->role === 2))
@@ -17,7 +14,7 @@
                             </a>
                         @else
                             <a href="{{ route('profile.chat', 1) }}" target="blank">
-                                <button class="look vs-btn sell_btn">Продать аккаунт</button>
+                                <button class="look vs-btn sell_btn">Написать в чат</button>
                             </a>
                         @endif
                     </span>
@@ -26,7 +23,7 @@
         </div>
     </div>
     <div class="widget-area z-index-common"
-        style="background-image: url('{{ asset('assets/img/bg/footer-1.webp') }}');
+         style="background-image: url('{{ asset('assets/img/bg/footer-1.webp') }}');
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
@@ -41,9 +38,14 @@
                             </div>
                             <p class="footer-about-text" style="font-size: 14px; text-align: justify;">
                                 CDMGames - это большой сервис скупки аккаунтов по видеоиграм.
-								Ценность предоставляет любой аккаунт, на который Вы потратили время: с доступом к соревновательному режиму, к рейтинговым играм, с рангом, медалью или достижением, с дорогими и дешевыми скинами, игровой валютой и т.д.
-								Мы займемся Вашим аккаунтом и поможем заработать на каждой игре. Совмести приятное с полезным, Игрок!
+                                Ценность предоставляет любой аккаунт, на который Вы потратили время: с доступом к
+                                соревновательному режиму, к рейтинговым играм, с рангом, медалью или достижением, с
+                                дорогими и дешевыми скинами, игровой валютой и т.д.
+                                Мы займемся Вашим аккаунтом и поможем заработать на каждой игре. Совмести приятное с
+                                полезным, Игрок!
                             </p>
+                            <p><a href="{{ route('agreement') }}">Пользовательское соглашение</a></p>
+                            <p><a href="{{ route('refund_politics') }}">Политика возвратов</a></p>
                             <div class="multi-social">
                                 <a href="https://vk.com/cdmgames"><i class="fab fa-vk"></i></a>
                             </div>
@@ -55,9 +57,12 @@
                         <p class="widget_title">Контакты</p>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a class="text-white" href="https://vk.com/cdmgames">Официальное сообщество ВКонтакте</a></li>
-								<li><a class="text-white" href="https://discordapp.com/users/484332927216254977">Discord Илья: CDMGames</a></li>
-                                <li><a class="text-white" href="https://discordapp.com/users/261928281748668419">Discord Альберт: cdmgamesalbert</a></li>
+                                <li><a class="text-white" href="https://vk.com/cdmgames">Официальное сообщество
+                                        ВКонтакте</a></li>
+                                <li><a class="text-white" href="https://discordapp.com/users/484332927216254977">Discord
+                                        Илья: CDMGames</a></li>
+                                <li><a class="text-white" href="https://discordapp.com/users/261928281748668419">Discord
+                                        Альберт: cdmgamesalbert</a></li>
                                 <li><a class="text-white" href="https://vk.com/reconnection95">Илья</a></li>
                                 <li><a class="text-white" href="https://vk.com/id70682727">Альберт</a></li>
                                 <li><a class="text-white" href="https://cdmgames.com/about">Операторы Cdmgames</a></li>

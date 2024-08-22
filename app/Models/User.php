@@ -54,6 +54,7 @@ class User extends Authenticatable
         'vk_link',
         'balance',
         'withdrawal',
+        'is_banned',
     ];
 
     /**
@@ -125,5 +126,13 @@ class User extends Authenticatable
     public function accounts(): HasMany
     {
         return $this->hasMany(Account::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

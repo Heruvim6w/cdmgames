@@ -1,4 +1,4 @@
-FROM php:8.0.9-fpm-alpine3.14
+FROM php:8.1.0-fpm-alpine3.14
 
 RUN apk add --no-cache \
     npm \

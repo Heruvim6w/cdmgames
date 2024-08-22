@@ -1,7 +1,13 @@
 <?php
 
 use App\Http\Controllers\Dialogs\DialogController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\GameItemController;
 use App\Http\Controllers\LinkLayoutController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequisiteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
@@ -9,14 +15,11 @@ use App\Http\Controllers\VkBotController;
 use App\Models\Dialog;
 use App\Models\LinkLayout;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Http\Request;
-use App\Http\Controllers\RequisiteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +31,7 @@ use App\Http\Controllers\RequisiteController;
 |
 */
 
-Route::get('/', [GameController::class, 'index']);
+Route::get('/', [GameController::class, 'index'])->name('home');
 
 
 Route::get('about', function () {
@@ -47,8 +50,6 @@ Route::resource('posts', PostController::class)->only([
 ]);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get("/profile", [ProfileController::class, 'show'])
     ->middleware("auth")
@@ -165,6 +166,49 @@ Route::post('requisites', [RequisiteController::class, 'store'])
     ->middleware('verified')
     ->name('user_requisites');
 
+Route::prefix('store')
+    ->name('store.')
+    ->group(function () {
+        Route::get('/{game_for_item}', [GameItemController::class, 'index'])
+            ->name('index');
+        Route::get('/show/{game_item}', [GameItemController::class, 'show'])
+            ->name('show');
+});
+
 Route::get('confirm/{hash}', [RequisiteController::class, 'confirm'])->name('requisite_confirm');
 Route::post('replenishment_from_bot',[VkBotController::class, 'replenishmentFromBot']);
+Route::post('reviews_confirm',[ReviewController::class, 'reviewsConfirm']);
 Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
+
+Route::get('/unitpay', [OrderController::class, 'check']);
+
+Route::resource('orders', OrderController::class)->only([
+    'index', 'store'
+])->middleware("auth");
+
+Route::post('orders/cancel', [OrderController::class, 'cancel'])
+    ->name('orders.cancel')
+    ->middleware('auth')
+    ->middleware('verified');
+
+Route::post('orders/deliver', [OrderController::class, 'deliver'])
+    ->name('orders.deliver')
+    ->middleware('auth')
+    ->middleware('verified');
+
+Route::get('orders/{order}/pay/{user}', [OrderController::class, 'pay'])
+    ->name('orders.pay')
+    ->middleware('auth')
+    ->middleware('verified');
+
+Route::get('agreement', function () {
+    return view('agreement');
+})->name('agreement');
+
+Route::get('refund_politics', function () {
+    return view('refund_politics');
+})->name('refund_politics');
+
+Route::get('price_list', function () {
+    return view('price_list');
+})->name('price_list');

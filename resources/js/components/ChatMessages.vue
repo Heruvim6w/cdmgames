@@ -97,7 +97,8 @@
                                 resize: none;
                                 background-color: #262228;
                                 border-radius: 7px;"
-                              placeholder="&#10;Введите ваше сообщение">
+                              :placeholder="'\n'+placeholderText"
+                              :disabled="from.is_banned || user.is_banned">
                     </textarea>
 
                     <discord-picker
@@ -112,7 +113,7 @@
 
                     <div v-if="to !== 1" class="d-none d-sm-block col-2 links">
                         <div class="text-muted">Шаблон:</div>
-                        <select v-model="selectedLink" @change="onSelectLink" id="layouts_links">
+                        <select v-model="selectedLink" @change="onSelectLink" id="layouts_links" :disabled="from.is_banned || user.is_banned">
                             <option disabled value="">Выберите один из вариантов</option>
                             <option v-for="link in games_links"
                                     v-bind:value="link.content"
@@ -128,7 +129,7 @@
                         <li class="list-inline-item" style="position: relative; left: 30%;"
                             :class="{ 'admin_send_button' : from.role === 2 }">
                             <button @click="sendMessage" name="sendmessage" type="submit"
-                                    class="d-md-block look vs-btn">
+                                    class="d-md-block look vs-btn" :disabled="from.is_banned || user.is_banned">
                             <span class="m-r-xl-10">
                                 <span class="d-none d-xl-inline">Отправить </span>
                                 <i class="far fa-paper-plane"></i>
@@ -203,6 +204,11 @@ export default {
     },
     renderTracked() {
         this.$nextTick(() => this.scrollToEnd());
+    },
+    computed: {
+        placeholderText() {
+            return this.from.is_banned ? 'Вы забанены' : this.user.is_banned ? 'Этот пользователь забанен': 'Введите ваше сообщение';
+        }
     },
     mounted() {
         this.dropzone = new Dropzone(this.$refs.files, {

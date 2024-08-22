@@ -321,9 +321,14 @@ class UserController extends Controller
 
     public function ban(Ban $request)
     {
-        $user = $request->input('user');
-        $user->is_banned = 1;
-        $user->save();
+        $data = $request->validated();
+        try {
+            $user = User::find($data['user']);
+            $user->is_banned = 1;
+            $user->save();
+        } catch (\Exception $exception) {
+            return response()->jsonFail($exception->getMessage());
+        }
 
         return response()->jsonSuccess($user);
     }
