@@ -89,11 +89,17 @@ class ReviewController extends Controller
     private function searchProfiles(array $profiles, int $id) {
         foreach ($profiles as $profile) {
             if ($profile->id === $id) {
+                if ($profile->photo_100 && strlen(trim($profile->photo_100)) <= 255) {
+                    $avatar = $profile->photo_100;
+                } else {
+                    $avatar = 'no_avatar';
+                }
+
                 return json_encode(
                     [
                         'first_name' => $profile->first_name,
                         'last_name' => $profile->last_name,
-                        'photo_100' => $profile->photo_100 ?? 'no_avatar'
+                        'photo_100' => $avatar
                     ],
                     JSON_THROW_ON_ERROR
                 );
