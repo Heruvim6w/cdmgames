@@ -73,7 +73,7 @@ class ReviewController extends Controller
                     if (
                         isset($item->attachments) &&
                         $item->attachments[0]->type === 'photo' &&
-                        strlen(trim($item->attachments[0]->type)) <= 255
+                        strlen(trim($item->attachments[0]->photo->sizes[2]->url)) <= 255
                     ) {
                         $review->attachment = $item->attachments[0]->photo->sizes[2]->url;
                     }
