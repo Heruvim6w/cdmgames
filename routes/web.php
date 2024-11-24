@@ -7,6 +7,7 @@ use App\Http\Controllers\LinkLayoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RandomEmailController;
 use App\Http\Controllers\RequisiteController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SitemapXmlController;
@@ -212,3 +213,7 @@ Route::get('refund_politics', function () {
 Route::get('price_list', function () {
     return view('price_list');
 })->name('price_list');
+
+Route::post("add_emails", [RandomEmailController::class, 'create'])
+    ->middleware('auth')
+    ->name('add.emails');

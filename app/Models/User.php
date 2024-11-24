@@ -38,9 +38,15 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     public const REGISTERED_AT     = "registered_at";
+
     public const UPDATED_AT        = "updated_at";
+
     public const EMAIL_VERIFIED_AT = "email_verified_at";
+
     public const ADMIN             = 2;
+
+    public const SUPER_ADMIN       = 3;
+
     /**
      * The attributes that are mass assignable.
      *

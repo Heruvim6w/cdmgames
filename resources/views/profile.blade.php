@@ -1,3 +1,4 @@
+@php use App\Models\User; @endphp
 @include('layouts.header')
 <!--==============================
     Team Area
@@ -40,11 +41,11 @@
         </button>
     </div>
     <script>
-        $('.alert .close').on('click', function(){
+        $('.alert .close').on('click', function () {
             $(this).closest('.alert').fadeOut('slow');
         });
 
-        setTimeout(function() {
+        setTimeout(function () {
             $('.alert').fadeOut('slow');
         }, 5000);
     </script>
@@ -96,6 +97,19 @@
                                         </a>
                                     </span>
                                 </div>
+                                @if($user->role === User::SUPER_ADMIN)
+                                <div class="mt-3">
+                                    <span class="look_div">
+                                        <button
+                                            class="vs-btn profile_btn"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#add_emails"
+                                        >
+                                            Создать email'ы
+                                        </button>
+                                    </span>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -215,7 +229,7 @@
 
             <div class="container">
                 <div class="row z-index-common">
-                    @if($user->role === 2)
+                    @if($user->role === User::ADMIN)
                         <div class="col-md-3 col-xl-3">
                             <span class="look_div">
                                 <a href="{{ route('dialogs.index') }}" target="blank">
@@ -232,6 +246,7 @@
 @include('layouts.withdrawal')
 @include('layouts.user_update')
 @include('layouts.avatar_update')
+@include('layouts.add_emails')
 @include('layouts.footer')
 
 </body>
