@@ -35,7 +35,7 @@ class Store extends JsonRequest
             "from" => "required|integer",
             "text" => "required_without_all:images|nullable|string",
             "images" => "required_without_all:text|nullable|array",
-            "images.*" => "image|mimes:jpeg,jpg,png|max:2048"
+            "images.*" => "image|mimes:jpeg,jpg,png|max:20480"
         ];
     }
 }
