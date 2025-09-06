@@ -214,6 +214,29 @@ Route::get('price_list', function () {
     return view('price_list');
 })->name('price_list');
 
+Route::get('offer', function () {
+    return view('offer');
+})->name('offer');
+
+Route::get('consent', function () {
+    return view('consent');
+})->name('consent');
+
+Route::get('privacy_policy', function () {
+    return view('privacy_policy');
+})->name('privacy_policy');
+
+Route::get('terms_of_service', function () {
+    return view('terms_of_service');
+})->name('terms_of_service');
+
 Route::post("add_emails", [RandomEmailController::class, 'create'])
     ->middleware('auth')
     ->name('add.emails');
+
+// Добавить маршрут для обработки заявки на продажу
+Route::post('sell_request', [ProfileController::class, 'sellRequest'])->name('sell.request');
+
+// Страница заявки
+Route::get('sell-application/{id}', [ProfileController::class, 'showSellApplication'])->name('sell.application.show');
+

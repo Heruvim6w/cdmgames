@@ -46,6 +46,10 @@
                             </p>
                             <p><a href="{{ route('agreement') }}">Пользовательское соглашение</a></p>
                             <p><a href="{{ route('refund_politics') }}">Политика возвратов</a></p>
+                            <p><a href="{{ route('offer') }}">Оферта</a></p>
+                            <p><a href="{{ route('consent') }}">Согласие на обработку персональных данных</a></p>
+                            <p><a href="{{ route('privacy_policy') }}">Политика конфиденциальности</a></p>
+                            <p><a href="{{ route('terms_of_service') }}">Правила сервиса</a></p>
                             <div class="multi-social">
                                 <a href="https://vk.com/cdmgames"><i class="fab fa-vk"></i></a>
                             </div>
