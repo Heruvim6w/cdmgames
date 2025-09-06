@@ -55,7 +55,7 @@
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments}};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -124,10 +124,14 @@
                 <div class="hero-clip-shape bg-theme2"></div>
                 <div class="container" style="z-index: 6;">
                     <div class="row">
-                        <div class="col-sm-8 col-xxl-6 offset-xl-1">
+                        <div class="col-8 col-sm-10 col-xxl-6 offset-xl-1">
                             <div class="hero-clip-content">
                                 <h1 class="hero-clip-title">Welcome to <span class="text-theme2">CDMGAMES</span> zone</h1>
-                                <a href="{{ route('about') }}" class="vs-btn">О нас<i class="fal fa-long-arrow-right"></i></a>
+                                <a href="{{ route('about') }}" class="vs-btn mt-1 mt-lg-0">О нас<i class="fal fa-long-arrow-right"></i></a>
+                                <button class="vs-btn mt-1 mt-lg-0" id="openSellModalMain">Оставить заявку на продажу</button>
+                                <a href="{{ route('profile.chat', 1) }}" target="_blank">
+                                    <button class="vs-btn mt-1 mt-lg-0">Написать сообщение</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -136,3 +140,67 @@
         </div>
     </div>
 </section>
+
+@include('components.sell_request_form', [
+    'modalId' => 'sellModalMain',
+    'labelId' => 'sellModalLabelMain',
+    'formId' => 'sellFormMain',
+    'telegramId' => 'telegram_main',
+    'gameId' => 'game_main',
+    'descriptionId' => 'description_main',
+    'mediaId' => 'media_main',
+    'mediaErrorId' => 'mediaErrorMain',
+    'openBtnId' => 'openSellModalMain',
+    'games' => $games
+])
+
+<script>
+$(document).ready(function() {
+  $('#openSellModalMain').on('click', function() {
+    $('#sellModalMain').modal('show');
+  });
+
+  // Валидация Telegram
+  $('#telegram_main').on('input', function() {
+    const val = $(this).val();
+    const re = /^@[a-zA-Z0-9_]{5,32}$/;
+    if (!re.test(val)) {
+      $(this)[0].setCustomValidity('Некорректный username');
+    } else {
+      $(this)[0].setCustomValidity('');
+    }
+  });
+
+  // Валидация файлов
+  $('#media_main').on('change', function() {
+    let totalSize = 0;
+    let valid = true;
+    let errorMsg = '';
+    const allowedTypes = ['image/jpeg','image/png','image/webp','application/pdf','video/mp4','image/jpg'];
+    $.each(this.files, function(i, file) {
+      if (file.size > 20 * 1024 * 1024) {
+        valid = false;
+        errorMsg = 'Файл ' + file.name + ' превышает 20Мб.';
+        return false;
+      }
+      if (!allowedTypes.includes(file.type)) {
+        valid = false;
+        errorMsg = 'Недопустимый тип файла: ' + file.name;
+        return false;
+      }
+      totalSize += file.size;
+    });
+    if (totalSize > 70 * 1024 * 1024) {
+      valid = false;
+      errorMsg = 'Суммарный размер файлов превышает 70Мб.';
+    }
+    if (!valid) {
+      $('#media_main')[0].setCustomValidity(errorMsg);
+      $('#mediaErrorMain').text(errorMsg).show();
+    } else {
+      $('#media_main')[0].setCustomValidity('');
+      $('#mediaErrorMain').hide();
+    }
+  });
+});
+</script>

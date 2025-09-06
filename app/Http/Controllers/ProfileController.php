@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PageStaticContent;
 use App\Models\User;
 use App\Services\UserChangePasswordService;
+use App\Services\SellApplicationService;
+use App\Services\TelegramNotificationService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -12,14 +14,25 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Game;
+use App\Models\SellApplication;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\SellRequest;
 
 class ProfileController extends Controller
 {
     private UserChangePasswordService $userChangePasswordService;
+    private SellApplicationService $sellApplicationService;
+    private TelegramNotificationService $telegramNotificationService;
 
-    public function __construct(UserChangePasswordService $userChangePasswordService)
+    public function __construct(UserChangePasswordService $userChangePasswordService, SellApplicationService $sellApplicationService, TelegramNotificationService $telegramNotificationService)
     {
         $this->userChangePasswordService = $userChangePasswordService;
+        $this->sellApplicationService = $sellApplicationService;
+        $this->telegramNotificationService = $telegramNotificationService;
     }
     /**
      * @return Application|Factory|View
@@ -66,5 +79,32 @@ class ProfileController extends Controller
         $this->userChangePasswordService->update($request);
 
         return redirect()->back()->with('success', 'Пароль успешно изменен!');
+    }
+
+    /**
+     * Обработка заявки на продажу аккаунта
+     */
+    public function sellRequest(SellRequest $request): RedirectResponse
+    {
+        try {
+            $application = $this->sellApplicationService->handle($request);
+            $this->telegramNotificationService->sendSellApplication($application);
+            return redirect()->route('sell.application.show', $application->id);
+        } catch (\Throwable $e) {
+            \Log::error('Ошибка при создании заявки на продажу: ' . $e->getMessage(), [
+                'exception' => $e,
+            ]);
+            return back()->withErrors(['error' => 'Произошла ошибка при обработке заявки. Попробуйте позже.'])->withInput();
+        }
+    }
+
+    /**
+     * Страница заявки
+     */
+    public function showSellApplication($id): Factory|View|Application
+    {
+        $application = SellApplication::with('game')->findOrFail($id);
+        $botUrl = config('services.telegram_bot_url');
+        return view('sell_application.show', compact('application', 'botUrl'));
     }
 }

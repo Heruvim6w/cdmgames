@@ -180,6 +180,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ResponseMacroServiceProvider::class,
         App\Providers\RequestMacroServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 

@@ -72,6 +72,8 @@ class Game extends Resource
             Text::make('Seo description', 'seo_description')->hideFromIndex(),
             Text::make('Seo keywords','seo_keywords')->hideFromIndex(),
             Boolean::make('Показать', 'is_active'),
+            Text::make('Подсказка для формы заявки', 'sell_hint')
+                ->hideFromIndex(),
         ];
     }
 

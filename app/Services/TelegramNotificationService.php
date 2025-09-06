@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Services;
+
+use App\Models\SellApplication;
+use App\Models\Game;
+use Illuminate\Support\Facades\Http;
+
+class TelegramNotificationService
+{
+    public function sendSellApplication(SellApplication $application): void
+    {
+        $botUrl = config('services.telegram_bot_url');
+        $chatId = config('services.telegram_chat_id');
+        $gameName = $application->game ? $application->game->name : 'Не указано';
+        $text = "Новая заявка #{$application->id}\nTelegram: {$application->telegram}\nИгра: {$gameName}\nОписание: {$application->description}";
+        if (!empty($application->media)) {
+            $text .= "\nФайлы:\n" . implode("\n", array_map(fn($p) => asset('storage/'.$p), $application->media));
+        }
+        if ($botUrl && $chatId) {
+            Http::post($botUrl . '/sendMessage', [
+                'chat_id' => $chatId,
+                'text' => $text,
+                'parse_mode' => 'HTML',
+            ]);
+        }
+    }
+}
+

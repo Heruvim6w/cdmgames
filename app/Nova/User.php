@@ -2,10 +2,7 @@
 
 namespace App\Nova;
 
-use App\Nova\Metrics\NewUsers;
-use App\Nova\Metrics\UsersPerDay;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
@@ -63,8 +60,6 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
-
-            Boolean::make('Is banned', 'is_banned')->sortable(),
         ];
     }
 
@@ -76,10 +71,7 @@ class User extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            new NewUsers(),
-            new UsersPerDay(),
-        ];
+        return [];
     }
 
     /**

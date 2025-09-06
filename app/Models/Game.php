@@ -10,6 +10,18 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'poster',
+        'banner',
+        'seo_description',
+        'seo_keywords',
+        'is_active',
+        'sell_hint',
+    ];
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -28,5 +40,13 @@ class Game extends Model
     public function linkLayout()
     {
         return $this->hasOne(LinkLayout::class);
+    }
+
+    /**
+     * Подсказка для формы заявки
+     */
+    public function getSellHintAttribute($value)
+    {
+        return $value;
     }
 }

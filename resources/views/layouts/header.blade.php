@@ -61,7 +61,7 @@
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments}};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -88,20 +88,36 @@
 <header class="vs-header header-layout2">
     <div class="header-top d-none d-lg-block">
         <div class="container">
-            <div class="row justify-content-center justify-content-lg-between align-items-center">
-                <div class="col-auto">
+            <div class="row align-items-center flex-nowrap flex-lg-nowrap flex-md-wrap flex-wrap justify-content-center justify-content-lg-between" style="min-height: 70px;">
+                <div class="col-auto px-2 flex-shrink-1 d-flex align-items-center">
                     <div class="header-links text-white">
-                        <ul>
+                        <ul class="mb-0">
                             <li>
-                                <p class="header-text">Приветствуем в нашей команде <span class="fw-semibold"><span
-                                            class="text-theme2 text-uppercase">CDMgames</span></span></p>
+                                <p class="header-text mb-0">Приветствуем в нашей команде <span class="fw-semibold">
+                                        <span class="text-theme2 text-uppercase">CDMgames</span></span></p>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-auto">
+
+                <div class="col-auto px-2 flex-shrink-1 d-flex align-items-center">
                     <div class="header-links text-white">
-                        <ul>
+                        <ul class="d-flex gap-2 mb-0 align-items-center">
+                            <li>
+                                <button class="vs-btn top-btn" id="openSellModal">Оставить заявку на продажу</button>
+                            </li>
+                            <li>
+                                <a href="{{ route('profile.chat', 1) }}" target="_blank">
+                                    <button class="vs-btn top-btn">Написать сообщение</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-auto px-2 flex-shrink-1 d-flex align-items-center">
+                    <div class="header-links text-white">
+                        <ul class="mb-0">
                             <li>
                                 <a href="mailto:support@cdmgames.com" class="header-number"><i class="fal fa-at"></i>support@cdmgames.com - для коммерческих предложений</a>
                             </li>
@@ -212,3 +228,68 @@ Breadcumb
 </div>
     </div>
 </div>
+
+@include('components.sell_request_form', [
+    'modalId' => 'sellModal',
+    'labelId' => 'sellModalLabel',
+    'formId' => 'sellForm',
+    'telegramId' => 'telegram',
+    'gameId' => 'game',
+    'descriptionId' => 'description',
+    'mediaId' => 'media',
+    'mediaErrorId' => 'mediaError',
+    'openBtnId' => 'openSellModal',
+    'games' => $games
+])
+
+<script>
+// Открытие модального окна
+$(document).ready(function() {
+  $('#openSellModal').on('click', function() {
+    $('#sellModal').modal('show');
+  });
+
+  // Валидация Telegram
+  $('#telegram').on('input', function() {
+    const val = $(this).val();
+    const re = /^@[a-zA-Z0-9_]{5,32}$/;
+    if (!re.test(val)) {
+      $(this)[0].setCustomValidity('Некорректный username');
+    } else {
+      $(this)[0].setCustomValidity('');
+    }
+  });
+
+  // Валидация файлов
+  $('#media').on('change', function() {
+    let totalSize = 0;
+    let valid = true;
+    let errorMsg = '';
+    const allowedTypes = ['image/jpeg','image/png','image/webp','application/pdf','video/mp4','image/jpg'];
+    $.each(this.files, function(i, file) {
+      if (file.size > 20 * 1024 * 1024) {
+        valid = false;
+        errorMsg = 'Файл ' + file.name + ' превышает 20Мб.';
+        return false;
+      }
+      if (!allowedTypes.includes(file.type)) {
+        valid = false;
+        errorMsg = 'Недопустимый тип файла: ' + file.name;
+        return false;
+      }
+      totalSize += file.size;
+    });
+    if (totalSize > 70 * 1024 * 1024) {
+      valid = false;
+      errorMsg = 'Суммарный размер файлов превышает 70Мб.';
+    }
+    if (!valid) {
+      $('#media')[0].setCustomValidity(errorMsg);
+      $('#mediaError').text(errorMsg).show();
+    } else {
+      $('#media')[0].setCustomValidity('');
+      $('#mediaError').hide();
+    }
+  });
+});
+</script>
