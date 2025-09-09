@@ -32,7 +32,7 @@ class SellApplicationService
         if ($request->hasFile('media')) {
             foreach ($request->file('media') as $file) {
                 $filename = Str::random(16) . '.' . $file->getClientOriginalExtension();
-                $path = $file->storeAs('sell_requests', $filename);
+                $path = $file->storeAs('sell_requests', $filename, 'public');
                 $mediaPaths[] = $path;
             }
         }
