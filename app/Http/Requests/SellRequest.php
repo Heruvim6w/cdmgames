@@ -16,7 +16,7 @@ class SellRequest extends FormRequest
         return [
             'telegram' => ['required', 'regex:/^@[a-zA-Z0-9_]{5,32}$/'],
             'game' => ['required', 'exists:games,id'],
-            'description' => ['required', 'string', 'max:2000'],
+            'description' => ['required', 'string', 'max:800'],
             'media' => ['nullable', 'array'],
             'media.*' => [
                 'file',

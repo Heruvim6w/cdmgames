@@ -6,29 +6,42 @@ use App\Models\PageStaticContent;
 use App\Models\User;
 use App\Services\UserChangePasswordService;
 use App\Services\SellApplicationService;
+use App\Services\TelegramNotificationService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Game;
 use App\Models\SellApplication;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\SellRequest;
 
 class ProfileController extends Controller
 {
     private UserChangePasswordService $userChangePasswordService;
+
     private SellApplicationService $sellApplicationService;
 
-    public function __construct(UserChangePasswordService $userChangePasswordService, SellApplicationService $sellApplicationService)
+    private TelegramNotificationService $telegramNotificationService;
+
+    public function __construct(
+        UserChangePasswordService $userChangePasswordService,
+        SellApplicationService $sellApplicationService,
+        TelegramNotificationService $telegramNotificationService
+    )
     {
         $this->userChangePasswordService = $userChangePasswordService;
         $this->sellApplicationService = $sellApplicationService;
+        $this->telegramNotificationService = $telegramNotificationService;
     }
-    /**
-     * @return Application|Factory|View
-     */
-    public function show()
+
+    public function show(): Factory|View|Application
     {
         /** @var User $user */
         $user = auth()->user();
@@ -50,19 +63,20 @@ class ProfileController extends Controller
             'confirm_new_password' => 'required|min:8',
         ]);
         $user = auth()->user();
-        if(Hash::check($data['password'], $user->password)){
-            if($data['password'] === $data['new_password']){
-                return collect(['errors'=>['new_password'=>['Новый пароль не может быть такой же как старый.']]])->toJson();
+        if (Hash::check($data['password'], $user->password)) {
+            if ($data['password'] === $data['new_password']) {
+                return collect(['errors' => ['new_password' => ['Новый пароль не может быть такой же как старый.']]])->toJson();
             }
-            if($data['new_password'] !== $data['confirm_new_password']){
-                return collect(['errors'=>['confirm_new_password'=>['Пароли не совпадают']]])->toJson();
-            } else{
+            if ($data['new_password'] !== $data['confirm_new_password']) {
+                return collect(['errors' => ['confirm_new_password' => ['Пароли не совпадают']]])->toJson();
+            } else {
                 $user->password = Hash::make($data['new_password']);
                 $user->save();
-                return collect(['errors'=>['confirm_new_password'=>['Пароль успешно изменен']],'result'=>'reload'])->toJson();
+                return collect(['errors' => ['confirm_new_password' => ['Пароль успешно изменен']], 'result' => 'reload'])->toJson();
             }
         }
-        return collect(['errors'=>['password'=>['Старый пароль не подходит']]])->toJson();
+
+        return collect(['errors' => ['password' => ['Старый пароль не подходит']]])->toJson();
     }
 
     public function updateTempPassword(Request $request): RedirectResponse
@@ -79,7 +93,7 @@ class ProfileController extends Controller
     {
         try {
             $application = $this->sellApplicationService->handle($request);
-
+            $this->telegramNotificationService->sendSellApplication($application);
             return redirect()->route('sell.application.show', $application->id);
         } catch (\Throwable $e) {
             \Log::error('Ошибка при создании заявки на продажу: ' . $e->getMessage(), [
