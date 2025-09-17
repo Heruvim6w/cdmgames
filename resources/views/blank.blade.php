@@ -26,14 +26,14 @@
                     </h3>
                     <ul>
                         <li>
-                            <a href="https://vk.com/reconnection95"
+                            <a href="https://vk.ru/reconnection95"
                                class="font-bold"
                                style="font-size: large;">
                                 Владелец: Илья
                             </a>
                         </li>
                         <li>
-                            <a href="https://vk.com/id70682727"
+                            <a href="https://vk.ru/id70682727"
                                class="font-bold"
                                style="font-size: large;">
                                 Владелец: Альберт

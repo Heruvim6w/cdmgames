@@ -247,7 +247,7 @@ class UserController extends Controller
 
             Оставьте отзыв по ссылке vk.cc/c41Wpj и Вам будет начислен рандомный денежный бонус на баланс.
 
-            Для получения бонуса, необходимо сделать скриншот отзыва и отправить его в сообщения группы ВКонтакте - vk.com/cdmdoto';
+            Для получения бонуса, необходимо сделать скриншот отзыва и отправить его в сообщения группы ВКонтакте - vk.ru/cdmdoto';
 
             $withdrawalApplication = WithdrawalApplication::find($withdrawalApplicationId);
             $withdrawalApplication->status = 1;

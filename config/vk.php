@@ -17,7 +17,7 @@ return [
     'sort' => 'desc',
     'version' => '5.130',
     'token' => 'vk1.a.m3pMWJO1xqbcLF11DUdi5-mmdKVw3Zo5GYitqBBLqtzFs1FmjqepX53sH7gcpBBXZMTme-_jIpeHt8sp3H0AzQfJ4xXHUxyzsBe6zb2BxDFiujPAVlWo29Ni6F9eh-qgikH8SgxJnovA7lPBZcH57phuZC0bmDqaf8GskN7SYKoOuBfsnO5R7pWyar_LWKCyJM2EmTttyHDu8RGOPJnpDQ',
-    'url' => 'https://api.vk.com/method/messages.send?',
+    'url' => 'https://api.vk.ru/method/messages.send?',
     'versionApi' => '5.81',
     'oldAccessToken' => 'a3f2046e1490dd3ea3d85256b2346a8b6f664740576be4f16368b1a6c113a8165c2b052ab4d4f11eea041',
     'accessToken' => 'vk1.a.U_2lsaPLhKbbEb_gooEN9zDUcAx6MPsl6h0ORH3xTlro885CdG_kmMqZ00UXaGsl7x8NMIpp0ytaECmd2w9NvkeCQFvJeHpMbEvntiYliWLp1LXAJHWgZPJFJD0hdAYUNEwkia2azwGXPYSF0E8J1vsROWrozTmCLCHnAZsqw78953R6Lrbc16W0dSJvvgLf0RuqVaXdI1fA90GkXiE-Ow',

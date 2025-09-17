@@ -50,7 +50,7 @@ class ReviewController extends Controller
      */
     private function getVkReviews(): void
     {
-        $parsing = file_get_contents('https://api.vk.com/method/board.getComments?group_id=' . $this->group_id . '&topic_id=' . $this->topic_id . '&count=' . $this->count . '&extended=' . $this->extended . '&need_likes=' . $this->need_likes . '&sort=' . $this->sort . '&v=' . $this->version . '&access_token=' . $this->token);
+        $parsing = file_get_contents('https://api.vk.ru/method/board.getComments?group_id=' . $this->group_id . '&topic_id=' . $this->topic_id . '&count=' . $this->count . '&extended=' . $this->extended . '&need_likes=' . $this->need_likes . '&sort=' . $this->sort . '&v=' . $this->version . '&access_token=' . $this->token);
 
         $parsing = json_decode($parsing, false, 512, JSON_THROW_ON_ERROR);
 
@@ -67,7 +67,7 @@ class ReviewController extends Controller
 
                 if (!$review && $profile !== null) {
                     $review = new Review();
-                    $review->vk_user_id = "https://vk.com/id" . $item->from_id;
+                    $review->vk_user_id = "https://vk.ru/id" . $item->from_id;
                     $review->comment_id = $item->id;
                     $review->comment = $item->text;
                     if (

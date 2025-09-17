@@ -114,7 +114,7 @@
 ==============================-->
 <section class="vs-hero-wrapper position-relative bg-dark">
     <div class="hero-social d-none d-lg-block">
-        <a href="https://vk.com/cdmgames"><span>vk</span>.com</a>
+        <a href="https://vk.ru/cdmgames"><span>vk</span>.com</a>
     </div>
 
     <div class="vs-carousel" id="heroSlide1" data-slide-show="1" data-md-slide-show="1" data-fade="true">

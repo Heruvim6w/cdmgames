@@ -24,7 +24,7 @@
                             </tr>
                             <tr>
                                 <td>Социальные сети</td>
-                                <td colspan="2"><a href="https://vk.com/cdmgames">Официальное сообщество ВКонтакте</a></td>
+                                <td colspan="2"><a href="https://vk.ru/cdmgames">Официальное сообщество ВКонтакте</a></td>
                             </tr>
                             <tr>
                                 <td>Сайт по Dota 2: прокачка 100 часов, буст и продажа аккаунтов</td>
@@ -48,61 +48,61 @@
                             <tr>
                                 <td>Владелец: Илья</td>
                                 <td><a  href="https://discordapp.com/users/484332927216254977">Discord</a></td>
-                                <td><a  href="https://vk.com/reconnection95">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/reconnection95">ВКонтакте</a></td>
                             </tr>
                             <tr>
                                 <td>Владелец: Альберт</td>
                                 <td><a  href="https://discordapp.com/users/261928281748668419">Discord</a></td>
-                                <td><a  href="https://vk.com/id70682727">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/id70682727">ВКонтакте</a></td>
                             </tr>
                             <tr>
                                 <td>Главный Оператор Cdmgames: Дмитрий</td>
-                                <td><a  href="https://vk.com/dobridima">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/dobridima">ВКонтакте</a></td>
                             </tr>
                             <tr>
                                 <td>Главный Оператор Cdmgames (а также Dota 2): Андрей</td>
-                                <td><a  href="https://vk.com/storonar">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/storonar">ВКонтакте</a></td>
 						    </tr>
                             <tr>
                                 <td>Оператор Cdmgames Hearthstone: Алексей</td>
-                                <td><a  href="https://vk.com/id790268383">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/id790268383">ВКонтакте</a></td>
                             </tr>
                             <tr>
                                 <td>Оператор Cdmgames Supercell: Bdfy</td>
-                                <td><a  href="https://vk.com/mistakes__sequence">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/mistakes__sequence">ВКонтакте</a></td>
 						    </tr>
                             <tr>
                                 <td>Оператор Cdmgames Valorant, League of Legend: Дмитрий</td>
-                                <td><a  href="https://vk.com/king_on_the_night">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/king_on_the_night">ВКонтакте</a></td>
 						    </tr>
                             <tr>
                                 <td>Оператор Cdmgames GTA 5 RP: Альберт</td>
-                                <td><a  href="https://vk.com/id70682727">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/id70682727">ВКонтакте</a></td>
 							</tr>
                             <tr>
                                 <td>Оператор Cdmgames Genshin Impact: Вован 150 IQ</td>
-                                <td><a  href="https://vk.com/gpo3ho_ttaxhet">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/gpo3ho_ttaxhet">ВКонтакте</a></td>
 							</tr>
                             <tr>
                                 <td>Оператор Cdmgames Apex Legends: Каппа</td>
-                                <td><a  href="https://vk.com/kappatwitchevsky">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/kappatwitchevsky">ВКонтакте</a></td>
 							</tr>
                             <tr>
                                 <td>Оператор Cdmgames CS-GO: Михаил</td>
-                                <td><a  href="https://vk.com/pudgeabuzer007">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/pudgeabuzer007">ВКонтакте</a></td>
 							</tr>
                             <tr>
                                 <td>Оператор Cdmgames Fortnite: Исмаил</td>
-                                <td><a  href="https://vk.com/skezer_214">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/skezer_214">ВКонтакте</a></td>
 							</tr>
                             <tr>
 							 <td>Оператор Cdmgames Honkai Star Rail: Ангел</td>
-                                <td><a  href="https://vk.com/angelfearlesss">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/angelfearlesss">ВКонтакте</a></td>
 						    </tr>
 							</tr>
                             <tr>
 								   <td>Оператор Cdmgames Mobile Legends: Александр</td>
-                                <td><a  href="https://vk.com/sscmbgg">ВКонтакте</a></td>
+                                <td><a  href="https://vk.ru/sscmbgg">ВКонтакте</a></td>
                             </tr>
                         </table>
                     </div>

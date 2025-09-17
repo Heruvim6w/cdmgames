@@ -19,6 +19,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property Carbon|null $email_verified_at
  * @property Carbon|null $deleted_at
+ * @property string      $tg_user_name
+ * @property string      $tg_comment_link
  * @property-read Collection|Dialog[] $dialogs
  *
  * @mixin \Eloquent

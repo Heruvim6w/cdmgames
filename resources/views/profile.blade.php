@@ -17,9 +17,9 @@
     if (!isset($profileVkInfo)) {
         $profileVkInfo = '<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Для получения уведомлений (о новых сообщения от администрации, зачислении денежных средств на баланс сайта, получении выплат и т.д.) от нашего бота привяжите свой ВК к профилю.</span></span></p>
 
-<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">ID ВКонтакте &mdash; это идентификатор пользователя или сообщества. Адрес профиля пользователя имеет вид https://vk.com/idXXXXXX, либо найти ID своей страницы вы можете во ВКонтакте в разделе Настройки &rarr; Адрес страницы.</span></span></p>
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">ID ВКонтакте &mdash; это идентификатор пользователя или сообщества. Адрес профиля пользователя имеет вид https://vk.ru/idXXXXXX, либо найти ID своей страницы вы можете во ВКонтакте в разделе Настройки &rarr; Адрес страницы.</span></span></p>
 
-<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Далее зайдите на страницу бота &ndash; <a href="https://vk.com/cdmgames_bot">ссылка</a>, и напишите ему любое сообщение.</span></span></p>
+<p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Далее зайдите на страницу бота &ndash; <a href="https://vk.ru/cdmgames_bot">ссылка</a>, и напишите ему любое сообщение.</span></span></p>
 
 <p style="text-align:justify"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">Работоспособность бота необходимо проверить через кнопку &laquo;Тест бота&raquo;. Вы должны получить сообщение от него во Вконтакте &laquo;Спасибо за подписку на бота! Напишите -&gt; Начать, чтобы вызвать меню!&raquo; - бот работает.</span></span></p>';
     }
@@ -121,7 +121,7 @@
                                     @if($user->vk_link)
                                         <div class="team-card_links team-card_label mb-4">
                                             Ссылка на ВК:
-                                            <a href="https://vk.com/id{{ $user->vk_link }}">
+                                            <a href="https://vk.ru/id{{ $user->vk_link }}">
                                                 <i class="fab fa-vk"></i>
                                             </a>
                                         </div>
@@ -139,7 +139,7 @@
                                     @if($user->vk_link)
                                         <div class="team-card_links team-card_label mb-4">
                                             Ссылка на ВК: <br>
-                                            <a href="https://vk.com/id{{ $user->vk_link }}">
+                                            <a href="https://vk.ru/id{{ $user->vk_link }}">
                                                 <i class="fab fa-vk"></i>
                                             </a>
                                         </div>

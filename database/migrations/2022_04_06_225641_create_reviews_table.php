@@ -22,6 +22,7 @@ return new class extends Migration
             $table->dateTime('comment_date');
             $table->string('vk_user_name');
             $table->string('vk_user_avatar');
+            $table->string('attachment');
         });
     }
 

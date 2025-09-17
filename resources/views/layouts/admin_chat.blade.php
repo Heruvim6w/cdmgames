@@ -180,7 +180,7 @@
                 <a href="{{ route('test_bot') }}">Тест бота</a>
             </div>
             @if($user->vk_link)
-                <a href="https://vk.com/id{{ $user->vk_link }}"
+                <a href="https://vk.ru/id{{ $user->vk_link }}"
                    class="d-block look vs-btn text-center"
                    target="_blank">
                     Страница VK
@@ -285,7 +285,7 @@
             <a href="{{ route('test_bot') }}">Тест бота</a>
         </div>
         @if($user->vk_link)
-            <a href="https://vk.com/id{{ $user->vk_link }}"
+            <a href="https://vk.ru/id{{ $user->vk_link }}"
                class="d-md-block look vs-btn text-center"
                target="_blank">
                 Страница VK

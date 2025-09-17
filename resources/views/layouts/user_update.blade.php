@@ -9,7 +9,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Привязать аккаунт vk.com к сайту</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Привязать аккаунт vk.ru к сайту</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть">
                     <span class="close_modal" aria-hidden="true">&times;</span>
                 </button>

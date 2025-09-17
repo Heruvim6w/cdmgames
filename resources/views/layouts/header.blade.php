@@ -123,7 +123,7 @@
                             </li>
                             <li>
                                 <div class="multi-social">
-                                    <a href="https://vk.com/cdmgames"><i class="fab fa-vk"></i></a>
+                                    <a href="https://vk.ru/cdmgames"><i class="fab fa-vk"></i></a>
                                 </div>
                             </li>
                         </ul>

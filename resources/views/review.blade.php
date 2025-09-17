@@ -67,13 +67,17 @@
                                     @endif
                                 </div>
                                 <div class="team-card_content">
-                                    <span class="team-card_label">{{ $review->vk_user_name }}</span>
+                                    <span class="team-card_label">{{ $review->vk_user_name ?? $review->tg_user_name }}</span>
                                     <div class="team-card_links">
-                                        <a href="{{ $review->vk_user_id }}"><i class="fab fa-vk"></i></a>
+                                        <a href="{{ $review->vk_user_id ?? '' }}"><i class="fab fa-vk"></i></a>
                                     </div>
                                     <div class="team-card_time">{{ $review->comment }}</div>
                                     <div class="team-card_date">{{ $review->comment_date }}</div>
-                                    <a href="https://vk.com/topic-176494199_40223406?post={{ $review->comment_id }}" class="vs-btn">Читать в ВК</a>
+                                    @if($review->comment_id)
+                                        <a href="https://vk.ru/topic-176494199_40223406?post={{ $review->comment_id }}" class="vs-btn">Читать в ВК</a>
+                                    @elseif($review->tg_comment_link)
+                                        <a href="{{ $review->tg_comment_link }}" class="vs-btn">Читать в TG</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
