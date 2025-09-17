@@ -2,19 +2,19 @@
 
 namespace App\Nova;
 
-use App\Models\OfferDocument as Offer;
+use App\Models\ConsentDocument as Consent;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 
-class OfferDocument extends Resource
+class ConsentDocument extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Offer::class;
+    public static $model = Consent::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -42,7 +42,7 @@ class OfferDocument extends Resource
     {
         return [
             ID::make()->sortable(),
-            File::make('PDF-файл оферты', 'file')
+            File::make('PDF-файл Согласия на обработку персональных данных', 'file')
                 ->disk('public')
                 ->path('offer_documents')
                 ->storeAs(function ($request) {

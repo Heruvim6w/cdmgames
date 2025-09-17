@@ -13,8 +13,12 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VkBotController;
+use App\Models\ConsentDocument;
 use App\Models\Dialog;
 use App\Models\LinkLayout;
+use App\Models\OfferDocument;
+use App\Models\PrivacyPolicyDocument;
+use App\Models\TermsOfServiceDocument;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -215,19 +219,35 @@ Route::get('price_list', function () {
 })->name('price_list');
 
 Route::get('offer', function () {
-    return view('offer');
+    return view('document', [
+    'modelClass' => OfferDocument::class,
+    'pageTitle' => 'Оферта',
+    'emptyText' => 'PDF файл согласия не загружен.'
+]);
 })->name('offer');
 
 Route::get('consent', function () {
-    return view('consent');
+    return view('document', [
+    'modelClass' => ConsentDocument::class,
+    'pageTitle' => 'Согласие',
+    'emptyText' => 'PDF файл согласия не загружен.'
+]);
 })->name('consent');
 
 Route::get('privacy_policy', function () {
-    return view('privacy_policy');
+    return view('document', [
+        'modelClass' => PrivacyPolicyDocument::class,
+        'pageTitle' => 'Политика конфиденциальности',
+        'emptyText' => 'PDF файл согласия не загружен.'
+    ]);
 })->name('privacy_policy');
 
 Route::get('terms_of_service', function () {
-    return view('terms_of_service');
+    return view('document', [
+        'modelClass' => TermsOfServiceDocument::class,
+        'pageTitle' => 'Правила сервиса',
+        'emptyText' => 'PDF файл согласия не загружен.'
+    ]);
 })->name('terms_of_service');
 
 Route::post("add_emails", [RandomEmailController::class, 'create'])

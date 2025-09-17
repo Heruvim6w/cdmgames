@@ -2,19 +2,19 @@
 
 namespace App\Nova;
 
-use App\Models\OfferDocument as Offer;
+use App\Models\TermsOfServiceDocument as TermsOfService;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 
-class OfferDocument extends Resource
+class TermsOfServiceDocument extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Offer::class;
+    public static $model = TermsOfService::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -42,7 +42,7 @@ class OfferDocument extends Resource
     {
         return [
             ID::make()->sortable(),
-            File::make('PDF-файл оферты', 'file')
+            File::make('PDF-файл Правил сервиса', 'file')
                 ->disk('public')
                 ->path('offer_documents')
                 ->storeAs(function ($request) {

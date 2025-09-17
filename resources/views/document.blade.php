@@ -1,4 +1,4 @@
-@include('layouts.header', ['title'=> 'Пользовательское соглашение'])
+@include('layouts.header', ['title'=> $pageTitle ?? 'Документ'])
 <style>
     body {
         background-color: var(--title-color) !important;
@@ -18,12 +18,12 @@
     <div class="container">
         <div class="offer-pdf-viewer">
             @php
-                $offerDoc = \App\Models\OfferDocument::latest()->first();
+                $doc = isset($modelClass) ? $modelClass::latest()->first() : null;
             @endphp
-            @if($offerDoc && $offerDoc->file)
-                <iframe src="{{ asset('storage/' . $offerDoc->file) }}" allowfullscreen></iframe>Obsolete
+            @if($doc && $doc->file)
+                <iframe src="{{ asset('storage/' . $doc->file) }}" allowfullscreen></iframe>
             @else
-                <div class="alert alert-warning">PDF файл оферты не загружен.</div>
+                <div class="alert alert-warning">{{ $emptyText ?? 'PDF файл не загружен.' }}</div>
             @endif
         </div>
     </div>
