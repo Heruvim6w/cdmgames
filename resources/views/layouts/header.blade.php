@@ -191,15 +191,6 @@ Breadcumb
             @switch(Route::currentRouteName())
                 @case('games.show')
                     <h1 class="breadcumb-title">{{ $game->name }}</h1>
-                    <div class="col-md-3 col-xl-12">
-                        <span class="look_div">
-                            @if(!Auth::user() || Auth::user()->role !== 2)
-                                <a href="{{ route('profile.chat', 1) }}" target="blank">
-                                    <button class="look vs-btn sell_btn">Продать аккаунт</button>
-                                </a>
-                            @endif
-                        </span>
-                    </div>
                 @break
                 @case('about')
                     <h1 class="breadcumb-title">О нас</h1>
