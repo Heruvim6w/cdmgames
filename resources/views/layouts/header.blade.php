@@ -82,6 +82,45 @@
 <body>
 
 @include('layouts.mobile_menu')
+
+@php
+    switch(Route::currentRouteName()) {
+        case 'games.show':
+            $subTitle = $game->name;
+            break;
+        case 'about':
+            $subTitle = 'О нас';
+            break;
+        case('posts.index'):
+            $subTitle = 'Статьи';
+            break;
+        case('posts.show'):
+            $subTitle = $post->title;
+            break;
+        case('reviews'):
+            $subTitle = 'Отзывы';
+            break;
+        case('profile'):
+            $subTitle = auth()->user()->name;
+            break;
+        case('store.index'):
+            $subTitle = $gameForItem->title;
+            break;
+        case('store.show'):
+            $subTitle = $gameItem->gameForItem->title ;
+            break;
+        case('games.show'):
+            $subTitle = 'Игры';
+            break;
+        case('sell.application.show'):
+            $sellApplication = true;
+            $subTitle = 'Ваша заявка';
+            break;
+        default:
+            $subTitle = 'Игры';
+    }
+@endphp
+
 <!--==============================
     Header Area
 ==============================-->
@@ -135,7 +174,7 @@
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <div class="d-flex flex-wrap align-items-center">
-                                @include('layouts.vk_chat')
+                                @include('layouts.vk_chat', ['sellApplication' => $sellApplication ?? null])
                             </div>
                         </div>
                     </div>
@@ -147,74 +186,50 @@
 <!--==============================
 Breadcumb
 ============================== -->
-<div
-    class="breadcumb-wrapper header-breadcrumb"
-    data-overlay="title"
-    data-opacity="5"
-    style="background-image: url('{{
-        isset($game) && $game->banner ? asset('storage/' . $game->banner) : (
-            isset($gameForItem) && $gameForItem->banner ? asset('storage/' . $gameForItem->banner) :
-                (
-                    isset($gameItem) && $gameItem->gameForItem->banner ?
-                        asset('storage/' . $gameItem->gameForItem->banner) :
-                        asset('assets/img/breadcumb/test-1.webp'
+@if(!isset($sellApplication))
+    <div
+        class="breadcumb-wrapper header-breadcrumb"
+        data-overlay="title"
+        data-opacity="5"
+        style="background-image: url('{{
+            isset($game) && $game->banner ? asset('storage/' . $game->banner) : (
+                isset($gameForItem) && $gameForItem->banner ? asset('storage/' . $gameForItem->banner) :
+                    (
+                        isset($gameItem) && $gameItem->gameForItem->banner ?
+                            asset('storage/' . $gameItem->gameForItem->banner) :
+                            asset('assets/img/breadcumb/test-1.webp'
+                        )
                     )
                 )
-            )
-        }}');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        height: auto;
-        {{ isset($game) ? 'padding-top: 100px; padding-bottom: 100px;' : '' }}
-        ">
-    <div class="container z-index-common" style="z-index: 6;">
-        <div class="breadcumb-content text-center">
-            <div class="breadcumb-menu-wrap">
-                <ul class="breadcumb-menu">
-                    <li><a href="/">Главная</a>
-                </ul>
-            </div>
-            @switch(Route::currentRouteName())
-                @case('games.show')
-                    <h1 class="breadcumb-title">{{ $game->name }}</h1>
-                @break
-                @case('about')
-                    <h1 class="breadcumb-title">О нас</h1>
-                @break
-                @case('posts.index')
-                    <h1 class="breadcumb-title">Статьи</h1>
-                @break
-                @case('posts.show')
-                    <h1 class="breadcumb-title">{{ $post->title }}</h1>
-                @break
-                @case('reviews')
-                    <h1 class="breadcumb-title">Отзывы</h1>
-                @break
-                @case('profile')
-                    <h1 class="breadcumb-title">{{ auth()->user()->name }}</h1>
-                @break
-                @case('store.index')
-                    <h1 class="breadcumb-title">{{ $gameForItem->title }}</h1>
-                @break
-                @case('store.show')
-                    <h1 class="breadcumb-title">{{ $gameItem->gameForItem->title }}</h1>
-                @break
-                @default
-                    <h1 class="breadcumb-title">Игры</h1>
-            @endswitch
+            }}');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            height: auto;
+            {{ isset($game) ? 'padding-top: 100px; padding-bottom: 100px;' : '' }}
+            ">
+            <div class="container z-index-common" style="z-index: 6;">
+                <div class="breadcumb-content text-center">
+                    <div class="breadcumb-menu-wrap">
+                        <ul class="breadcumb-menu">
+                            <li><a href="/">Главная</a>
+                        </ul>
+                    </div>
 
-            <div class="col-md-3 col-xl-12 mt-3">
-                <span class="look_div">
-                    <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3" id="openSellModal">Оставить заявку на продажу</button>
-                    <a href="{{ route('profile.chat', 1) }}" target="_blank">
-                        <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3">Написать сообщение</button>
-                    </a>
-                </span>
+                    <h1 class="breadcumb-title">{{ $subTitle }}</h1>
+
+                    <div class="col-md-3 col-xl-12 mt-3">
+                        <span class="look_div">
+                            <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3" id="openSellModal">Оставить заявку на продажу</button>
+                            <a href="{{ route('profile.chat', 1) }}" target="_blank">
+                                <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3">Написать сообщение</button>
+                            </a>
+                        </span>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
-</div>
+@endif
 
 @include('components.sell_request_form', [
     'modalId' => 'sellModal',
