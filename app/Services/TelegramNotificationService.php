@@ -9,8 +9,7 @@ class TelegramNotificationService
 {
     public function sendSellApplication(SellApplication $application): void
     {
-        $botUrl = 'https://rude-seals-cover.loca.lt';//config('services.telegram_bot_url');
-        //$chatId = config('services.telegram_chat_id');
+        $botUrl = config('services.telegram_bot_url');
         $gameName = $application->game ? str_replace('Продать аккаунт ', '', $application->game->name) : 'Не указано';
         $text = "Заявка #{$application->id}\nTelegram: {$application->telegram}\nИгра: {$gameName}\nОписание: {$application->description}";
         if (!empty($application->media)) {
@@ -18,7 +17,6 @@ class TelegramNotificationService
         }
         if ($botUrl) {
             Http::post($botUrl . '/new_application', [
-                //'chat_id' => $chatId,
                 'text' => $text,
                 'parse_mode' => 'HTML',
             ]);

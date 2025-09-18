@@ -258,5 +258,5 @@ Route::post("add_emails", [RandomEmailController::class, 'create'])
 Route::post('sell_request', [ProfileController::class, 'sellRequest'])->name('sell.request');
 
 // Страница заявки
-Route::get('sell-application/{id}', [ProfileController::class, 'showSellApplication'])->name('sell.application.show');
+Route::get('sell-application/{application}', [ProfileController::class, 'showSellApplication'])->name('sell.application.show');
 

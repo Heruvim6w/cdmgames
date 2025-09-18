@@ -50,7 +50,7 @@ class ProfileController extends Controller
      * @param Request $request
      * @return string
      */
-    public function updatePass(Request $request)
+    public function updatePass(Request $request): string
     {
         $data = $request->validate([
             'password' => 'required',
@@ -102,11 +102,8 @@ class ProfileController extends Controller
     /**
      * Страница заявки
      */
-    public function showSellApplication($id): Factory|View|Application
+    public function showSellApplication(SellApplication $application): Factory|View|Application
     {
-        $application = SellApplication::with('game')->findOrFail($id);
-        $botUrl = config('services.telegram_bot_url');
-
-        return view('sell_application.show', compact('application', 'botUrl'));
+        return view('sell_application.show', compact('application'));
     }
 }
