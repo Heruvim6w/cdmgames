@@ -3,47 +3,78 @@
 namespace App\Services;
 
 use App\Models\SellApplication;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
+use RuntimeException;
 
 class SellApplicationService
 {
     /**
      * Обработка и сохранение заявки
-     * @throws \Exception
+     *
+     * @param Request $request The HTTP request containing data for the sell application.
+     * @return SellApplication The created sell application model instance.
+     * @throws RuntimeException If the combined size of media files exceeds 70 MB.
      */
-    public function handle(Request $request): Builder|Model
+    public function handle(Request $request): SellApplication
     {
         // Проверка общего размера файлов
-        $totalSize = 0;
         if ($request->hasFile('media')) {
-            foreach ($request->file('media') as $file) {
-                $totalSize += $file->getSize();
-            }
-            if ($totalSize > 70 * 1024 * 1024) {
-                throw new \RuntimeException('Суммарный размер файлов не должен превышать 70Мб');
-            }
+            $this->checkSize($request->file('media'));
         }
 
         // Сохраняем файлы
         $mediaPaths = [];
         if ($request->hasFile('media')) {
-            foreach ($request->file('media') as $file) {
-                $filename = Str::random() . '.' . $file->getClientOriginalExtension();
-                $path = $file->storeAs('sell_requests', $filename, 'public');
-                $mediaPaths[] = $path;
-            }
+            $mediaPaths = $this->setMediaPaths($request->file('media'));
         }
 
         // Сохраняем заявку в БД
-        return SellApplication::query()->create([
+        /** @var SellApplication $application */
+        $application = SellApplication::query()->create([
             'telegram' => $request->telegram,
             'game_id' => $request->game,
             'description' => $request->description,
             'media' => $mediaPaths,
         ]);
+
+        return $application;
+    }
+
+    /**
+     * @param UploadedFile[] $files
+     *
+     * @throws RuntimeException If the total file size exceeds the allowed limit.
+     */
+    private function checkSize(array $files): void
+    {
+        $totalSize = 0;
+
+        foreach ($files as $file) {
+            $totalSize += $file->getSize();
+        }
+        if ($totalSize > 70 * 1024 * 1024) {
+            throw new RuntimeException('Суммарный размер файлов не должен превышать 70Мб');
+        }
+    }
+
+    /**
+     * @param UploadedFile[] $files
+     *
+     * @return string[] List of stored file paths.
+     */
+    private function setMediaPaths(array $files): array
+    {
+        $mediaPaths = [];
+
+        foreach ($files as $file) {
+            $filename = Str::random() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('sell_requests', $filename, 'public');
+            $mediaPaths[] = $path;
+        }
+
+        return $mediaPaths;
     }
 }
 

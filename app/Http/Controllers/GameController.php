@@ -21,9 +21,9 @@ class GameController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(): View|Factory|Application
     {
-        Cache::remember('index_blade', 240, function () {
+        Cache::remember('index_blade', 240, static function () {
             $reviews = Review::query()->count() + 1898;
             $allBalance = User::query()->sum('balance');
             $accounts = Account::query()->count();
