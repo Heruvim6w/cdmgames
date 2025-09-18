@@ -12,14 +12,9 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Game;
 use App\Models\SellApplication;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\SellRequest;
 
 class ProfileController extends Controller
@@ -96,7 +91,7 @@ class ProfileController extends Controller
             $this->telegramNotificationService->sendSellApplication($application);
             return redirect()->route('sell.application.show', $application->id);
         } catch (\Throwable $e) {
-            \Log::error('Ошибка при создании заявки на продажу: ' . $e->getMessage(), [
+            Log::error('Ошибка при создании заявки на продажу: ' . $e->getMessage(), [
                 'exception' => $e,
             ]);
 

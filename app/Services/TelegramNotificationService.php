@@ -3,14 +3,13 @@
 namespace App\Services;
 
 use App\Models\SellApplication;
-use App\Models\Game;
 use Illuminate\Support\Facades\Http;
 
 class TelegramNotificationService
 {
     public function sendSellApplication(SellApplication $application): void
     {
-        $botUrl = 'https://four-bushes-arrive.loca.lt';//config('services.telegram_bot_url');
+        $botUrl = 'https://cyan-lights-pay.loca.lt';//config('services.telegram_bot_url');
         //$chatId = config('services.telegram_chat_id');
         $gameName = $application->game ? $application->game->name : 'Не указано';
         $text = "Заявка #{$application->id}\nTelegram: {$application->telegram}\nИгра: {$gameName}\nОписание: {$application->description}";
