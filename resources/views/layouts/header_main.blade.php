@@ -98,7 +98,10 @@
                             <div class="header-button ">
                                 <ul>
                                     <li>
-                                        <a href="mailto:support@cdmgames.com" class="header-number"><i class="fal fa-at"></i>support@cdmgames.com</a>
+                                        <a href="https://t.me/cdmgames_bot" class="header-number" target="_blank">
+                                            <i class="fab fa-telegram"></i>
+                                            Наш телеграм-бот
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -115,6 +118,7 @@
 <section class="vs-hero-wrapper position-relative bg-dark">
     <div class="hero-social d-none d-lg-block">
         <a href="https://vk.ru/cdmgames"><span>vk</span>.com</a>
+        <a href="https://t.me/cdmgames_bot"><span>tg</span> бот</a>
     </div>
 
     <div class="vs-carousel" id="heroSlide1" data-slide-show="1" data-md-slide-show="1" data-fade="true">

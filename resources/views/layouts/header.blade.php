@@ -102,31 +102,18 @@
 
                 <div class="col-auto px-2 flex-shrink-1 d-flex align-items-center">
                     <div class="header-links text-white">
-                        <ul class="d-flex gap-2 mb-0 align-items-center">
-                            <li>
-                                <button class="vs-btn top-btn" id="openSellModal">Оставить заявку на продажу</button>
-                            </li>
-                            <li>
-                                <a href="{{ route('profile.chat', 1) }}" target="_blank">
-                                    <button class="vs-btn top-btn">Написать сообщение</button>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-auto px-2 flex-shrink-1 d-flex align-items-center">
-                    <div class="header-links text-white">
-                        <ul class="mb-0">
-                            <li>
-                                <a href="mailto:support@cdmgames.com" class="header-number"><i class="fal fa-at"></i>support@cdmgames.com - для коммерческих предложений</a>
-                            </li>
-                            <li>
-                                <div class="multi-social">
-                                    <a href="https://vk.ru/cdmgames"><i class="fab fa-vk"></i></a>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="multi-social">
+                            <ul class="mb-0">
+                                <li class="header_social_links">
+                                    <a href="https://t.me/cdmgamesofficial" class="header-number" target="_blank">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="https://vk.ru/cdmgames" target="_blank">
+                                        <i class="fab fa-vk"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -216,7 +203,30 @@ Breadcumb
                 @default
                     <h1 class="breadcumb-title">Игры</h1>
             @endswitch
-</div>
+
+{{--            <div class="col-auto px-2 flex-shrink-1 d-flex align-items-center">--}}
+{{--                <div class="header-links text-white">--}}
+{{--                    <ul class="d-flex gap-2 mb-0 align-items-center">--}}
+{{--                        <li>--}}
+{{--                            <button class="vs-btn top-btn" id="openSellModal">Оставить заявку на продажу</button>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ route('profile.chat', 1) }}" target="_blank">--}}
+{{--                                <button class="vs-btn top-btn">Написать сообщение</button>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <div class="col-md-3 col-xl-12 mt-3">
+                <span class="look_div">
+                    <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3" id="openSellModal">Оставить заявку на продажу</button>
+                    <a href="{{ route('profile.chat', 1) }}" target="_blank">
+                        <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3">Написать сообщение</button>
+                    </a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
 

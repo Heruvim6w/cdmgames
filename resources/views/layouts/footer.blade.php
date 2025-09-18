@@ -51,7 +51,8 @@
                             <p><a href="{{ route('privacy_policy') }}">Политика конфиденциальности</a></p>
                             <p><a href="{{ route('terms_of_service') }}">Правила сервиса</a></p>
                             <div class="multi-social">
-                                <a href="https://vk.ru/cdmgames"><i class="fab fa-vk"></i></a>
+                                <a href="https://vk.ru/cdmgames" target="_blank"><i class="fab fa-vk"></i></a>
+                                <a href="https://t.me/cdmgamesofficial" target="_blank"><i class="fab fa-telegram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -61,17 +62,36 @@
                         <p class="widget_title">Контакты</p>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a class="text-white" href="https://vk.ru/cdmgames">Официальное сообщество
-                                        ВКонтакте</a></li>
-                                <li><a class="text-white" href="https://discordapp.com/users/484332927216254977">Discord
-                                        Илья: CDMGames</a></li>
-                                <li><a class="text-white" href="https://discordapp.com/users/261928281748668419">Discord
-                                        Альберт: cdmgamesalbert</a></li>
-                                <li><a class="text-white" href="https://vk.ru/reconnection95">Илья</a></li>
-                                <li><a class="text-white" href="https://vk.ru/id70682727">Альберт</a></li>
-                                <li><a class="text-white" href="https://cdmgames.com/about">Операторы Cdmgames</a></li>
-                                <li><a class="text-white" href="https://cdmgames.com/reviews">Отзывы</a></li>
-                                <li><a class="text-white" href="https://cdmgames.com/posts">Статьи</a></li>
+                                <li>
+                                    <a class="text-white" href="https://vk.ru/cdmgames">
+                                        Официальное сообщество ВКонтакте
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://discordapp.com/users/484332927216254977">
+                                        Discord Илья: CDMGames
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://discordapp.com/users/261928281748668419">
+                                        Discord Альберт: cdmgamesalbert
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://vk.ru/reconnection95">Илья</a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://vk.ru/id70682727">Альберт</a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://cdmgames.com/about">Операторы Cdmgames</a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://cdmgames.com/reviews">Отзывы</a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="https://cdmgames.com/posts">Статьи</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
