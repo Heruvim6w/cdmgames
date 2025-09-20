@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RandomEmailController;
 use App\Http\Controllers\RequisiteController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SellApplicationController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VkBotController;
@@ -255,8 +256,8 @@ Route::post("add_emails", [RandomEmailController::class, 'create'])
     ->name('add.emails');
 
 // Добавить маршрут для обработки заявки на продажу
-Route::post('sell_request', [ProfileController::class, 'sellRequest'])->name('sell.request');
+Route::post('sell_request', [SellApplicationController::class, 'store'])->name('sell.request');
 
 // Страница заявки
-Route::get('sell-application/{application}', [ProfileController::class, 'showSellApplication'])->name('sell.application.show');
+Route::get('sell-application/{application}', [SellApplicationController::class, 'show'])->name('sell.application.show');
 
