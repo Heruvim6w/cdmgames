@@ -311,15 +311,15 @@ $(document).ready(function() {
 });
 
 // Показываем спиннер при отправке формы
-$('#sellFormMain').on('submit', function(e) {
+$('#sellFormMain').on('submit', function (e) {
     $('#sellFormMainSpinner').css('display', 'flex');
-    // Блокируем все элементы формы
-    $(this).find('input, textarea, select, button').prop('disabled', true);
+    // Блокируем все элементы формы, кроме скрытых input (чтобы CSRF-токен отправился)
+    $(this).find('input:not([type=hidden],[name=telegram],[name=game],[name=description]), textarea, select, button').prop('disabled', true);
 });
 
 // Скрываем спиннер при закрытии модального окна (на случай отмены)
-$('#sellModalMain').on('hidden.bs.modal', function() {
+$('#sellModalMain').on('hidden.bs.modal', function () {
     $('#sellFormMainSpinner').hide();
-    $('#sellFormMain').find('input, textarea, select, button').prop('disabled', false);
+    $('#sellFormMain').find('input:not([type=hidden]), textarea, select, button').prop('disabled', false);
 });
 </script>
