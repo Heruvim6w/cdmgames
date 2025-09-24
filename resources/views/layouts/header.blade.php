@@ -314,7 +314,7 @@ $(document).ready(function() {
 $('#sellFormMain').on('submit', function (e) {
     $('#sellFormMainSpinner').css('display', 'flex');
     // Блокируем все элементы формы, кроме скрытых input (чтобы CSRF-токен отправился)
-    $(this).find('input:not([type=hidden],[name=telegram],[name=game],[name=description]), textarea, select, button').prop('disabled', true);
+    $(this).find('input:not([type=hidden]),input:not([name=telegram]),input:not([name=game]),input:not([name=description]), textarea, select, button').prop('disabled', true);
 });
 
 // Скрываем спиннер при закрытии модального окна (на случай отмены)
