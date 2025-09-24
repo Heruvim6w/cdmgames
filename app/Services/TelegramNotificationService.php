@@ -16,13 +16,12 @@ class TelegramNotificationService
         $text = "Заявка #{$application->id}\nTelegram: {$application->telegram}\nИгра: {$gameName}\nID игры: {$gameId}\nОписание: {$application->description}";
 
         if (!empty($application->media)) {
-            $files = implode("\n", array_map(fn($p) => asset('storage/'.$p), $application->media));
+            $text .= "\nФайлы:\n" . implode("\n", array_map(fn($p) => asset('storage/'.$p), $application->media));
         }
 
         if ($botUrl) {
             Http::post($botUrl . '/new_application', [
                 'text' => $text,
-                'files' => $files ?? '',
                 'parse_mode' => 'HTML',
             ]);
         }
