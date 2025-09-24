@@ -44,7 +44,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    <button type="submit" class="btn btn-primary" id="{{ $formId }}_submit_btn">
+                        <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true" id="{{ $formId }}_spinner"></span>
+                        Отправить заявку
+                    </button>
                 </div>
             </form>
         </div>
@@ -143,7 +146,7 @@
             $('#{{ $modalId }}').modal('show');
         });
 
-        // Блокировка отправки формы при ошибках
+        // Блокировка отправки формы при ошибках и показ спиннера
         $('#{{ $formId }}').on('submit', function (e) {
             let valid = true;
 
@@ -177,6 +180,10 @@
 
             if (!valid) {
                 e.preventDefault();
+            } else {
+                // Показать спиннер и заблокировать кнопку
+                $('#{{ $formId }}_spinner').removeClass('d-none');
+                $('#{{ $formId }}_submit_btn').prop('disabled', true);
             }
         });
     });

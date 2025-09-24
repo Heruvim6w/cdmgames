@@ -11,7 +11,7 @@
 @section('content')
     @include('layouts.header')
 
-    <section class="vs-palyers-wrapper bg-dark position-relative space-top space-extra-bottom">
+    <section class="vs-palyers-wrapper bg-dark position-relative space-extra-bottom">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">

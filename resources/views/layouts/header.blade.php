@@ -231,6 +231,16 @@ Breadcumb
     </div>
 @endif
 
+@if($errors->any())
+    <div class="col-md-5 text-center">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li class="error">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @include('components.sell_request_form', [
     'modalId' => 'sellModal',
     'labelId' => 'sellModalLabel',
@@ -243,6 +253,11 @@ Breadcumb
     'openBtnId' => 'openSellModal',
     'games' => $games
 ])
+
+<!-- Спиннер загрузки -->
+<div id="sellFormMainSpinner">
+    <div></div>
+</div>
 
 <script>
 // Открытие модального окна
@@ -293,5 +308,18 @@ $(document).ready(function() {
       $('#mediaError').hide();
     }
   });
+});
+
+// Показываем спиннер при отправке формы
+$('#sellFormMain').on('submit', function(e) {
+    $('#sellFormMainSpinner').css('display', 'flex');
+    // Блокируем все элементы формы
+    $(this).find('input, textarea, select, button').prop('disabled', true);
+});
+
+// Скрываем спиннер при закрытии модального окна (на случай отмены)
+$('#sellModalMain').on('hidden.bs.modal', function() {
+    $('#sellFormMainSpinner').hide();
+    $('#sellFormMain').find('input, textarea, select, button').prop('disabled', false);
 });
 </script>
