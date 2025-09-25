@@ -60,16 +60,20 @@
                             <div class="team-card">
                                 <div class="team-card_shape"></div>
                                 <div class="team-card_logo">
-                                    @if($review->vk_user_avatar !== 'no_avatar')
-                                        <img class="avatar" src="{{ $review->vk_user_avatar }}" alt="User avatar">
-                                    @else
+                                    @if(!$review->vk_user_avatar || $review->vk_user_avatar === 'no_avatar')
                                         <img class="avatar" src="{{ asset('assets/img/icon/no_avatar.webp') }}" alt="User avatar" style="width:100px; height:100px">
+                                    @else
+                                        <img class="avatar" src="{{ $review->vk_user_avatar }}" alt="User avatar">
                                     @endif
                                 </div>
                                 <div class="team-card_content">
                                     <span class="team-card_label">{{ $review->vk_user_name ?? $review->tg_user_name }}</span>
                                     <div class="team-card_links">
-                                        <a href="{{ $review->vk_user_id ?? '' }}"><i class="fab fa-vk"></i></a>
+                                        @if($review->comment_id)
+                                            <a href="{{ $review->vk_user_id ?? '' }}"><i class="fab fa-vk"></i></a>
+                                        @else
+                                            <a href="{{ $review->tg_comment_link ?? '' }}"><i class="fab fa-telegram"></i></a>
+                                        @endif
                                     </div>
                                     <div class="team-card_time">{{ $review->comment }}</div>
                                     <div class="team-card_date">{{ $review->comment_date }}</div>
