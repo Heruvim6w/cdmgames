@@ -228,9 +228,9 @@
                 }
                 totalSize += file.size;
             });
-            if (totalSize > 70 * 1024 * 1024) {
+            if (totalSize > 20 * 1024 * 1024) {
                 valid = false;
-                errorMsg = 'Суммарный размер файлов превышает 70Мб.';
+                errorMsg = 'Суммарный размер файлов превышает 20Мб.';
             }
             if (!valid) {
                 $('#media_main')[0].setCustomValidity(errorMsg);

@@ -36,7 +36,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="{{ $mediaId }}" class="form-label">Скрины/видео (jpg, jpeg, png, webp, pdf, mp4, до
-                                                                       20Мб каждый, максимум 70Мб суммарно)</label>
+                                                                       20Мб суммарно)</label>
                         <input type="file" class="form-control" id="{{ $mediaId }}" name="media[]" multiple
                                accept=".jpg,.jpeg,.png,.webp,.pdf,.mp4">
                         <div class="invalid-feedback" id="{{ $mediaErrorId }}"></div>
@@ -124,9 +124,9 @@
                 }
                 totalSize += file.size;
             });
-            if (totalSize > 70 * 1024 * 1024) {
+            if (totalSize > 20 * 1024 * 1024) {
                 valid = false;
-                errorMsg = 'Суммарный размер файлов превышает 70Мб.';
+                errorMsg = 'Суммарный размер файлов превышает 20Мб.';
             }
             if (!valid) {
                 $('#{{ $mediaId }}')[0].setCustomValidity(errorMsg);

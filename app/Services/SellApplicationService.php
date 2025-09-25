@@ -54,8 +54,8 @@ class SellApplicationService
         foreach ($files as $file) {
             $totalSize += $file->getSize();
         }
-        if ($totalSize > 70 * 1024 * 1024) {
-            throw new RuntimeException('Суммарный размер файлов не должен превышать 70Мб');
+        if ($totalSize > 20 * 1024 * 1024) {
+            throw new RuntimeException('Суммарный размер файлов не должен превышать 20Мб');
         }
     }
 
