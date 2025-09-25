@@ -34,7 +34,7 @@ class ReviewController extends Controller
     public function getReviews()
     {
         $this->getVkReviews();
-        $reviews = Review::orderBy('comment_id', 'desc')->paginate(15);
+        $reviews = Review::orderBy('id', 'desc')->paginate(15);
         $reviewsLeft = PageStaticContent::where('title', 'reviews_left')->first();
         $reviewsRight = PageStaticContent::where('title', 'reviews_right')->first();
 
