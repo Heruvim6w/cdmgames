@@ -20,7 +20,7 @@ class SellRequest extends FormRequest
             'media' => ['nullable', 'array'],
             'media.*' => [
                 'file',
-                'max:20480', // 20MB
+                'max:10240', // 10MB
                 'mimes:jpg,jpeg,png,webp,pdf,mp4'
             ],
         ];
@@ -31,7 +31,7 @@ class SellRequest extends FormRequest
         return [
             'telegram.regex' => 'Telegram username должен начинаться с @ и содержать 5-32 символа: буквы, цифры, _',
             'game.exists' => 'Выберите игру из списка',
-            'media.*.max' => 'Каждый файл должен быть не больше 20Мб',
+            'media.*.max' => 'Каждый файл должен быть не больше 10Мб',
             'media.*.mimes' => 'Допустимые форматы: jpg, jpeg, png, webp, pdf, mp4',
         ];
     }

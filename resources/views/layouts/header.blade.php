@@ -284,9 +284,9 @@ $(document).ready(function() {
     let errorMsg = '';
     const allowedTypes = ['image/jpeg','image/png','image/webp','application/pdf','video/mp4','image/jpg'];
     $.each(this.files, function(i, file) {
-      if (file.size > 20 * 1024 * 1024) {
+      if (file.size > 10 * 1024 * 1024) {
         valid = false;
-        errorMsg = 'Файл ' + file.name + ' превышает 20Мб.';
+        errorMsg = 'Файл ' + file.name + ' превышает 10Мб.';
         return false;
       }
       if (!allowedTypes.includes(file.type)) {
@@ -296,9 +296,9 @@ $(document).ready(function() {
       }
       totalSize += file.size;
     });
-    if (totalSize > 20 * 1024 * 1024) {
+    if (totalSize > 10 * 1024 * 1024) {
       valid = false;
-      errorMsg = 'Суммарный размер файлов превышает 20Мб.';
+      errorMsg = 'Суммарный размер файлов превышает 10Мб.';
     }
     if (!valid) {
       $('#media')[0].setCustomValidity(errorMsg);

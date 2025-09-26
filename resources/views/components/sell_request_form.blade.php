@@ -36,7 +36,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="{{ $mediaId }}" class="form-label">Скрины/видео (jpg, jpeg, png, webp, pdf, mp4, до
-                                                                       20Мб суммарно)</label>
+                                                                       10Мб суммарно)</label>
                         <input type="file" class="form-control" id="{{ $mediaId }}" name="media[]" multiple
                                accept=".jpg,.jpeg,.png,.webp,.pdf,.mp4">
                         <div class="invalid-feedback" id="{{ $mediaErrorId }}"></div>
@@ -112,9 +112,9 @@
             let errorMsg = '';
             const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf', 'video/mp4', 'image/jpg'];
             $.each(this.files, function (i, file) {
-                if (file.size > 20 * 1024 * 1024) {
+                if (file.size > 10 * 1024 * 1024) {
                     valid = false;
-                    errorMsg = 'Файл ' + file.name + ' превышает 20Мб.';
+                    errorMsg = 'Файл ' + file.name + ' превышает 10Мб.';
                     return false;
                 }
                 if (!allowedTypes.includes(file.type)) {
@@ -124,9 +124,9 @@
                 }
                 totalSize += file.size;
             });
-            if (totalSize > 20 * 1024 * 1024) {
+            if (totalSize > 10 * 1024 * 1024) {
                 valid = false;
-                errorMsg = 'Суммарный размер файлов превышает 20Мб.';
+                errorMsg = 'Суммарный размер файлов превышает 10Мб.';
             }
             if (!valid) {
                 $('#{{ $mediaId }}')[0].setCustomValidity(errorMsg);
