@@ -21,7 +21,7 @@
                             <option value="">Выберите игру</option>
                             @foreach($games as $game)
                                 <option value="{{ $game->id }}"
-                                        data-hint="{{ $game->sell_hint ?? '' }}">{{ $game->name }}</option>
+                                        data-hint="{!! $game->sell_hint ?? '' !!}">{{ $game->name }}</option>
                             @endforeach
                         </select>
                         <div class="form-text" id="gameHint" style="display:none;"></div>
