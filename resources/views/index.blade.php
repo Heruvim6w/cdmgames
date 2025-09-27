@@ -73,7 +73,7 @@ Palyer Area
             <div class="number_count"
                  style="color:#333333; font-size: 34px;"
                  id="num1"
-                 data-num="{{ $accounts +4575 }}"
+                 data-num="{{ $accounts +35755 }}"
                  data-duration="10"> 0</div>
             <span class="text-muted">Куплено аккаунтов</span>
         </div>
@@ -81,7 +81,7 @@ Palyer Area
             <div class="number_count"
                  style="color:#333333; font-size: 34px;"
                  id="num2"
-                 data-num="{{ $allBalance +3666000 }}"
+                 data-num="{{ $allBalance +81321155 }}"
                  data-prefix="&#8381;">0</div>
             <span class="text-muted">Выплачено рублей</span>
         </div>

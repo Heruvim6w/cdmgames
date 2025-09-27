@@ -67,30 +67,35 @@
                                         Официальное сообщество ВКонтакте
                                     </a>
                                 </li>
+                                 <li>
+                                    <a class="text-white" href="https://t.me/cdmgamesofficial">
+                                        Телеграм-канал
+                                    </a>
+                                </li>
                                 <li>
                                     <a class="text-white" href="https://discordapp.com/users/484332927216254977">
-                                        Discord Илья: CDMGames
+                                        Discord Илья (владелец): CDMGames
                                     </a>
                                 </li>
                                 <li>
                                     <a class="text-white" href="https://discordapp.com/users/261928281748668419">
-                                        Discord Альберт: cdmgamesalbert
+                                        Discord Альберт (владалец): cdmgamesalbert
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="text-white" href="https://vk.ru/reconnection95">Илья</a>
+                                    <a class="text-white" href="https://vk.ru/reconnection95">Илья (владелец)</a>
                                 </li>
                                 <li>
-                                    <a class="text-white" href="https://vk.ru/id70682727">Альберт</a>
+                                    <a class="text-white" href="https://vk.ru/id70682727">Альберт (владелец)</a>
                                 </li>
                                 <li>
-                                    <a class="text-white" href="https://cdmgames.com/about">Операторы Cdmgames</a>
+                                    <a class="text-white" href="https://cdmgames.com/about">Менеджеры Cdmgames</a>
                                 </li>
                                 <li>
-                                    <a class="text-white" href="https://cdmgames.com/reviews">Отзывы</a>
+                                    <a class="text-white" href="https://t.me/cdmgames_bot">Телеграм-бот</a>
                                 </li>
                                 <li>
-                                    <a class="text-white" href="https://cdmgames.com/posts">Статьи</a>
+                                    <a class="text-white" href="https://t.me/cdmgames_verification_bot">Бот верификации</a>
                                 </li>
                             </ul>
                         </div>

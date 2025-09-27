@@ -27,10 +27,6 @@
                                 <td colspan="2"><a href="https://vk.ru/cdmgames">Официальное сообщество ВКонтакте</a></td>
                             </tr>
                             <tr>
-                                <td>Сайт по Dota 2: прокачка 100 часов, буст и продажа аккаунтов</td>
-                                <td colspan="2"><a href="https://cdmdoto.com">cdmdoto.com</a></td>
-                            </tr>
-                            <tr>
                                 <td>Наш Funpay профиль</td>
                                 <td colspan="2"><a href="https://funpay.com/users/1860241/">cdmgames funpay</a></td>
                             </tr>
@@ -47,63 +43,121 @@
                             </tr>
                             <tr>
                                 <td>Владелец: Илья</td>
-                                <td><a  href="https://discordapp.com/users/484332927216254977">Discord</a></td>
-                                <td><a  href="https://vk.ru/reconnection95">ВКонтакте</a></td>
+                               <td><a  href="https://vk.ru/reconnection95">ВКонтакте</a></td>
                             </tr>
                             <tr>
                                 <td>Владелец: Альберт</td>
-                                <td><a  href="https://discordapp.com/users/261928281748668419">Discord</a></td>
-                                <td><a  href="https://vk.ru/id70682727">ВКонтакте</a></td>
+                              <td><a  href="https://vk.ru/id70682727">ВКонтакте</a></td>
                             </tr>
                             <tr>
-                                <td>Главный Оператор Cdmgames: Дмитрий</td>
+                                <td>Менеджер по листингу: Дмитрий</td>
                                 <td><a  href="https://vk.ru/dobridima">ВКонтакте</a></td>
                             </tr>
                             <tr>
-                                <td>Главный Оператор Cdmgames (а также Dota 2): Андрей</td>
+                                <td>Менеджер по листингу: Егор</td>
+                                <td><a  href="https://vk.ru/hallo_an_alle">ВКонтакте</a></td>
+                            </tr>
+                            <tr>
+                                <td>Менеджер по продажам: Андрей</td>
                                 <td><a  href="https://vk.ru/storonar">ВКонтакте</a></td>
 						    </tr>
                             <tr>
-                                <td>Оператор Cdmgames Hearthstone: Алексей</td>
-                                <td><a  href="https://vk.ru/id790268383">ВКонтакте</a></td>
+                                <td>Менеджер по продажам: Олег</td>
+                                <td><a  href="https://vk.ru/baychurin_tm">ВКонтакте</a></td>
+						    </tr>
+                              <tr>
+                                <td>Менеджер по продажам: Андрей</td>
+                                <td><a  href="https://vk.ru/storonar">ВКонтакте</a></td>
+						    </tr>
+                             <tr>
+                                <td>Менеджер по продажам: Дмитрий</td>
+                                <td><a  href="https://vk.ru/sid_official1">ВКонтакте</a></td>
+						    </tr>
+                             <tr>
+                                <td>Менеджер по продажам: Максим</td>
+                                <td><a  href="https://vk.ru/zxnwkska">ВКонтакте</a></td>
+						    </tr>
+                             <tr>
+                                <td>Менеджер по продажам: Владислав</td>
+                                <td><a  href="https://vk.ru/mmmmmmmmm511">ВКонтакте</a></td>
+						    </tr>
+                             <tr>
+                                <td>Менеджер по продажам: Максим</td>
+                                <td><a  href="https://vk.ru/dubina_v_kepke">ВКонтакте</a></td>
+						    </tr>                           
+                            <tr>
+                                <td>Менеджер по аккаунтам (Fortnite): Исмаил</td>
+                                <td><a  href="https://vk.ru/skezer999914">ВКонтакте</a></td>
                             </tr>
                             <tr>
-                                <td>Оператор Cdmgames Supercell: Bdfy</td>
-                                <td><a  href="https://vk.ru/mistakes__sequence">ВКонтакте</a></td>
+                                <td>Менеджер по аккаунтам (Fortnite): Максим</td>
+                                <td><a  href="https://vk.ru/landsberg_66">ВКонтакте</a></td>
 						    </tr>
                             <tr>
-                                <td>Оператор Cdmgames Valorant, League of Legend: Дмитрий</td>
-                                <td><a  href="https://vk.ru/king_on_the_night">ВКонтакте</a></td>
+                                <td>Менеджер по аккаунтам (Valorant) Арслан</td>
+                                <td><a  href="https://vk.ru/id146377604">ВКонтакте</a></td>
 						    </tr>
                             <tr>
-                                <td>Оператор Cdmgames GTA 5 RP: Альберт</td>
-                                <td><a  href="https://vk.ru/id70682727">ВКонтакте</a></td>
+                                <td>Менеджер по аккаунтам (Valorant) Евгений</td>
+                                <td><a  href="https://vk.ru/selfishgange">ВКонтакте</a></td>
 							</tr>
                             <tr>
-                                <td>Оператор Cdmgames Genshin Impact: Вован 150 IQ</td>
-                                <td><a  href="https://vk.ru/gpo3ho_ttaxhet">ВКонтакте</a></td>
-							</tr>
-                            <tr>
-                                <td>Оператор Cdmgames Apex Legends: Каппа</td>
-                                <td><a  href="https://vk.ru/kappatwitchevsky">ВКонтакте</a></td>
-							</tr>
-                            <tr>
-                                <td>Оператор Cdmgames CS-GO: Михаил</td>
-                                <td><a  href="https://vk.ru/pudgeabuzer007">ВКонтакте</a></td>
-							</tr>
-                            <tr>
-                                <td>Оператор Cdmgames Fortnite: Исмаил</td>
-                                <td><a  href="https://vk.ru/skezer_214">ВКонтакте</a></td>
-							</tr>
-                            <tr>
-							 <td>Оператор Cdmgames Honkai Star Rail: Ангел</td>
+                                <td>Менеджер по аккаунтам (Honkai:Star Rail и Steam) Никита </td>
                                 <td><a  href="https://vk.ru/angelfearlesss">ВКонтакте</a></td>
-						    </tr>
 							</tr>
                             <tr>
-								   <td>Оператор Cdmgames Mobile Legends: Александр</td>
-                                <td><a  href="https://vk.ru/sscmbgg">ВКонтакте</a></td>
-                            </tr>
+                                <td>Менеджер по аккаунтам (Genshin Impact) Никита</td>
+                                <td><a  href="https://vk.ru/h20hka">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Genshin Impact) Алексей</td>
+                                <td><a  href="https://vk.ru/pivo_baltika999">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Genshin Impact) Денис</td>
+                                <td><a  href="https://vk.ru/blask_jesk">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (CS2): Фёдор</td>
+                                <td><a  href="https://vk.ru/bot9ra_c0der">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (CS2): Евгений</td>
+                                <td><a  href="https://vk.ru/albmamat">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Мир Танков): Егор</td>
+                                <td><a  href="https://vk.ru/savagewrld">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Super Cell): Артур</td>
+                                <td><a  href="https://vk.ru/your_tears_stand_for_nothing">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Super Cell): Сергей</td>
+                                <td><a  href="https://vk.ru/sergey_ale0">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Mobile Legends BB): Никита</td>
+                                <td><a  href="https://vk.ru/id239678392">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Legaue Of Legends): Жих</td>
+                                <td><a  href="https://vk.ru/pivasik_one_love">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Dota 2): Денис</td>
+                                <td><a  href="https://vk.ru/requieminadream">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Roblox): Рилл</td>
+                                <td><a  href="https://vk.ru/rillchil">ВКонтакте</a></td>
+							</tr>
+                            <tr>
+                                <td>Менеджер по аккаунтам (Сталкрафт): Ярослав</td>
+                                <td><a  href="https://vk.ru/id369429358">ВКонтакте</a></td>
+							</tr>
+                      
                         </table>
                     </div>
                     <div class="col-lg-6 col-xl-6 ml-5">
@@ -117,11 +171,13 @@
 							с дорогими и дешевыми скинами, игровой валютой и т.д. Мы займемся Вашим аккаунтом и поможем заработать на каждой игре.<br><br>
 							На текущий момент мы обладаем сильными ресурсами:<br>
 							•	Официальное сообщество ВКонтакте на 10 000+ подписчиков, чье доверие мы заслужили многолетним трудом.<br>
-							•	Профиль FunPay на 2500+ положительных отзывов.<br>
-							•	Профиль G2G с оборотом в 15000+ ордеров.<br>
+							•	Профиль FunPay на 9000+ положительных отзывов.<br>
+							•	Профиль G2G с оборотом в 200000+ ордеров.<br>
 							•	Профиль PlayerActions с оборотом в 3000+ ордеров.<br>
-							•	Два профиля Eldorado  с оборотом в 1000-2000+ ордеров.<br>
-							•	Три профиля IGV  с оборотом в 1000-3000+ ордеров.<br><br>
+							•	Два профиля Eldorado с оборотом в 50000+ ордеров.<br>
+                            •	Профиль SkyCoach с оборотом в 10000+ ордеров.<br>
+                            •	Профиль Gameboost с оборотом в 10000+ ордеров.<br><br>
+					
 							Мы сотрудничаем не только с российскими, но и с зарубежными сайтами по продаже аккаунтов, а также с самыми крупными продавцами на биржах игровых ценностей.
 							С каждым годом мы только сильнее подтверждаем надежность нашего сотрудничества, трудолюбие и поддержку в сложных ситуациях. Cdmgames – надежный партнер Ваших продаж!<br><br>
 							Если Вы, наоборот, ищете, где приобрести аккаунт, то можете ознакомиться с ассортиментом на наших торговых площадках.
