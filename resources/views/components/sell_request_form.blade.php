@@ -99,7 +99,7 @@
             // Подсказка для выбранной игры
             var hint = $(this).find('option:selected').data('hint');
             if (hint) {
-                $('#gameHint').text(hint).show();
+                $('#gameHint').html(hint).show();
             } else {
                 $('#gameHint').hide();
             }
