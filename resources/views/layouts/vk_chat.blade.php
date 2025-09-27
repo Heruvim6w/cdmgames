@@ -6,7 +6,7 @@
         </p>
         <p class="mx-2">
             <span class="look_div">
-                <a href="https://t.me/cdmgames_bot" target="_blank">
+                <a href="{{ config('services.telegram_bot_link') }}" target="_blank">
                     <button class="look vs-btn">перейти</button>
                 </a>
             </span>

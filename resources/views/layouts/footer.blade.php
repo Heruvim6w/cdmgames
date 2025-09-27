@@ -92,7 +92,7 @@
                                     <a class="text-white" href="https://cdmgames.com/about">Менеджеры Cdmgames</a>
                                 </li>
                                 <li>
-                                    <a class="text-white" href="https://t.me/cdmgames_bot">Телеграм-бот</a>
+                                    <a class="text-white" href="{{ config('services.telegram_bot_link') }}">Телеграм-бот</a>
                                 </li>
                                 <li>
                                     <a class="text-white" href="https://t.me/cdmgames_verification_bot">Бот верификации</a>

@@ -72,15 +72,13 @@
                                         @if($review->comment_id)
                                             <a href="{{ $review->vk_user_id ?? '' }}"><i class="fab fa-vk"></i></a>
                                         @else
-                                            <a href="{{ $review->tg_comment_link ?? '' }}"><i class="fab fa-telegram"></i></a>
+                                            <a href="{{ config('services.telegram_bot_link') }}"><i class="fab fa-telegram"></i></a>
                                         @endif
                                     </div>
                                     <div class="team-card_time">{{ $review->comment }}</div>
                                     <div class="team-card_date">{{ $review->comment_date }}</div>
                                     @if($review->comment_id)
                                         <a href="https://vk.ru/topic-176494199_40223406?post={{ $review->comment_id }}" class="vs-btn">Читать в ВК</a>
-                                    @elseif($review->tg_comment_link)
-                                        <a href="{{ $review->tg_comment_link }}" class="vs-btn">Читать в TG</a>
                                     @endif
                                 </div>
                             </div>
