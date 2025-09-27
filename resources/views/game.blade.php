@@ -5,6 +5,7 @@
     }
     th {
         color: #fff;
+        text-align: center;
     }
 </style>
 <!--==============================
