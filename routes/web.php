@@ -14,11 +14,13 @@ use App\Http\Controllers\SellApplicationController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VkBotController;
+use App\Models\AgreementDocument;
 use App\Models\ConsentDocument;
 use App\Models\Dialog;
 use App\Models\LinkLayout;
 use App\Models\OfferDocument;
 use App\Models\PrivacyPolicyDocument;
+use App\Models\RefundPoliticsDocument;
 use App\Models\TermsOfServiceDocument;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -207,41 +209,49 @@ Route::get('orders/{order}/pay/{user}', [OrderController::class, 'pay'])
     ->middleware('auth')
     ->middleware('verified');
 
-Route::get('agreement', function () {
-    return view('agreement');
-})->name('agreement');
-
-Route::get('refund_politics', function () {
-    return view('refund_politics');
-})->name('refund_politics');
-
 Route::get('price_list', function () {
     return view('price_list');
 })->name('price_list');
 
+Route::get('agreement', function () {
+    return view('document', [
+        'modelClass' => AgreementDocument::class,
+        'pageTitle' => 'Пользовательское соглашение',
+        'emptyText' => 'PDF файл пользовательского соглашения не загружен.'
+    ]);
+})->name('agreement');
+
+Route::get('refund_politics', function () {
+    return view('document', [
+        'modelClass' => RefundPoliticsDocument::class,
+        'pageTitle' => 'Политика возвратов',
+        'emptyText' => 'PDF файл политики возвратов не загружен.'
+    ]);
+})->name('refund_politics');
+
 Route::get('offer', function () {
     return view('document', [
-    'modelClass' => OfferDocument::class,
-    'pageTitle' => 'Оферта',
-    'emptyText' => 'PDF файл согласия не загружен.'
-]);
+        'modelClass' => OfferDocument::class,
+        'pageTitle' => 'Оферта',
+        'emptyText' => 'PDF файл оферты не загружен.'
+    ]);
 })->name('offer');
 
 Route::get('consent', function () {
     return view('document', [
-    'modelClass' => ConsentDocument::class,
-    'pageTitle' => 'Согласие',
-    'emptyText' => 'PDF файл согласия не загружен.'
-]);
-})->name('consent');
-
-Route::get('privacy_policy', function () {
-    return view('document', [
-        'modelClass' => PrivacyPolicyDocument::class,
-        'pageTitle' => 'Политика конфиденциальности',
+        'modelClass' => ConsentDocument::class,
+        'pageTitle' => 'Согласие',
         'emptyText' => 'PDF файл согласия не загружен.'
     ]);
-})->name('privacy_policy');
+})->name('consent');
+
+Route::get('personal_data_processing_policy', function () {
+    return view('document', [
+        'modelClass' => PrivacyPolicyDocument::class,
+        'pageTitle' => 'Политика обработки персональных данных',
+        'emptyText' => 'PDF файл политики обработки персональных данных не загружен.'
+    ]);
+})->name('personal_data_processing_policy');
 
 Route::get('terms_of_service', function () {
     return view('document', [

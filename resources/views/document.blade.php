@@ -4,7 +4,7 @@
         background-color: var(--title-color) !important;
     }
     .offer-pdf-viewer {
-        margin: 30px 0;
+        margin: 2rem auto 7rem;
         text-align: center;
     }
     .offer-pdf-viewer iframe {
@@ -12,6 +12,12 @@
         min-height: 800px;
         border: 1px solid #ccc;
         border-radius: 8px;
+    }
+    .alert.alert-warning {
+        margin: 2rem auto 7rem;
+        max-width: 600px;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 </style>
 <section>
