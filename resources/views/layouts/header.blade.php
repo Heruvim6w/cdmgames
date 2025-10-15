@@ -115,9 +115,6 @@
         case('offer'):
             $subTitle = 'Пользовательское соглашение (Оферта)';
             break;
-        case('refund_politics'):
-            $subTitle = 'Политика возвратов';
-            break;
         case('consent'):
             $subTitle = 'Согласие на обработку персональных данных';
             break;
@@ -126,9 +123,6 @@
             break;
         case('terms_of_service'):
             $subTitle = 'Правила сервиса';
-            break;
-        case('agreement'):
-            $subTitle = 'Пользовательское соглашение';
             break;
         case('sell.application.show'):
             $sellApplication = true;
