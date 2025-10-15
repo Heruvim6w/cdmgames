@@ -112,6 +112,24 @@
         case('games.show'):
             $subTitle = 'Игры';
             break;
+        case('offer'):
+            $subTitle = 'Пользовательское соглашение (Оферта)';
+            break;
+        case('refund_politics'):
+            $subTitle = 'Политика возвратов';
+            break;
+        case('consent'):
+            $subTitle = 'Согласие на обработку персональных данных';
+            break;
+        case('personal_data_processing_policy'):
+            $subTitle = 'Политика обработки персональных данных';
+            break;
+        case('terms_of_service'):
+            $subTitle = 'Правила сервиса';
+            break;
+        case('agreement'):
+            $subTitle = 'Пользовательское соглашение';
+            break;
         case('sell.application.show'):
             $sellApplication = true;
             $subTitle = 'Ваша заявка';

@@ -232,7 +232,7 @@ Route::get('refund_politics', function () {
 Route::get('offer', function () {
     return view('document', [
         'modelClass' => OfferDocument::class,
-        'pageTitle' => 'Оферта',
+        'pageTitle' => 'Пользовательское соглашение (Оферта)',
         'emptyText' => 'PDF файл оферты не загружен.'
     ]);
 })->name('offer');

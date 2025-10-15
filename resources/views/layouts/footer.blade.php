@@ -46,7 +46,7 @@
                             </p>
                             <p><a href="{{ route('agreement') }}">Пользовательское соглашение</a></p>
                             <p><a href="{{ route('refund_politics') }}">Политика возвратов</a></p>
-                            <p><a href="{{ route('offer') }}">Оферта</a></p>
+                            <p><a href="{{ route('offer') }}">Пользовательское соглашение (Оферта)</a></p>
                             <p><a href="{{ route('consent') }}">Согласие на обработку персональных данных</a></p>
                             <p><a href="{{ route('personal_data_processing_policy') }}">Политика обработки персональных данных</a></p>
                             <p><a href="{{ route('terms_of_service') }}">Правила сервиса</a></p>
