@@ -213,22 +213,6 @@ Route::get('price_list', function () {
     return view('price_list');
 })->name('price_list');
 
-Route::get('agreement', function () {
-    return view('document', [
-        'modelClass' => AgreementDocument::class,
-        'pageTitle' => 'Пользовательское соглашение',
-        'emptyText' => 'PDF файл пользовательского соглашения не загружен.'
-    ]);
-})->name('agreement');
-
-Route::get('refund_politics', function () {
-    return view('document', [
-        'modelClass' => RefundPoliticsDocument::class,
-        'pageTitle' => 'Политика возвратов',
-        'emptyText' => 'PDF файл политики возвратов не загружен.'
-    ]);
-})->name('refund_politics');
-
 Route::get('offer', function () {
     return view('document', [
         'modelClass' => OfferDocument::class,
