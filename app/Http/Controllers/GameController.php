@@ -23,12 +23,14 @@ class GameController extends Controller
      */
     public function index(): View|Factory|Application
     {
-        Cache::remember('index_blade', 240, static function () {
-            $reviews = Review::query()->count() + 1898;
+        Cache::remember('index_blade', 2, static function () {
+            $reviewsCount = Review::query()->count() + 1898;
+            $reviews = Review::query()->limit(10)->get();
             $allBalance = User::query()->sum('balance');
             $accounts = Account::query()->count();
             $buyInfo = PageStaticContent::query()->where('title', 'home_buy_info')->first();
             return [
+                'reviewsCount' => $reviewsCount,
                 'reviews' => $reviews,
                 'allBalance' => $allBalance,
                 'accounts' => $accounts,
@@ -42,6 +44,7 @@ class GameController extends Controller
         return view('index', [
             'games'      => $games,
             'buyInfo'    => $indexBladeData['buyInfo'],
+            'reviewsCount'    => $indexBladeData['reviewsCount'],
             'reviews'    => $indexBladeData['reviews'],
             'allBalance' => $indexBladeData['allBalance'],
             'accounts'   => $indexBladeData['accounts'],

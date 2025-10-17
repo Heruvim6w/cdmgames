@@ -2,6 +2,12 @@
 <!--==============================
 Palyer Area
 ============================== -->
+
+{{-- Подключение Vue и компонента отзывов --}}
+<div id="reviews-carousel-app">
+    <reviews-carousel :reviews='@json($reviews)'></reviews-carousel>
+</div>
+
 <section class="vs-palyers-wrapper bg-dark position-relative space-top space-extra-bottom">
 {{--    <div class="text-shape-2">CDMgames</div>--}}
     @if(isset($gameForItems))
@@ -89,7 +95,7 @@ Palyer Area
             <div class="number_count"
                  style="color:#333333; font-size: 34px;"
                  id="num3"
-                 data-num="{{ $reviews }}"
+                 data-num="{{ $reviewsCount }}"
                  data-suffix="+"
                  data-duration="6">0</div>
             <span class="text-muted">Положительных отзывов</span>
@@ -97,6 +103,14 @@ Palyer Area
     </div>
 </section>
 
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script type="module">
+import ReviewsCarousel from '/assets/js/components/ReviewsCarousel.js';
+const { createApp } = Vue;
+createApp({
+    components: { ReviewsCarousel }
+}).mount('#reviews-carousel-app');
+</script>
 <script src="{{ asset('assets/js/countUp.min.js') }}" defer></script>
 <script src="{{ asset('assets/js/main_for_increment.js') }}" defer></script>
 <script>
