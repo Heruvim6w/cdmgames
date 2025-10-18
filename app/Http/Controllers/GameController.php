@@ -25,7 +25,7 @@ class GameController extends Controller
     {
         Cache::remember('index_blade', 2, static function () {
             $reviewsCount = Review::query()->count() + 1898;
-            $reviews = Review::query()->orderByDesc('comment_date')->limit(10)->get();
+            $reviews = Review::query()->orderByDesc('id')->limit(10)->get();
             $allBalance = User::query()->sum('balance');
             $accounts = Account::query()->count();
             $buyInfo = PageStaticContent::query()->where('title', 'home_buy_info')->first();
