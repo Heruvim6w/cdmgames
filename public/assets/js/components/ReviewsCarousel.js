@@ -33,7 +33,7 @@ export default {
                         {{ review.vk_user_name ?? review.tg_user_name ?? 'Аноним' }}
                     </div>
                     <div class="review-text">
-                        {{ review.comment }}
+                        {{ truncateComment(review.comment) }}
                     </div>
                     <div class="review-date">
                         {{ formatDate(review.created_at) }}
@@ -45,6 +45,12 @@ export default {
     methods: {
         formatDate(dateString) {
             return dateString ? dateString.slice(0, 10) : '';
+        },
+
+        truncateComment(comment) {
+            if (!comment) return '';
+            if (comment.length <= 100) return comment;
+            return comment.slice(0, 100) + '...';
         },
 
         initCarousel() {
@@ -212,6 +218,8 @@ if (!window.__reviews_carousel_styles__) {
 
     .review-text {
         flex: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .review-date {
