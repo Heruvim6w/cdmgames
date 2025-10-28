@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use GeneaLabs\NovaFileUploadField\FileUpload;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
@@ -40,12 +41,42 @@ class Game extends Resource
     ];
 
     /**
+     * @param NovaRequest $request
+     * @param $query
+     * @return Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query): Builder
+    {
+        return $query->withoutGlobalScope('active');
+    }
+
+    /**
+     * @param NovaRequest $request
+     * @param $query
+     * @return Builder
+     */
+    public static function detailQuery(NovaRequest $request, $query): Builder
+    {
+        return $query->withoutGlobalScope('active');
+    }
+
+    /**
+     * @param NovaRequest $request
+     * @param $query
+     * @return Builder
+     */
+    public static function relatableQuery(NovaRequest $request, $query): Builder
+    {
+        return $query->withoutGlobalScope('active');
+    }
+
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function fields(Request $request)
+    public function fields(Request $request): array
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
