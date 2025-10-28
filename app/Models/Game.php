@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Couchbase\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +22,13 @@ class Game extends Model
         'is_active',
         'sell_hint',
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('is_active', true);
+        });
+    }
 
     public function getRouteKeyName()
     {

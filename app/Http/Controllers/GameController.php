@@ -38,8 +38,7 @@ class GameController extends Controller
             ];
         });
         $indexBladeData = Cache::get('index_blade');
-        $games = Game::active()->get();
-        $gameForItems = GameForItem::active()->get();
+        $games = Game::all();
 
         return view('index', [
             'games'      => $games,
@@ -48,7 +47,6 @@ class GameController extends Controller
             'reviews'    => $indexBladeData['reviews'],
             'allBalance' => $indexBladeData['allBalance'],
             'accounts'   => $indexBladeData['accounts'],
-            'gameForItems' => $gameForItems
         ]);
     }
 
