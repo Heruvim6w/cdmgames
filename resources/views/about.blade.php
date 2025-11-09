@@ -65,10 +65,6 @@
                                 <td>Менеджер по продажам: Олег</td>
                                 <td><a  href="https://vk.ru/baychurin_tm">ВКонтакте</a></td>
 						    </tr>
-                              <tr>
-                                <td>Менеджер по продажам: Андрей</td>
-                                <td><a  href="https://vk.ru/storonar">ВКонтакте</a></td>
-						    </tr>
                              <tr>
                                 <td>Менеджер по продажам: Дмитрий</td>
                                 <td><a  href="https://vk.ru/sid_official1">ВКонтакте</a></td>
@@ -90,17 +86,9 @@
                                 <td><a  href="https://vk.ru/skezer999914">ВКонтакте</a></td>
                             </tr>
                             <tr>
-                                <td>Менеджер по аккаунтам (Fortnite): Максим</td>
-                                <td><a  href="https://vk.ru/landsberg_66">ВКонтакте</a></td>
-						    </tr>
-                            <tr>
                                 <td>Менеджер по аккаунтам (Valorant) Арслан</td>
                                 <td><a  href="https://vk.ru/id146377604">ВКонтакте</a></td>
 						    </tr>
-                            <tr>
-                                <td>Менеджер по аккаунтам (Valorant) Евгений</td>
-                                <td><a  href="https://vk.ru/selfishgange">ВКонтакте</a></td>
-							</tr>
                             <tr>
                                 <td>Менеджер по аккаунтам (Honkai:Star Rail и Steam) Никита </td>
                                 <td><a  href="https://vk.ru/angelfearlesss">ВКонтакте</a></td>
@@ -110,16 +98,8 @@
                                 <td><a  href="https://vk.ru/h20hka">ВКонтакте</a></td>
 							</tr>
                             <tr>
-                                <td>Менеджер по аккаунтам (Genshin Impact) Алексей</td>
-                                <td><a  href="https://vk.ru/pivo_baltika999">ВКонтакте</a></td>
-							</tr>
-                            <tr>
                                 <td>Менеджер по аккаунтам (Genshin Impact) Денис</td>
                                 <td><a  href="https://vk.ru/blask_jesk">ВКонтакте</a></td>
-							</tr>
-                            <tr>
-                                <td>Менеджер по аккаунтам (CS2): Фёдор</td>
-                                <td><a  href="https://vk.ru/bot9ra_c0der">ВКонтакте</a></td>
 							</tr>
                             <tr>
                                 <td>Менеджер по аккаунтам (CS2): Евгений</td>
@@ -140,10 +120,6 @@
                             <tr>
                                 <td>Менеджер по аккаунтам (Mobile Legends BB): Никита</td>
                                 <td><a  href="https://vk.ru/id239678392">ВКонтакте</a></td>
-							</tr>
-                            <tr>
-                                <td>Менеджер по аккаунтам (Legaue Of Legends): Жих</td>
-                                <td><a  href="https://vk.ru/pivasik_one_love">ВКонтакте</a></td>
 							</tr>
                             <tr>
                                 <td>Менеджер по аккаунтам (Dota 2): Денис</td>
