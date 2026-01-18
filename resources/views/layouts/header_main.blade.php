@@ -160,11 +160,9 @@
                                 @endif
                                 <a href="{{ route('about') }}" class="vs-btn mt-1 mt-lg-0">О нас<i
                                         class="fal fa-long-arrow-right"></i></a>
-                                <button class="vs-btn mt-1 mt-lg-0" id="openSellModalMain">Оставить заявку на продажу
+                                <button class="vs-btn mt-1 mt-lg-0" id="openSellModalMain">
+                                    Оставить заявку на продажу
                                 </button>
-                                <a href="{{ route('profile.chat', 1) }}" target="_blank">
-                                    <button class="vs-btn mt-1 mt-lg-0">Написать сообщение</button>
-                                </a>
                             </div>
                         </div>
                     </div>

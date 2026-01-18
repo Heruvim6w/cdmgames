@@ -232,10 +232,9 @@ Breadcumb
 
                     <div class="col-md-3 col-xl-12 mt-3">
                         <span class="look_div">
-                            <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3" id="openSellModal">Оставить заявку на продажу</button>
-                            <a href="{{ route('profile.chat', 1) }}" target="_blank">
-                                <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3">Написать сообщение</button>
-                            </a>
+                            <button class="look vs-btn top-btn sell_btn fs-3 md-fs-1 me-md-3" id="openSellModal">
+                                Оставить заявку на продажу
+                            </button>
                         </span>
                     </div>
                 </div>
