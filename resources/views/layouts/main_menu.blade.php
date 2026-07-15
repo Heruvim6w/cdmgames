@@ -65,10 +65,6 @@
                 <li>
                     <a href="{{ route('dialogs.index') }}">Чаты</a>
                 </li>
-            @else
-                <li>
-                    <a href="{{ route('profile.chat', 1) }}">Чат</a>
-                </li>
             @endif
             @if(Auth::user()->role === 2 || Auth::user()->role === 3)
                 <li>

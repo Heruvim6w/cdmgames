@@ -3,25 +3,22 @@
 ==============================-->
 <footer class="footer-wrapper footer-layout1 bg-dark" style="margin-top: -6em;">
     <!-- Newsletter Area -->
+
+    @if((Auth::user()) && (Auth::user()->role === 2))
     <div class="container z-index-step1">
         <div class="footer-newsletter text-center">
             <div class="row align-items-center d-flex justify-content-center">
                 <div class="col-md-3 col-xl-12">
                     <span class="look_div">
-                        @if((Auth::user()) && (Auth::user()->role === 2))
-                            <a href="{{ route('dialogs.index') }}" target="blank">
-                                <button class="look vs-btn">Чаты</button>
-                            </a>
-                        @else
-                            <a href="{{ route('profile.chat', 1) }}" target="blank">
-                                <button class="look vs-btn sell_btn">Написать в чат</button>
-                            </a>
-                        @endif
+                        <a href="{{ route('dialogs.index') }}" target="blank">
+                            <button class="look vs-btn">Чаты</button>
+                        </a>
                     </span>
                 </div>
             </div>
         </div>
     </div>
+    @endif
     <div class="widget-area z-index-common"
          style="background-image: url('{{ asset('assets/img/bg/footer-1.webp') }}');
         background-repeat: no-repeat;
